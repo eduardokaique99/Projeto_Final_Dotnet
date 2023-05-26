@@ -1,0 +1,15 @@
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Estacionamento.exe
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Estacionamento.deps.json
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Estacionamento.runtimeconfig.json
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Estacionamento.dll
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Estacionamento.pdb
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.csproj.AssemblyReference.cache
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.AssemblyInfoInputs.cache
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.AssemblyInfo.cs
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.csproj.CoreCompileInputs.cache
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.dll
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\refint\Estacionamento.dll
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.pdb
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.genruntimeconfig.cache
+C:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\ref\Estacionamento.dll

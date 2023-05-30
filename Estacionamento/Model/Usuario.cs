@@ -2,39 +2,99 @@
   {
   public class Usuario
     {
-        public int id;  // o id tem como colocar automático, vamos pesquisar sobre
-        public string nome;
-        private int cpf;
-        public int pis;
+        public int Id {get ; set;}
+        public string Nome {get; set;}
+        private int CPF {get; set;}
+        public int PIS {get; set;}
 
-        public Usuario(int id, string nome, int cpf, int pis)
+        public Usuario(string Nome, int CPF, int PIS)
         {
-            this.id = id;
-            this.nome = nome;
-            this.cpf = cpf;
-            this.pis = pis;
+            Nome = nome;
+            CPF = cpf;
+            PIS = pis;
         }
 
-        public static void cadastrarUsuario(Usuario usuario)
+        public Usuario()
         {
-            usuarios.Add(usuario);
         }
 
-        public static void listarUsuario()
+        public override string ToString()
         {
-            foreach(Usuario usuario in usuarios)
-            {
-                Console.WriteLine("Id: " + id.usuario + "Nome: " + nome.usuario);
-            }
+            return $"Id: {Id}, Nome: {Nome}, Pis: {PIS}";
         }
 
-        public static void alterarUsuario(Usuario usuario)
+        public override bool Equals (object obj)
         {
-            int index = usuarios.FindIndex(p => p.id == usuario.id);
-            if (index != -1)
-            {
-                usuarios[index] = usuario;
-            }
+            Usuario usuario = (Usuario)obj;
+            return Id == usuario.Id;
         }
+
+        public static Model.Usuario CriarUsuario(
+            string nome,
+            int CPF,
+            int PIS
+        ){
+            return new Model.Usuario(
+                nome,
+                CPF,
+                PIS
+            );
+        }
+
+        public static Model.Usuario AlterarUsuario(
+            int id,
+            string nome,
+            int CPF,
+            int PIS
+        )
+        {
+            Usuario usuario = BuscarUsuario(
+                id
+            );
+
+            usuario.Nome = nome;
+
+            Repository.Context context = new Repository.Context();
+            context.Usuarios.Update(usuario);
+            contexto.SaveChanges();
+
+            return usuario;
+        }
+
+        public static Usuario ExcluirUsuario(
+            int id
+        )
+        {
+            Usuario usuario = BuscarUsuario(
+                id
+            );
+
+            Repository.Context context = new Repository.Context();
+            context.Usuarios.Remove(usuario);
+            context.SaveChanges();
+
+            return usuario;
+        }
+
+        public static Usuario BuscarUsuario(
+            int id
+        )
+        {
+            Repository.Context context = new Repository.Context();
+            return (
+                from a in context.Usuarios
+                where a.Id == id
+                select a
+            ).First();
+        }
+
+        public static IEnumerable<Usuario> BuscarTodos()
+        {
+            Repository.Context context = new Repository.Context();
+            return (
+                from a in context.Usuarios
+                select a
+            );
+        } 
     }
 }

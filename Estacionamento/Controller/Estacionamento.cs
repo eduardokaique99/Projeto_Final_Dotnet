@@ -2,22 +2,22 @@ namespace Controller
 {
     public class Estacionamento {
         public static Model.Estacionamento CriarEstacionamento(
-            string nome
+            string qtdVagas
         )
         {
             return Model.Estacionamento.CriarEstacionamento(
-                nome
+                int.Parse(qtdVagas)
             );
         }
 
         public static Model.Estacionamento AlterarEstacionamento(
             string id,
-            string nome
+            string qtdVagas
         )
         {
             return Model.Estacionamento.AlterarEstacionamento(
                 int.Parse(id),
-                nome
+                int.Parse(qtdVagas)
             );
         }
 

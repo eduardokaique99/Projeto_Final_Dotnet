@@ -2,22 +2,22 @@ namespace Controller
 {
     public class Cartao {
         public static Model.Cartao CriarCartao(
-            string nome
+            string Codigo
         )
         {
             return Model.Cartao.CriarCartao(
-                nome
+                Codigo
             );
         }
 
         public static Model.Cartao AlterarCartao(
             string id,
-            string nome
+            string Codigo
         )
         {
             return Model.Cartao.AlterarCartao(
                 int.Parse(id),
-                nome
+                Codigo
             );
         }
 

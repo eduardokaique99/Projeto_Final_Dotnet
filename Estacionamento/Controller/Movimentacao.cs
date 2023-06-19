@@ -2,22 +2,30 @@ namespace Controller
 {
     public class Movimentacao {
         public static Model.Movimentacao CriarMovimentacao(
-            string nome
+            string estacionamentoId,
+            string dataEntrada,
+            string dataSaida
         )
         {
             return Model.Movimentacao.CriarMovimentacao(
-                nome
+                int.Parse(estacionamentoId),
+                DateTime.Parse(dataEntrada),
+                DateTime.Parse(dataSaida)
             );
         }
 
         public static Model.Movimentacao AlterarMovimentacao(
             string id,
-            string nome
+            string estacionamentoId,
+            string dataEntrada,
+            string dataSaida
         )
         {
             return Model.Movimentacao.AlterarMovimentacao(
                 int.Parse(id),
-                nome
+                int.Parse(estacionamentoId),
+                DateTime.Parse(dataEntrada),
+                DateTime.Parse(dataSaida)
             );
         }
 

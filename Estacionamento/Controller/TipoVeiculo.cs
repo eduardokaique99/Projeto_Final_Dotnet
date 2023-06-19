@@ -2,22 +2,22 @@ namespace Controller
 {
     public class TipoVeiculo {
         public static Model.TipoVeiculo CriarTipoVeiculo(
-            string nome
+            string descricao
         )
         {
             return Model.TipoVeiculo.CriarTipoVeiculo(
-                nome
+                descricao
             );
         }
 
         public static Model.TipoVeiculo AlterarTipoVeiculo(
             string id,
-            string nome
+            string descricao
         )
         {
             return Model.TipoVeiculo.AlterarTipoVeiculo(
                 int.Parse(id),
-                nome
+                descricao
             );
         }
 

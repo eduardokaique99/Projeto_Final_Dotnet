@@ -22,7 +22,7 @@ namespace Model
 
         public override string ToString()
         {
-            return $"Id: {Id}, Placa: {placa}, Id da Movimentação: {IdMovimentacao}, Id do Tipo: {IdTipo}, Id do Cartão: {IdCartao}";
+            return $"Id: {Id}, Placa: {Placa}, Id da Movimentação: {IdMovimentacao}, Id do Tipo: {IdTipo}, Id do Cartão: {IdCartao}";
         }
 
         public override bool Equals (object obj)

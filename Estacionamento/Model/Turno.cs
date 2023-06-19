@@ -3,15 +3,15 @@ namespace Model
   public class Turno
     {
         public int Id {get ; set;}
-        public string Nome {get; set;}
-        private int CPF {get; set;}
-        public int PIS {get; set;}
+        public string Periodo {get; set;}
+        private int Escala {get; set;}
+        public int IdEstacionamento {get; set;}
 
         public Turno(string Nome, int CPF, int PIS)
         {
-            Nome = nome;
-            CPF = cpf;
-            PIS = pis;
+            Periodo = periodo;
+            Escala = escala;
+            IdEstacionamento = idEstacionamento;
         }
 
         public Turno()
@@ -20,7 +20,7 @@ namespace Model
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, Pis: {PIS}";
+            return $"Id: {Id}, Período: {Periodo}, Escala: {Escala}, IdEstacionamento: {IdEstacionamento}";
         }
 
         public override bool Equals (object obj)
@@ -30,29 +30,30 @@ namespace Model
         }
 
         public static Model.Turno CriarTurno(
-            string nome,
-            int CPF,
-            int PIS
+            string Periodo,
+            int Escala,
+            int IdEstacionamento
         ){
             return new Model.Turno(
-                nome,
-                CPF,
-                PIS
+                periodo,
+                escala,
+                idEstacionamento
             );
         }
 
         public static Model.Turno AlterarTurno(
             int id,
-            string nome,
-            int CPF,
-            int PIS
+            string periodo,
+            int escala,
+            int idEstacionamento
         )
         {
             Turno turno = BuscarTurno(
                 id
             );
 
-            turno.Nome = nome;
+            turno.Periodo = periodo;
+            turno.Escala = escala;
 
             Repository.Context context = new Repository.Context();
             context.Turnos.Update(turno);

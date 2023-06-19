@@ -2,22 +2,29 @@ namespace Controller
 {
     public class Turno {
         public static Model.Turno CriarTurno(
-            string nome
+            string periodo,
+            string escala,
+            string idEstacionamento
         )
         {
             return Model.Turno.CriarTurno(
-                nome
+                periodo,
+                int.Parse(escala),
+                int.Parse(idEstacionamento)
             );
         }
 
         public static Model.Turno AlterarTurno(
-            string id,
-            string nome
+            string periodo,
+            string escala,
+            string idEstacionamento
         )
         {
             return Model.Turno.AlterarTurno(
                 int.Parse(id),
-                nome
+                periodo,
+                int.Parse(escala),
+                int.Parse(idEstacionamento)
             );
         }
 

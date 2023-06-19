@@ -6,6 +6,7 @@
         public string Nome {get; set;}
         private int CPF {get; set;}
         public int PIS {get; set;}
+        public string Permissao {get; set;}
 
 
         public Usuario(string Nome, int CPF, int PIS)
@@ -13,6 +14,7 @@
             Nome = nome;
             CPF = cpf;
             PIS = pis;
+            Permissao = permissao;
         }
 
         public Usuario()
@@ -22,7 +24,7 @@
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, Pis: {PIS}";
+            return $"Id: {Id}, Nome: {Nome}, Pis: {PIS}, Permissão: {Permissao}";
         }
 
         public override bool Equals (object obj)
@@ -34,12 +36,14 @@
         public static Model.Usuario CriarUsuario(
             string nome,
             int CPF,
-            int PIS
+            int PIS,
+            string permissao
         ){
             return new Model.Usuario(
                 nome,
                 CPF,
-                PIS
+                PIS,
+                permissao
             );
         }
 
@@ -47,7 +51,8 @@
             int id,
             string nome,
             int CPF,
-            int PIS
+            int PIS,
+            string permissao
         )
         {
             Usuario usuario = BuscarUsuario(

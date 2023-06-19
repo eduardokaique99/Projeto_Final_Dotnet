@@ -2,22 +2,33 @@ namespace Controller
 {
     public class Usuario {
         public static Model.Usuario CriarUsuario(
-            string nome
+            string nome,
+            string cpf,
+            string pis,
+            string permissao
         )
         {
             return Model.Usuario.CriarUsuario(
-                nome
+                nome,
+                int.Parse(cpf),
+                int.Parse(pis),
+                permissao
             );
         }
 
         public static Model.Usuario AlterarUsuario(
-            string id,
-            string nome
+            string nome,
+            string cpf,
+            string pis,
+            string permissao
         )
         {
             return Model.Usuario.AlterarUsuario(
                 int.Parse(id),
-                nome
+                nome,
+                int.Parse(cpf),
+                int.Parse(pis),
+                permissao
             );
         }
 

@@ -2,7 +2,7 @@ using Controller;
 
 namespace View
 {
-    public class Turno
+    /*public class Turno
     {
         public static void listarTurno()
         {
@@ -305,5 +305,5 @@ namespace View
             form.Controller.Add(SairTurnoButton);
             form.ShowDialog();
         }
-    }
+    }*/
 }

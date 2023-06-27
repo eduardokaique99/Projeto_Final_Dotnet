@@ -2,6 +2,7 @@ namespace Controller
 {
     public class Veiculo {
         public static Model.Veiculo CriarVeiculo(
+            string id,
             string placa,
             string idmovimentacao,
             string idtipo,
@@ -9,6 +10,7 @@ namespace Controller
         )
         {
             return Model.Veiculo.CriarVeiculo(
+                int.Parse(id),
                 placa,
                 int.Parse(idmovimentacao),
                 int.Parse(idtipo),

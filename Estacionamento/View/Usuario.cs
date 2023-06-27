@@ -2,7 +2,7 @@ using Controller;
 
 namespace View
 {
-    public class Usuario
+   /* public class Usuario
     {
         public static void listarUsuario()
         {
@@ -332,5 +332,5 @@ namespace View
             form.Controller.Add(SairUsuarioButton);
             form.ShowDialog();
         }
-    }
+    }*/
 }

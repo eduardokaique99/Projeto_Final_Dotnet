@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lara.viana\\Documents\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj": {}
+    "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lara.viana\\Documents\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj": {
+    "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lara.viana\\Documents\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
+        "projectUniqueName": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
         "projectName": "Estacionamento",
-        "projectPath": "C:\\Users\\lara.viana\\Documents\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
-        "packagesPath": "C:\\Users\\lara.viana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lara.viana\\Documents\\Projeto_Final_Jackson\\Estacionamento\\obj\\",
+        "projectPath": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
+        "packagesPath": "C:\\Users\\Mariane Camilo Costa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\lara.viana\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Mariane Camilo Costa\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,6 +37,20 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

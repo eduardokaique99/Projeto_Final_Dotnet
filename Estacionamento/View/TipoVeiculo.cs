@@ -2,7 +2,7 @@ using Controller;
 
 namespace View
 {
-    public class TipoVeiculo: Veiculo
+   /* public class TipoVeiculo: Veiculo
     {
         public static void listarTipoVeiculo()
         {
@@ -278,5 +278,5 @@ namespace View
             form.Controller.Add(SairTipoVeiculoButton);
             form.ShowDialog();
         }
-    }
+    }*/
 }

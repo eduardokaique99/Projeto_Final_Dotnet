@@ -15,6 +15,7 @@ namespace Controller
         }
 
         public static Model.Turno AlterarTurno(
+            string id,
             string periodo,
             string escala,
             string idEstacionamento

@@ -7,11 +7,11 @@ namespace Model
         private int Escala {get; set;}
         public int IdEstacionamento {get; set;}
 
-        public Turno(string Nome, int CPF, int PIS)
+        public Turno(string periodo, int escala, int Idestacionamento)
         {
             Periodo = periodo;
             Escala = escala;
-            IdEstacionamento = idEstacionamento;
+            IdEstacionamento = Idestacionamento;
         }
 
         public Turno()
@@ -35,9 +35,9 @@ namespace Model
             int IdEstacionamento
         ){
             return new Model.Turno(
-                periodo,
-                escala,
-                idEstacionamento
+                Periodo,
+                Escala,
+                IdEstacionamento
             );
         }
 
@@ -57,7 +57,7 @@ namespace Model
 
             Repository.Context context = new Repository.Context();
             context.Turnos.Update(turno);
-            contexto.SaveChanges();
+            context.SaveChanges();
 
             return turno;
         }

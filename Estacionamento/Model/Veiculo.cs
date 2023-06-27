@@ -8,7 +8,7 @@ namespace Model
         public int IdTipo {get; set;}
         public int IdCartao {get; set;}
 
-        public Veiculo(string Placa, int IdMovimentacao, int IdTipo, int IdCartao)
+        public Veiculo(string placa, int idmovimentacao, int idtipo, int idcartao)
         {
             Placa = placa;
             IdMovimentacao = idmovimentacao;
@@ -39,11 +39,11 @@ namespace Model
             int IdCartao
         ){
             return new Model.Veiculo(
-                id,
-                placa,
-                idmovimentacao,
-                idtipo,
-                idcartao
+              
+                Placa,
+                IdMovimentacao,
+                IdTipo,
+                IdCartao
             );
         }
 
@@ -56,14 +56,14 @@ namespace Model
         )
         {
             Veiculo veiculo = BuscarVeiculo(
-                id
+                Id
             );
 
-            veiculo.Placa = placa;
+            veiculo.Placa = Placa;
 
             Repository.Context context = new Repository.Context();
             context.Veiculos.Update(veiculo);
-            contexto.SaveChanges();
+            context.SaveChanges();
 
             return veiculo;
         }

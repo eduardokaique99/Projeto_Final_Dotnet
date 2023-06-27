@@ -2,7 +2,7 @@ using Controller;
 
 namespace View
 {
-    public class Movimentacao
+   /* public class Movimentacao
     {
         public static void listarMovimentacao()
         {
@@ -305,5 +305,6 @@ namespace View
             form.Controller.Add(SairMovimentacaoButton);
             form.ShowDialog();
         }
-    }
+    }*/
 }
+

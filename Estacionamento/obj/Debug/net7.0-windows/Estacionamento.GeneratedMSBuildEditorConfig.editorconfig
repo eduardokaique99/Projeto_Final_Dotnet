@@ -14,8 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Estacionamento
-<<<<<<< HEAD
-build_property.ProjectDir = c:\Users\lara.viana\Documents\Projeto_Final_Jackson\Estacionamento\
-=======
-build_property.ProjectDir = c:\Users\eduardo.furlaneto\Desktop\Estacionamento\Projeto_Final_Jackson\Estacionamento\
->>>>>>> 395ccae9b2f8fde0df1d425e707ec18012b42121
+build_property.ProjectDir = C:\Users\Mariane Camilo Costa\DevFaculdade\3° Semestre\Projeto_Final_Jackson\Estacionamento\

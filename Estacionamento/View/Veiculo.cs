@@ -2,7 +2,7 @@ using Controller;
 
 namespace View
 {
-    public class Veiculo
+  /*  public class Veiculo
     {
         public static void listarVeiculo()
         {
@@ -278,5 +278,5 @@ namespace View
             form.Controller.Add(SairVeiculoButton);
             form.ShowDialog();
         }
-    }
+    }*/
 }

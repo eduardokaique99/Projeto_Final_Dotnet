@@ -45,7 +45,7 @@
             estacionamento.QtdVagas = qtdVagas;
 
             Repository.Context context = new Repository.Context();
-            context.Estacionamentos.Update(estacionamento);
+           
             context.SaveChanges();
 
             return estacionamento;
@@ -60,7 +60,7 @@
             );
 
             Repository.Context context = new Repository.Context();
-            context.Estacionamentos.Remove(estacionamento);
+
             context.SaveChanges();
 
             return estacionamento;

@@ -17,6 +17,7 @@ namespace Controller
         }
 
         public static Model.Usuario AlterarUsuario(
+            string id,
             string nome,
             string cpf,
             string pis,

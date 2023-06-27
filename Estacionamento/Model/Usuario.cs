@@ -9,7 +9,7 @@
         public string Permissao {get; set;}
 
 
-        public Usuario(string Nome, int CPF, int PIS)
+        public Usuario(string nome, int cpf, int pis, string permissao)
         {
             Nome = nome;
             CPF = cpf;
@@ -63,7 +63,7 @@
 
             Repository.Context context = new Repository.Context();
             context.Usuarios.Update(usuario);
-            contexto.SaveChanges();
+            context.SaveChanges();
 
             return usuario;
         }

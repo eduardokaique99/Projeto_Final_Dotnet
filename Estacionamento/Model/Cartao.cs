@@ -45,7 +45,7 @@
             cartao.Codigo = codigo;
 
             Repository.Context context = new Repository.Context();
-            context.Cartaos.Update(cartao);
+            context.Cartoes.Update(cartao);
             context.SaveChanges();
 
             return cartao;
@@ -60,7 +60,7 @@
             );
 
             Repository.Context context = new Repository.Context();
-            context.Cartaos.Remove(cartao);
+            context.Cartoes.Remove(cartao);
             context.SaveChanges();
 
             return cartao;

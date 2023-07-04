@@ -1,310 +1,316 @@
-using Controller;
+using System;
+using System.Windows.Forms;
 
-namespace View
-{
-   /* public class Movimentacao
-    {
-        public static void listarMovimentacao()
-        {
-            Form form = new Form();
-            form.Text = "Lista de movimentações";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {listarForm.Dispose();};
+namespace Views {
+    
+    public class Movimentacao {
+        
+        public static void ListarMovimentacoes() {
+            Form movimentacoes = new Form();
+            movimentacoes.Text = "Movimentacoes de Veículos";
+            movimentacoes.Size = new System.Drawing.Size(700, 500);
+            movimentacoes.StartPosition = FormStartPosition.CenterScreen;
+            movimentacoes.FormBorderStyle = FormBorderStyle.FixedSingle;
+            movimentacoes.MaximizeBox = false;
+            movimentacoes.MinimizeBox = false;
+            movimentacoes.BackColor = Color.BlueViolet;
 
-            ListView lista = new ListView();
-            lista.Location = new System.Drawing.Point(10,10);
-            lista.Size = new System.Drawing.Size(480,350);
-            lista.View = System.Windows.Forms.View.Details;
+            ListView listaMovimentacao = new ListView();
+            listaMovimentacao.Size = new System.Drawing.Size(665, 400);
+            listaMovimentacao.Location = new System.Drawing.Point(10, 10);
+            listaMovimentacao.View = View.Details;
+            listaMovimentacao.Columns.Add("Id", 50);
+            listaMovimentacao.Columns.Add("Descrição", 611);
+            listaMovimentacao.FullRowSelect = true;
+            listaMovimentacao.GridLines = true;
 
-            lista.Columns.Add("Id");
-            lista.Columns.Add("Data de entrada");
-            lista.Columns.Add("Dara de saída");
-
-            foreach(Model.Movimentacao movimentacao in Model.Movimentacao.movimentacoes){
-                lista.Items.Add(new ListViewItem(new string[] {movimentacao.id.ToString(), movimentacao.nome.ToString()}));
+            List<Model.Movimentacao> movimentacoesList = Controller.Movimentacao.ListaMovimentacao();
+            foreach (Model.Movimentacao veiculo in movimentacoesList) {
+                ListViewItem item = new ListViewItem(veiculo.Id.ToString());
+                item.SubItems.Add(veiculo.Descricao);
+                listaMovimentacao.Items.Add(item);
             }
 
-            Button CadastrarMovimentacaoButton = new Button();
-            CadastrarMovimentacaoButton.Text = "Incluir";
-            CadastrarMovimentacaoButton.Top = 360;
-            CadastrarMovimentacaoButton.Left = 10;
-            CadastrarMovimentacaoButton.Width = 70;
-            CadastrarMovimentacaoButton.Click += (sender, e) => {View.Movimentacao.addMovimentacao();
+            Button btnAdicionar = new Button();
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.Top = 420;
+            btnAdicionar.Left = 10;
+            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 19);
+            btnAdicionar.BackColor = Color.White;
+            btnAdicionar.ForeColor = Color.BlueViolet;
+            btnAdicionar.Size = new System.Drawing.Size(150, 35);
+            btnAdicionar.Click += (sender, e) => {
+                movimentacoes.Close();
+                movimentacoes.Dispose();
+                CriarMovimentacao();
+            };
             
-                form.Close();
-                form.Dispose();            
+            
+            Button btnEdit = new Button();
+            btnEdit.Text = "Editar";
+            btnEdit.Top = 420;
+            btnEdit.Left = 181;
+            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 19);
+            btnEdit.BackColor = Color.White;
+            btnEdit.ForeColor = Color.BlueViolet;
+            btnEdit.Size = new System.Drawing.Size(150, 35);
+            btnEdit.Click += (sender, e) => {
+                string id = listaMovimentacao.SelectedItems[0].Text;
+                movimentacoes.Close();
+                movimentacoes.Dispose();
+                AlterarMovimentacao(Int32.Parse(id));
+                movimentacoes.Close();
             };
 
-            Button AlterarMovimentacaoButton = new Button();
-            AlterarMovimentacaoButton.Text = "Alterar";
-            AlterarMovimentacaoButton.Top = 360;
-            AlterarMovimentacaoButton.Left = 90;
-            AlterarMovimentacaoButton.Width = 60;
-            AlterarMovimentacaoButton.Click += (sender, e) => {View.Movimentacao.addMovimentacao();
-            
-                form.Close();
-                form.Dispose();
+
+            Button BtnRemove = new Button();
+            BtnRemove.Text = "Remove";
+            BtnRemove.Top = 420;
+            BtnRemove.Left = 352;
+            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 19);
+            BtnRemove.BackColor = Color.White;
+            BtnRemove.ForeColor = Color.BlueViolet;
+            BtnRemove.Size = new System.Drawing.Size(150, 35);
+            BtnRemove.Click += (sender, e) => {
+                string id = listaMovimentacao.SelectedItems[0].Text;
+                ExcluirMovimentacao(Int32.Parse(id));
+                movimentacoes.Dispose();
+                movimentacoes.Close();
             };
 
-            Button ExcluirMovimentacaoButton = new Button();
-            ExcluirMovimentacaoButton.Text = "Excluir";
-            ExcluirMovimentacaoButton.Top = 360;
-            ExcluirMovimentacaoButton.Left = 160;
-            ExcluirMovimentacaoButton.Width = 60;
-            ExcluirMovimentacaoButton.Click += (sender, e) => {View.Movimentacao.addMovimentacao();
-            
-                form.Close();
-                form.Dispose();
+            Button BtnVoltar = new Button();
+            BtnVoltar.Text = "Voltar";
+            BtnVoltar.Top = 420;
+            BtnVoltar.Left = 523;
+            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 19);
+            BtnVoltar.BackColor = Color.White;
+            BtnVoltar.ForeColor = Color.BlueViolet;
+            BtnVoltar.Size = new System.Drawing.Size(150, 35);
+            BtnVoltar.Click += (sender, e) => {
+                movimentacoes.Hide();
+                movimentacoes.Close();
+                movimentacoes.Dispose();
             };
 
-            Button SairMovimentacaoButton = new Button();
-            SairMovimentacaoButton.Text = "Voltar";
-            SairMovimentacaoButton.Top = 360;
-            SairMovimentacaoButton = 230;
-            SairMovimentacaoButton = 60;
-            SairMovimentacaoButton.Click += (sender, e) => {View.Movimentacao.addMovimentacao();};
+            movimentacoes.Controls.Add(listaMovimentacao);
+            movimentacoes.Controls.Add(btnAdicionar);
+            movimentacoes.Controls.Add(btnEdit);
+            movimentacoes.Controls.Add(BtnRemove);
+            movimentacoes.Controls.Add(BtnVoltar);
+            movimentacoes.ShowDialog();
+        } 
 
-            form.Controller.Add(CadastrarMovimentacaoButton);
-            form.Controller.Add(AlterarMovimentacaoButton);
-            form.Controller.Add(ExcluirMovimentacaoButton);
-            form.Controller.Add(SairMovimentacaoButton);
-            form.Controller.Add(lista);
-            form.Controller.Add(lista);
-            form.ShowDialog();
+          public static void CriarMovimentacao() {
+            Form adicionarMovimentacao = new Form();
+            adicionarMovimentacao.Text = "Adicionar Movimentacao de veículo";
+            adicionarMovimentacao.Size = new System.Drawing.Size(400, 250);
+            adicionarMovimentacao.StartPosition = FormStartPosition.CenterScreen;
+            adicionarMovimentacao.FormBorderStyle = FormBorderStyle.FixedSingle;
+            adicionarMovimentacao.MaximizeBox = false;
+            adicionarMovimentacao.MinimizeBox = false;
+            adicionarMovimentacao.BackColor = Color.BlueViolet;
+
+            Label lblId= new Label();
+            lblId.Text = "Id:";
+            lblId.Top = 25;
+            lblId.Left = 10;
+            lblId.ForeColor = Color.White;
+            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtId = new TextBox();
+            txtId.Top = 32;
+            txtId.Left = 140;
+            txtId.BackColor = Color.LightGray;
+            txtId.Size = new System.Drawing.Size(230, 35);
+
+
+            Label lblDescri = new Label();
+            lblDescri.Text = "Descrição:";
+            lblDescri.Top = 60;
+            lblDescri.Left = 10;
+            lblDescri.ForeColor = Color.White;
+            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
+            lblDescri.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtDescri = new TextBox();
+            txtDescri.Top = 67;
+            txtDescri.Left = 140;
+            txtDescri.BackColor = Color.LightGray;
+            txtDescri.Size = new System.Drawing.Size(230, 35);
+
+            Button btnSalvar = new Button();
+            btnSalvar.Text = "Salvar";
+            btnSalvar.Top = 127;
+            btnSalvar.Left = 20;
+            btnSalvar.BackColor = Color.White;
+            btnSalvar.ForeColor = Color.BlueViolet;
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Size = new System.Drawing.Size(150, 35);
+            btnSalvar.Click += (sender, e) => {
+                try
+                {
+                    Controller.Movimentacao.CriarMovimentacao(int.Parse(txtId.Text), txtDescri.Text);
+                    adicionarMovimentacao.Hide();
+                    adicionarMovimentacao.Close();
+                    adicionarMovimentacao.Dispose();
+                    ListarMovimentacoes();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show($"Erro ao adicionar produto: {err.Message}");
+                }
+                finally 
+                {
+                    adicionarMovimentacao.Hide();
+                    adicionarMovimentacao.Close();
+                    adicionarMovimentacao.Dispose();
+                    ListarMovimentacoes();                    
+                }
+                               
+            };
+
+            Button btnCancelar = new Button();
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Top = 127;
+            btnCancelar.Left = 220;
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.ForeColor = Color.BlueViolet;
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Size = new System.Drawing.Size(150, 35);
+            btnCancelar.Click += (sender, e) => {
+                adicionarMovimentacao.Close();
+            };
+
+            adicionarMovimentacao.Controls.Add(lblId);
+            adicionarMovimentacao.Controls.Add(txtId);
+            adicionarMovimentacao.Controls.Add(lblDescri);
+            adicionarMovimentacao.Controls.Add(txtDescri);
+            adicionarMovimentacao.Controls.Add(btnSalvar);
+            adicionarMovimentacao.Controls.Add(btnCancelar);
+            adicionarMovimentacao.ShowDialog();
         }
 
-        public static void AdicionarMovimentacao(){
 
-            Form form = new Form();
-            form.Text = "Movimentações";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
+        public static void AlterarMovimentacao(int id) {
+            Model.Movimentacao veiculo = Controller.Movimentacao.BuscarMovimentacao(id);
+            Form editar = new Form();
+            editar.Text = "Editar Movimentacao de veículo";
+            editar.Size = new System.Drawing.Size(400, 250);
+            editar.StartPosition = FormStartPosition.CenterScreen;
+            editar.FormBorderStyle = FormBorderStyle.FixedSingle;
+            editar.MaximizeBox = false;
+            editar.MinimizeBox = false;
+            editar.BackColor = Color.BlueViolet;
 
-            Label LBLIncluirMovimentacao = new Label();
-            LBLIncluirMovimentacao.Text = "Cadastrar movimentações";
-            LBLIncluirMovimentacao.Top = 10;
-            LBLIncluirMovimentacao.Left = 200;
-            LBLIncluirMovimentacao.Width = 300;
+            Label lblId= new Label();
+            lblId.Text = "Id:";
+            lblId.Top = 25;
+            lblId.Left = 10;
+            lblId.ForeColor = Color.White;
+            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Size = new System.Drawing.Size(130, 35);
 
-            Label LBLIncluirDataEntrada = new Label();
-            LBLIncluirDataEntrada.Text = "Data de entrada: ";
-            LBLIncluirDataEntrada.Location = new Ponit (100, 30);
-            LBLIncluirDataEntrada.AutoSize = true;
-            LBLIncluirDataEntrada.Controller.Add(LBLIncluirDataEntrada);
+            TextBox txtId = new TextBox();
+            txtId.Top = 32;
+            txtId.Left = 140;
+            txtId.BackColor = Color.LightGray;
+            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Text = veiculo.Id.ToString();
+            txtId.ReadOnly = true;
+            txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            TextBox TextoDataEntrada = new TextBox();
-            TextoDataEntrada.Top = 55;
-            TextoDataEntrada.Left = 100;
-            TextoDataEntrada.Width = 300;
+            Label lblDescri = new Label();
+            lblDescri.Text = "Descrição:";
+            lblDescri.Top = 60;
+            lblDescri.Left = 10;
+            lblDescri.ForeColor = Color.White;
+            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
+            lblDescri.Size = new System.Drawing.Size(130, 35);
 
-            Label LBLIncluirDataSaida = new Label();
-            LBLIncluirDataSaida.Text = "Data de saída: ";
-            LBLIncluirDataSaida.Location = new Point (100,60);
-            LBLIncluirDataSaida.AutoSize = true;
-            LBLIncluirDataSaida.Controller.Add(LBLIncluirDataSaida);
+            TextBox txtDescri = new TextBox();
+            txtDescri.Top = 67;
+            txtDescri.Left = 140;
+            txtDescri.BackColor = Color.LightGray;
+            txtDescri.Size = new System.Drawing.Size(230, 35);
+            txtDescri.Text = veiculo.Descricao;
 
-            TextBox TextoDataSaida = new TextBox();
-            TextoDataSaida.Top = 85;
-            TextoDataSaida.Left = 130;
-            TextoDataSaida.Width = 330;
-
-            Button CadastrarMovimentacaoButton = new Button();
-            CadastrarMovimentacaoButton.Text = "Cadastrar";
-            CadastrarMovimentacaoButton.Top = 360;
-            CadastrarMovimentacaoButton.Left = 220;
-            CadastrarMovimentacaoButton.Width = 70;
-            CadastrarMovimentacaoButton.Click += (sender, e) => {Controller.Movimentacao.CadastrarMovimentacaoButton(new Model.Movimentacao(id, TextoNome.Text));
-            
-                form.Close();
-                form.Dispose();
-                View.Movimentacao.listarMovimentacao();
+            Button btnSalvar = new Button();
+            btnSalvar.Text = "Salvar";
+            btnSalvar.Top = 127;
+            btnSalvar.Left = 10;
+            btnSalvar.BackColor = Color.White;
+            btnSalvar.ForeColor = Color.BlueViolet;
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Size = new System.Drawing.Size(150, 35);
+            btnSalvar.Click += (sender, e) => {
+                Controller.Movimentacao.AlterarMovimentacao(id, txtDescri.Text);
+                editar.Hide();
+                editar.Close();
+                editar.Dispose();
+                ListarMovimentacoes();
             };
 
-            Button SairMovimentacaoButton = new Button();
-            SairMovimentacaoButton.Text = "Voltar";
-            SairMovimentacaoButton.Top = 360;
-            SairMovimentacaoButton.Left = 300;
-            SairMovimentacaoButton.Width = 60;
-            SairMovimentacaoButton.Click += (sender, e) => {form.Close();
-            
-                form.Dispose();
+            Button btnCancelar = new Button();
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Top = 127;
+            btnCancelar.Left = 220;
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.ForeColor = Color.BlueViolet;
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Size = new System.Drawing.Size(150, 35);
+            btnCancelar.Click += (sender, e) => {
+                editar.Close();
+                editar.Dispose();
             };
 
-            form.Controller.Add(LBLIncluirMovimentacao);
-            form.Controller.Add(LBLIncluirDataEntrada);
-            form.Controller.Add(LBLIncluirDataSaida);
-            form.Controller.Add(TextoDataEntrada);
-            form.Controller.Add(TextoDataSaida);
-            form.Controller.Add(CadastrarMovimentacaoButton);
-            form.Controller.Add(SairMovimentacaoButton);
-            form.ShowDialog();
+            editar.Controls.Add(lblId);
+            editar.Controls.Add(txtId);
+            editar.Controls.Add(lblDescri);
+            editar.Controls.Add(txtDescri);
+            editar.Controls.Add(btnSalvar);
+            editar.Controls.Add(btnCancelar);
+            editar.ShowDialog();
+    }
+
+
+    public static void ExcluirMovimentacao(int id) {
+
+        Form remove = new Form();
+        remove.Text = "Remover";
+        remove.Size = new System.Drawing.Size(188, 83);
+        remove.StartPosition = FormStartPosition.CenterScreen;
+        remove.FormBorderStyle = FormBorderStyle.FixedSingle;
+        remove.MaximizeBox = false;
+        remove.MinimizeBox = false;
+
+        Button sim = new Button();
+        sim.Text = "Sim";
+        sim.Top = 10;
+        sim.Left = 10;
+        sim.Size = new System.Drawing.Size(70, 25);
+        sim.Click += (sender, e) => {
+            Controller.Movimentacao.ExcluirMovimentacao(id);
+            remove.Close();
+            remove.Dispose();
+            ListarMovimentacoes();          
+        };
+
+        Button nao = new Button();
+        nao.Text = "Não";
+        nao.Top = 10;
+        nao.Left = 90;
+        nao.Size = new System.Drawing.Size(70, 25);
+        nao.Click += (sender, e) => {
+            remove.Hide();
+            remove.Close();
+            remove.Dispose();
+            ListarMovimentacoes();
+        };
+
+        remove.Controls.Add(sim);
+        remove.Controls.Add(nao);   
+        remove.ShowDialog();
         }
-
-        public static void AlterarMovimentacao(){
-
-            Form form = new Form();
-            form.Text = "Movimentações";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
-
-            Label LBLAlterarMovimentacao = new Label();
-            LBLAlterarMovimentacao.Text = "Alterar movimentações";
-            LBLAlterarMovimentacao.Top = 10;
-            LBLAlterarMovimentacao.Left = 200;
-            LBLAlterarMovimentacao.Width = 300;
-
-            Label LBLAlterarId = new Label();
-            LBLAlterarId.Text = "Id: ";
-            LBLAlterarId.Location = new point(100,30);
-            LBLAlterarId.AutoSize = true;
-            form.Controller.Add(LBLAlterarId);
-
-            TextBox TextoAlterarId = new TextBox();
-            TextoAlterarId.Top = 60;
-            TextoAlterarId.Left = 100;
-            TextoAlterarId.Width = 300;
-
-            Label LBLAlterarDataEntrada = new Label();
-            LBLAlterarDataEntrada.Text = "Data de entrada: ";
-            LBLAlterarDataEntrada.Location = new Point(100, 90);
-            LBLAlterarDataEntrada.AutoSize = true;
-            form.Controller.Add(LBLAlterarDataEntrada);
-
-            TextBox TextoAlterarDataEntrada = new TextBox();
-            TextoAlterarDataEntrada.Top = 120;
-            TextoAlterarDataEntrada.Left = 100;
-            TextoAlterarDataEntrada.Width = 300;
-
-            Label LBLAlterarDataSaida = new Label();
-            LBLAlterarDataSaida.Text = "Data de saída:";
-            LBLAlterarDataSaida.Location = new Point (100,60);
-            LBLAlterarDataSaida.AutoSize = true;
-            LBLAlterarDataSaida.Controller.Add(LBLAlterarDataSaida);
-
-            TextBox TextoAlterarDataSaida = new TextBox();
-            TextoAlterarDataSaida.Top = 85;
-            TextoAlterarDataSaida.Left = 130;
-            TextoAlterarDataSaida.Width = 330;
-
-            Button AlterarMovimentacaoButton = new Button();
-            AlterarMovimentacaoButton.Text = "Alterar";
-            AlterarMovimentacaoButton.Top = 360;
-            AlterarMovimentacaoButton.Left = 220;
-            AlterarMovimentacaoButton.Width = 70;
-            AlterarMovimentacaoButton.Click += (sender, e) => {Controller.Movimentacao.AlterarMovimentacao(new Model.Movimentacao(TextoAlterarNome,int.Parse(TextoAlterarCPF), int.Parse(TextoAlterarPIS)));
-                
-                form.Close();
-                form.Dispose();
-                View.Movimentacao.listarMovimentacao();
-            };
-
-            Button SairMovimentacaoButton = new Button();
-            SairMovimentacaoButton.Text = "Voltar";
-            SairMovimentacaoButton.Top = 360;
-            SairMovimentacaoButton.Left = 300;
-            SairMovimentacaoButton.Width = 60;
-            SairMovimentacaoButton.Click += (sender, e) => { form.Close();
-            
-                form.Dispose();
-            };
-
-            form.Controller.Add(LBLAlterarMovimentacao);
-            form.Controller.Add(LBLAlterarId);
-            form.Controller.Add(LBLAlterarDataEntrada);
-            form.Controller.Add(LBLAlterarDataSaida);
-            form.Controller.Add(TextoAlterarId);
-            form.Controller.Add(TextoAlterarDataEntrada);
-            form.Controller.Addo(TextoAlterarDataSaida);
-            form.Controller.Add(AlterarMovimentacaoButton);
-            form.Controller.Add(SairMovimentacaoButton);
-            form.ShowDialog();
-        }
-
-        public static void ExcluirMovimentacao(){
-
-            Form form = new Form();
-            form.Text = "Movimentações";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
-        
-            Label LBLExcuir = new Label();
-            LBLExcuir.Text = "Excluir movimentação";
-            LBLExcuir.Top = 10;
-            LBLExcuir.Left = 200;
-            LBLExcuir.Width = 300;
-
-            Label LBLExcluirId = new Label();
-            LBLExcluirId.Text = "Id:";
-            LBLExcluirId.Location = new Point(100, 30);
-            LBLExcluirId.AutoSize = true;
-            form.Controls.Add(LBLExcluirId);
-
-            TextBox TextoExcluirId = new TextBox();
-            TextoExcluirId.Top = 60;
-            TextoExcluirId.Left = 100;
-            TextoExcluirId.Width = 300;
-
-            Button ExcluirMovimentacaoButton = new Button();
-            ExcluirMovimentacaoButton.Text = "Excluir";
-            ExcluirMovimentacaoButton.Top = 360;
-            ExcluirMovimentacaoButton.Left = 220;
-            ExcluirMovimentacaoButton.Width = 60;
-            ExcluirMovimentacaoButton.Click += (sender, e) => { 
-                Controllers.Movimentacao.excluirMovimentacaos (int.Parse(TextoExcluirId.Text));
-                form.Close(); 
-                form.Dispose();
-                Views.Movimentacao.listarMovimentacao();
-                };
-
-            Button SairMovimentacaoButton = new Button();
-            SairMovimentacaoButton.Text = "Voltar";
-            SairMovimentacaoButton.Top = 360;
-            SairMovimentacaoButton.Left = 300;
-            SairMovimentacaoButton.Width = 60;
-            SairMovimentacaoButton.Click += (sender, e) => { form.Close();
-            
-                form.Dispose();
-            };
-
-            form.Controller.Add(LBLExcuir);
-            form.Controller.Add(LBLExcluirId);
-            form.Controller.Add(TextoExcluirId);
-            form.Controller.Add(ExcluirMovimentacaoButton);
-            form.Controller.Add(SairMovimentacaoButton);
-            form.ShowDialog();
-        }
-    }*/
+    }
 }
-

@@ -1,282 +1,316 @@
-using Controller;
+using System;
+using System.Windows.Forms;
 
-namespace View
-{
-  /*  public class Veiculo
-    {
-        public static void listarVeiculo()
-        {
-            Form form = new Form();
-            form.Text = "Lista de Veículos";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {listarForm.Dispose();};
+namespace Views {
+    
+    public class Veiculo {
+        
+        public static void ListarVeiculos() {
+            Form veiculos = new Form();
+            veiculos.Text = "Veiculos de Veículos";
+            veiculos.Size = new System.Drawing.Size(700, 500);
+            veiculos.StartPosition = FormStartPosition.CenterScreen;
+            veiculos.FormBorderStyle = FormBorderStyle.FixedSingle;
+            veiculos.MaximizeBox = false;
+            veiculos.MinimizeBox = false;
+            veiculos.BackColor = Color.BlueViolet;
 
-            ListView lista = new ListView();
-            lista.Location = new System.Drawing.Point(10,10);
-            lista.Size = new System.Drawing.Size(480,350);
-            lista.View = System.Windows.Forms.View.Details;
+            ListView listaVeiculo = new ListView();
+            listaVeiculo.Size = new System.Drawing.Size(665, 400);
+            listaVeiculo.Location = new System.Drawing.Point(10, 10);
+            listaVeiculo.View = View.Details;
+            listaVeiculo.Columns.Add("Id", 50);
+            listaVeiculo.Columns.Add("Placa", 611);
+            listaVeiculo.FullRowSelect = true;
+            listaVeiculo.GridLines = true;
 
-            lista.Columns.Add("Id");
-            lista.Columns.Add("Placa");
-
-            foreach(Model.Veiculo veiculo in Model.Veiculo.veiculos){
-                lista.Items.Add(new ListViewItem(new string[] {veiculo.id.ToString(), veiculo.nome.ToString()}));
+            List<Model.Veiculo> veiculosList = Controller.Veiculo.ListaVeiculo();
+            foreach (Model.Veiculo veiculo in veiculosList) {
+                ListViewItem item = new ListViewItem(veiculo.Id.ToString());
+                item.SubItems.Add(veiculo.Descricao);
+                listaVeiculo.Items.Add(item);
             }
 
-            Button CadastrarVeiculoButton = new Button();
-            CadastrarVeiculoButton.Text = "Incluir";
-            CadastrarVeiculoButton.Top = 360;
-            CadastrarVeiculoButton.Left = 10;
-            CadastrarVeiculoButton.Width = 70;
-            CadastrarVeiculoButton.Click += (sender, e) => {View.Veiculo.addVeiculo();
+            Button btnAdicionar = new Button();
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.Top = 420;
+            btnAdicionar.Left = 10;
+            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 19);
+            btnAdicionar.BackColor = Color.White;
+            btnAdicionar.ForeColor = Color.BlueViolet;
+            btnAdicionar.Size = new System.Drawing.Size(150, 35);
+            btnAdicionar.Click += (sender, e) => {
+                veiculos.Close();
+                veiculos.Dispose();
+                CriarVeiculo();
+            };
             
-                form.Close();
-                form.Dispose();            
+            
+            Button btnEdit = new Button();
+            btnEdit.Text = "Editar";
+            btnEdit.Top = 420;
+            btnEdit.Left = 181;
+            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 19);
+            btnEdit.BackColor = Color.White;
+            btnEdit.ForeColor = Color.BlueViolet;
+            btnEdit.Size = new System.Drawing.Size(150, 35);
+            btnEdit.Click += (sender, e) => {
+                string id = listaVeiculo.SelectedItems[0].Text;
+                veiculos.Close();
+                veiculos.Dispose();
+                AlterarVeiculo(Int32.Parse(id));
+                veiculos.Close();
             };
 
-            Button AlterarVeiculoButton = new Button();
-            AlterarVeiculoButton.Text = "Alterar";
-            AlterarVeiculoButton.Top = 360;
-            AlterarVeiculoButton.Left = 90;
-            AlterarVeiculoButton.Width = 60;
-            AlterarVeiculoButton.Click += (sender, e) => {View.Veiculo.addVeiculo();
-            
-                form.Close();
-                form.Dispose();
+
+            Button BtnRemove = new Button();
+            BtnRemove.Text = "Remove";
+            BtnRemove.Top = 420;
+            BtnRemove.Left = 352;
+            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 19);
+            BtnRemove.BackColor = Color.White;
+            BtnRemove.ForeColor = Color.BlueViolet;
+            BtnRemove.Size = new System.Drawing.Size(150, 35);
+            BtnRemove.Click += (sender, e) => {
+                string id = listaVeiculo.SelectedItems[0].Text;
+                ExcluirVeiculo(Int32.Parse(id));
+                veiculos.Dispose();
+                veiculos.Close();
             };
 
-            Button ExcluirVeiculoButton = new Button();
-            ExcluirVeiculoButton.Text = "Excluir";
-            ExcluirVeiculoButton.Top = 360;
-            ExcluirVeiculoButton.Left = 160;
-            ExcluirVeiculoButton.Width = 60;
-            ExcluirVeiculoButton.Click += (sender, e) => {View.Veiculo.addVeiculo();
-            
-                form.Close();
-                form.Dispose();
+            Button BtnVoltar = new Button();
+            BtnVoltar.Text = "Voltar";
+            BtnVoltar.Top = 420;
+            BtnVoltar.Left = 523;
+            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 19);
+            BtnVoltar.BackColor = Color.White;
+            BtnVoltar.ForeColor = Color.BlueViolet;
+            BtnVoltar.Size = new System.Drawing.Size(150, 35);
+            BtnVoltar.Click += (sender, e) => {
+                veiculos.Hide();
+                veiculos.Close();
+                veiculos.Dispose();
             };
 
-            Button SairVeiculoButton = new Button();
-            SairVeiculoButton.Text = "Voltar";
-            SairVeiculoButton.Top = 360;
-            SairVeiculoButton = 230;
-            SairVeiculoButton = 60;
-            SairVeiculoButton.Click += (sender, e) => {View.Veiculo.addVeiculo();};
+            veiculos.Controls.Add(listaVeiculo);
+            veiculos.Controls.Add(btnAdicionar);
+            veiculos.Controls.Add(btnEdit);
+            veiculos.Controls.Add(BtnRemove);
+            veiculos.Controls.Add(BtnVoltar);
+            veiculos.ShowDialog();
+        } 
 
-            form.Controller.Add(CadastrarVeiculoButton);
-            form.Controller.Add(AlterarVeiculoButton);
-            form.Controller.Add(ExcluirVeiculoButton);
-            form.Controller.Add(SairVeiculoButton);
-            form.Controller.Add(lista);
-            form.Controller.Add(lista);
-            form.ShowDialog();
+          public static void CriarVeiculo() {
+            Form adicionarVeiculo = new Form();
+            adicionarVeiculo.Text = "Adicionar Veiculo de veículo";
+            adicionarVeiculo.Size = new System.Drawing.Size(400, 250);
+            adicionarVeiculo.StartPosition = FormStartPosition.CenterScreen;
+            adicionarVeiculo.FormBorderStyle = FormBorderStyle.FixedSingle;
+            adicionarVeiculo.MaximizeBox = false;
+            adicionarVeiculo.MinimizeBox = false;
+            adicionarVeiculo.BackColor = Color.BlueViolet;
+
+            Label lblId= new Label();
+            lblId.Text = "Id:";
+            lblId.Top = 25;
+            lblId.Left = 10;
+            lblId.ForeColor = Color.White;
+            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtId = new TextBox();
+            txtId.Top = 32;
+            txtId.Left = 140;
+            txtId.BackColor = Color.LightGray;
+            txtId.Size = new System.Drawing.Size(230, 35);
+
+
+            Label lblDescri = new Label();
+            lblDescri.Text = "Placa:";
+            lblDescri.Top = 60;
+            lblDescri.Left = 10;
+            lblDescri.ForeColor = Color.White;
+            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
+            lblDescri.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtDescri = new TextBox();
+            txtDescri.Top = 67;
+            txtDescri.Left = 140;
+            txtDescri.BackColor = Color.LightGray;
+            txtDescri.Size = new System.Drawing.Size(230, 35);
+
+            Button btnSalvar = new Button();
+            btnSalvar.Text = "Salvar";
+            btnSalvar.Top = 127;
+            btnSalvar.Left = 20;
+            btnSalvar.BackColor = Color.White;
+            btnSalvar.ForeColor = Color.BlueViolet;
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Size = new System.Drawing.Size(150, 35);
+            btnSalvar.Click += (sender, e) => {
+                try
+                {
+                    Controller.Veiculo.CriarVeiculo(int.Parse(txtId.Text), txtDescri.Text);
+                    adicionarVeiculo.Hide();
+                    adicionarVeiculo.Close();
+                    adicionarVeiculo.Dispose();
+                    ListarVeiculos();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show($"Erro ao adicionar produto: {err.Message}");
+                }
+                finally 
+                {
+                    adicionarVeiculo.Hide();
+                    adicionarVeiculo.Close();
+                    adicionarVeiculo.Dispose();
+                    ListarVeiculos();                    
+                }
+                               
+            };
+
+            Button btnCancelar = new Button();
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Top = 127;
+            btnCancelar.Left = 220;
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.ForeColor = Color.BlueViolet;
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Size = new System.Drawing.Size(150, 35);
+            btnCancelar.Click += (sender, e) => {
+                adicionarVeiculo.Close();
+            };
+
+            adicionarVeiculo.Controls.Add(lblId);
+            adicionarVeiculo.Controls.Add(txtId);
+            adicionarVeiculo.Controls.Add(lblDescri);
+            adicionarVeiculo.Controls.Add(txtDescri);
+            adicionarVeiculo.Controls.Add(btnSalvar);
+            adicionarVeiculo.Controls.Add(btnCancelar);
+            adicionarVeiculo.ShowDialog();
         }
 
-        public static void AdicionarVeiculo(){
 
-            Form form = new Form();
-            form.Text = "Veículos";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
+        public static void AlterarVeiculo(int id) {
+            Model.Veiculo veiculo = Controller.Veiculo.BuscarVeiculo(id);
+            Form editar = new Form();
+            editar.Text = "Editar Veiculo de veículo";
+            editar.Size = new System.Drawing.Size(400, 250);
+            editar.StartPosition = FormStartPosition.CenterScreen;
+            editar.FormBorderStyle = FormBorderStyle.FixedSingle;
+            editar.MaximizeBox = false;
+            editar.MinimizeBox = false;
+            editar.BackColor = Color.BlueViolet;
 
-            Label LBLIncluirVeiculo = new Label();
-            LBLIncluirVeiculo.Text = "Cadastrar veículo";
-            LBLIncluirVeiculo.Top = 10;
-            LBLIncluirVeiculo.Left = 200;
-            LBLIncluirVeiculo.Width = 300;
+            Label lblId= new Label();
+            lblId.Text = "Id:";
+            lblId.Top = 25;
+            lblId.Left = 10;
+            lblId.ForeColor = Color.White;
+            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Size = new System.Drawing.Size(130, 35);
 
-            Label LBLIncluirPlaca = new Label();
-            LBLIncluirPlaca.Text = "Placa: ";
-            LBLIncluirPlaca.Location = new Ponit (100, 30);
-            LBLIncluirPlaca.AutoSize = true;
-            LBLIncluirPlaca.Controller.Add(LBLIncluirPlaca);
+            TextBox txtId = new TextBox();
+            txtId.Top = 32;
+            txtId.Left = 140;
+            txtId.BackColor = Color.LightGray;
+            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Text = veiculo.Id.ToString();
+            txtId.ReadOnly = true;
+            txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            TextBox TextoPlaca = new TextBox();
-            TextoPlaca.Top = 55;
-            TextoPlaca.Left = 100;
-            TextoPlaca.Width = 300;
+            Label lblDescri = new Label();
+            lblDescri.Text = "Placa:";
+            lblDescri.Top = 60;
+            lblDescri.Left = 10;
+            lblDescri.ForeColor = Color.White;
+            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
+            lblDescri.Size = new System.Drawing.Size(130, 35);
 
-            Button CadastrarVeiculoButton = new Button();
-            CadastrarVeiculoButton.Text = "Cadastrar";
-            CadastrarVeiculoButton.Top = 360;
-            CadastrarVeiculoButton.Left = 220;
-            CadastrarVeiculoButton.Width = 70;
-            CadastrarVeiculoButton.Click += (sender, e) => {Controller.Veiculo.CadastrarVeiculoButton(new Model.Veiculo(id, TextoNome.Text));
-            
-                form.Close();
-                form.Dispose();
-                View.Veiculo.listarVeiculo();
+            TextBox txtDescri = new TextBox();
+            txtDescri.Top = 67;
+            txtDescri.Left = 140;
+            txtDescri.BackColor = Color.LightGray;
+            txtDescri.Size = new System.Drawing.Size(230, 35);
+            txtDescri.Text = veiculo.Descricao;
+
+            Button btnSalvar = new Button();
+            btnSalvar.Text = "Salvar";
+            btnSalvar.Top = 127;
+            btnSalvar.Left = 10;
+            btnSalvar.BackColor = Color.White;
+            btnSalvar.ForeColor = Color.BlueViolet;
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Size = new System.Drawing.Size(150, 35);
+            btnSalvar.Click += (sender, e) => {
+                Controller.Veiculo.AlterarVeiculo(id, txtDescri.Text);
+                editar.Hide();
+                editar.Close();
+                editar.Dispose();
+                ListarVeiculos();
             };
 
-            Button SairVeiculoButton = new Button();
-            SairVeiculoButton.Text = "Voltar";
-            SairVeiculoButton.Top = 360;
-            SairVeiculoButton.Left = 300;
-            SairVeiculoButton.Width = 60;
-            SairVeiculoButton.Click += (sender, e) => {form.Close();
-            
-                form.Dispose();
+            Button btnCancelar = new Button();
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Top = 127;
+            btnCancelar.Left = 220;
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.ForeColor = Color.BlueViolet;
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Size = new System.Drawing.Size(150, 35);
+            btnCancelar.Click += (sender, e) => {
+                editar.Close();
+                editar.Dispose();
             };
 
-            form.Controller.Add(LBLIncluirVeiculo);
-            form.Controller.Add(LBLIncluirPlaca);
-            form.Controller.Add(TextoPlaca);
-            form.Controller.Add(CadastrarVeiculoButton);
-            form.Controller.Add(SairVeiculoButton);
-            form.ShowDialog();
+            editar.Controls.Add(lblId);
+            editar.Controls.Add(txtId);
+            editar.Controls.Add(lblDescri);
+            editar.Controls.Add(txtDescri);
+            editar.Controls.Add(btnSalvar);
+            editar.Controls.Add(btnCancelar);
+            editar.ShowDialog();
+    }
+
+
+    public static void ExcluirVeiculo(int id) {
+
+        Form remove = new Form();
+        remove.Text = "Remover";
+        remove.Size = new System.Drawing.Size(188, 83);
+        remove.StartPosition = FormStartPosition.CenterScreen;
+        remove.FormBorderStyle = FormBorderStyle.FixedSingle;
+        remove.MaximizeBox = false;
+        remove.MinimizeBox = false;
+
+        Button sim = new Button();
+        sim.Text = "Sim";
+        sim.Top = 10;
+        sim.Left = 10;
+        sim.Size = new System.Drawing.Size(70, 25);
+        sim.Click += (sender, e) => {
+            Controller.Veiculo.ExcluirVeiculo(id);
+            remove.Close();
+            remove.Dispose();
+            ListarVeiculos();          
+        };
+
+        Button nao = new Button();
+        nao.Text = "Não";
+        nao.Top = 10;
+        nao.Left = 90;
+        nao.Size = new System.Drawing.Size(70, 25);
+        nao.Click += (sender, e) => {
+            remove.Hide();
+            remove.Close();
+            remove.Dispose();
+            ListarVeiculos();
+        };
+
+        remove.Controls.Add(sim);
+        remove.Controls.Add(nao);   
+        remove.ShowDialog();
         }
-
-        public static void AlterarVeiculo(){
-
-            Form form = new Form();
-            form.Text = "Veículo";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
-
-            Label LBLAlterarVeiculo = new Label();
-            LBLAlterarVeiculo.Text = "Alterar Veículo";
-            LBLAlterarVeiculo.Top = 10;
-            LBLAlterarVeiculo.Left = 200;
-            LBLAlterarVeiculo.Width = 300;
-
-            Label LBLAlterarId = new Label();
-            LBLAlterarId.Text = "Id: ";
-            LBLAlterarId.Location = new point(100,30);
-            LBLAlterarId.AutoSize = true;
-            form.Controller.Add(LBLAlterarId);
-
-            TextBox TextoAlterarId = new TextBox();
-            TextoAlterarId.Top = 60;
-            TextoAlterarId.Left = 100;
-            TextoAlterarId.Width = 300;
-
-            Label LBLAlterarPlaca = new Label();
-            LBLAlterarPlaca.Text = "Placa: ";
-            LBLAlterarPlaca.Location = new Point(100, 90);
-            LBLAlterarPlaca.AutoSize = true;
-            form.Controller.Add(LBLAlterarPlaca);
-
-            TextBox TextoAlterarPlaca = new TextBox();
-            TextoAlterarPlaca.Top = 120;
-            TextoAlterarPlaca.Left = 100;
-            TextoAlterarPlaca.Width = 300;
-
-            Button AlterarVeiculoButton = new Button();
-            AlterarVeiculoButton.Text = "Alterar";
-            AlterarVeiculoButton.Top = 360;
-            AlterarVeiculoButton.Left = 220;
-            AlterarVeiculoButton.Width = 70;
-            AlterarVeiculoButton.Click += (sender, e) => {Controller.Veiculo.AlterarVeiculo(new Model.Veiculo(TextoAlterarNome,int.Parse(TextoAlterarCPF), int.Parse(TextoAlterarPIS)));
-                
-                form.Close();
-                form.Dispose();
-                View.Veiculo.listarVeiculo();
-            };
-
-            Button SairVeiculoButton = new Button();
-            SairVeiculoButton.Text = "Voltar";
-            SairVeiculoButton.Top = 360;
-            SairVeiculoButton.Left = 300;
-            SairVeiculoButton.Width = 60;
-            SairVeiculoButton.Click += (sender, e) => { form.Close();
-            
-                form.Dispose();
-            };
-
-            form.Controller.Add(LBLAlterarVeiculo);
-            form.Controller.Add(LBLAlterarId);
-            form.Controller.Add(LBLAlterarPlaca);
-            form.Controller.Add(TextoAlterarId);
-            form.Controller.Add(TextoAlterarPlaca);
-            form.Controller.Add(AlterarVeiculoButton);
-            form.Controller.Add(SairVeiculoButton);
-            form.ShowDialog();
-        }
-
-        public static void ExcluirVeiculo(){
-
-            Form form = new Form();
-            form.Text = "Veículo";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
-        
-            Label LBLExcuir = new Label();
-            LBLExcuir.Text = "Excluir Veículo";
-            LBLExcuir.Top = 10;
-            LBLExcuir.Left = 200;
-            LBLExcuir.Width = 300;
-
-            Label LBLExcluirId = new Label();
-            LBLExcluirId.Text = "Id:";
-            LBLExcluirId.Location = new Point(100, 30);
-            LBLExcluirId.AutoSize = true;
-            form.Controls.Add(LBLExcluirId);
-
-            TextBox TextoExcluirId = new TextBox();
-            TextoExcluirId.Top = 60;
-            TextoExcluirId.Left = 100;
-            TextoExcluirId.Width = 300;
-
-            Button ExcluirVeiculoButton = new Button();
-            ExcluirVeiculoButton.Text = "Excluir";
-            ExcluirVeiculoButton.Top = 360;
-            ExcluirVeiculoButton.Left = 220;
-            ExcluirVeiculoButton.Width = 60;
-            ExcluirVeiculoButton.Click += (sender, e) => { 
-                Controllers.Veiculo.excluirVeiculos (int.Parse(TextoExcluirId.Text));
-                form.Close(); 
-                form.Dispose();
-                Views.Veiculo.listarVeiculo();
-                };
-
-            Button SairVeiculoButton = new Button();
-            SairVeiculoButton.Text = "Voltar";
-            SairVeiculoButton.Top = 360;
-            SairVeiculoButton.Left = 300;
-            SairVeiculoButton.Width = 60;
-            SairVeiculoButton.Click += (sender, e) => { form.Close();
-            
-                form.Dispose();
-            };
-
-            form.Controller.Add(LBLExcuir);
-            form.Controller.Add(LBLExcluirId);
-            form.Controller.Add(TextoExcluirId);
-            form.Controller.Add(ExcluirVeiculoButton);
-            form.Controller.Add(SairVeiculoButton);
-            form.ShowDialog();
-        }
-    }*/
+    }
 }

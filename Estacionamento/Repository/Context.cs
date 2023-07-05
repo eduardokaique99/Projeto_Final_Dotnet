@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Model;
+using Models;
 
 namespace Repository
 {
     public class Context : DbContext {
         public DbSet<Cartao> Cartoes { get; set; }
-        public DbSet<Model.Estacionamento> Estacionamentos { get; set; }
+        public DbSet<Models.Estacionamento> Estacionamentos { get; set; }
         public DbSet<Movimentacao> Movimentacoes { get; set; }
         public DbSet<TipoVeiculo> TipoVeiculos { get; set; }
         public DbSet<Turno> Turnos { get; set; }

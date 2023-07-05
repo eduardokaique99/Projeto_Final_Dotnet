@@ -1,35 +1,35 @@
 using System;
 using System.Windows.Forms;
 
-namespace View {
+namespace Views {
     
-    public class TipoVeiculo {
+    public class Movimentacao {
         
-        public static void ListarTipos() {
-            Form tipos = new Form();
-            tipos.Text = "Tipos de Veículos";
-            tipos.Size = new System.Drawing.Size(700, 500);
-            tipos.StartPosition = FormStartPosition.CenterScreen;
-            tipos.FormBorderStyle = FormBorderStyle.FixedSingle;
-            tipos.MaximizeBox = false;
-            tipos.MinimizeBox = false;
-            tipos.BackColor = Color.BlueViolet;
+        public static void ListarMovimentacoes() {
+            Form movimentacoes = new Form();
+            movimentacoes.Text = "Movimentacoes de Veículos";
+            movimentacoes.Size = new System.Drawing.Size(700, 500);
+            movimentacoes.StartPosition = FormStartPosition.CenterScreen;
+            movimentacoes.FormBorderStyle = FormBorderStyle.FixedSingle;
+            movimentacoes.MaximizeBox = false;
+            movimentacoes.MinimizeBox = false;
+            movimentacoes.BackColor = Color.BlueViolet;
 
-            ListView listaTipo = new ListView();
-            listaTipo.Size = new System.Drawing.Size(665, 400);
-            listaTipo.Location = new System.Drawing.Point(10, 10);
-            listaTipo.View = View.Details;
-            listaTipo.Columns.Add("Id", 50);
-            listaTipo.Columns.Add("Descrição", 611);
-            listaTipo.FullRowSelect = true;
-            listaTipo.GridLines = true;
+            ListView listaMovimentacao = new ListView();
+            listaMovimentacao.Size = new System.Drawing.Size(665, 400);
+            listaMovimentacao.Location = new System.Drawing.Point(10, 10);
+            listaMovimentacao.View = View.Details;
+            listaMovimentacao.Columns.Add("Id", 50);
+            listaMovimentacao.Columns.Add("Descrição", 611);
+            listaMovimentacao.FullRowSelect = true;
+            listaMovimentacao.GridLines = true;
 
-            List<Model.TipoVeiculo> tipoveiculosList = Controller.TipoVeiculo.ListaTipoVeiculo();
-            foreach (Model.TipoVeiculo tipoveiculo in tipoveiculosList) {
-                ListViewItem item = new ListViewItem(tipoveiculo.Id.ToString());
-                item.SubItems.Add(tipoveiculo.Descricao);
-                listaTipo.Items.Add(item);
-            }
+            //List<Model.Movimentacao> movimentacoesList = Controller.Movimentacao.ListaMovimentacao();
+            //foreach (Model.Movimentacao veiculo in movimentacoesList) {
+            //    ListViewItem item = new ListViewItem(veiculo.Id.ToString());
+            //    item.SubItems.Add(veiculo.Descricao);
+            //    listaMovimentacao.Items.Add(item);
+            //}
 
             Button btnAdicionar = new Button();
             btnAdicionar.Text = "Adicionar";
@@ -40,9 +40,9 @@ namespace View {
             btnAdicionar.ForeColor = Color.BlueViolet;
             btnAdicionar.Size = new System.Drawing.Size(150, 35);
             btnAdicionar.Click += (sender, e) => {
-                tipos.Close();
-                tipos.Dispose();
-                CriarTipoVeiculo();
+                movimentacoes.Close();
+                movimentacoes.Dispose();
+                CriarMovimentacao();
             };
             
             
@@ -55,11 +55,11 @@ namespace View {
             btnEdit.ForeColor = Color.BlueViolet;
             btnEdit.Size = new System.Drawing.Size(150, 35);
             btnEdit.Click += (sender, e) => {
-                string id = listaTipo.SelectedItems[0].Text;
-                tipos.Close();
-                tipos.Dispose();
-                AlterarTipoVeiculo(Int32.Parse(id));
-                tipos.Close();
+                string id = listaMovimentacao.SelectedItems[0].Text;
+                movimentacoes.Close();
+                movimentacoes.Dispose();
+                AlterarMovimentacao(Int32.Parse(id));
+                movimentacoes.Close();
             };
 
 
@@ -72,10 +72,10 @@ namespace View {
             BtnRemove.ForeColor = Color.BlueViolet;
             BtnRemove.Size = new System.Drawing.Size(150, 35);
             BtnRemove.Click += (sender, e) => {
-                string id = listaTipo.SelectedItems[0].Text;
-                ExcluirTipoVeiculo(Int32.Parse(id));
-                tipos.Dispose();
-                tipos.Close();
+                string id = listaMovimentacao.SelectedItems[0].Text;
+                ExcluirMovimentacao(Int32.Parse(id));
+                movimentacoes.Dispose();
+                movimentacoes.Close();
             };
 
             Button BtnVoltar = new Button();
@@ -87,28 +87,28 @@ namespace View {
             BtnVoltar.ForeColor = Color.BlueViolet;
             BtnVoltar.Size = new System.Drawing.Size(150, 35);
             BtnVoltar.Click += (sender, e) => {
-                tipos.Hide();
-                tipos.Close();
-                tipos.Dispose();
+                movimentacoes.Hide();
+                movimentacoes.Close();
+                movimentacoes.Dispose();
             };
 
-            tipos.Controls.Add(listaTipo);
-            tipos.Controls.Add(btnAdicionar);
-            tipos.Controls.Add(btnEdit);
-            tipos.Controls.Add(BtnRemove);
-            tipos.Controls.Add(BtnVoltar);
-            tipos.ShowDialog();
+            movimentacoes.Controls.Add(listaMovimentacao);
+            movimentacoes.Controls.Add(btnAdicionar);
+            movimentacoes.Controls.Add(btnEdit);
+            movimentacoes.Controls.Add(BtnRemove);
+            movimentacoes.Controls.Add(BtnVoltar);
+            movimentacoes.ShowDialog();
         } 
 
-          public static void CriarTipoVeiculo() {
-            Form adicionarTipo = new Form();
-            adicionarTipo.Text = "Adicionar Tipo de veículo";
-            adicionarTipo.Size = new System.Drawing.Size(400, 250);
-            adicionarTipo.StartPosition = FormStartPosition.CenterScreen;
-            adicionarTipo.FormBorderStyle = FormBorderStyle.FixedSingle;
-            adicionarTipo.MaximizeBox = false;
-            adicionarTipo.MinimizeBox = false;
-            adicionarTipo.BackColor = Color.BlueViolet;
+          public static void CriarMovimentacao() {
+            Form adicionarMovimentacao = new Form();
+            adicionarMovimentacao.Text = "Adicionar Movimentacao de veículo";
+            adicionarMovimentacao.Size = new System.Drawing.Size(400, 250);
+            adicionarMovimentacao.StartPosition = FormStartPosition.CenterScreen;
+            adicionarMovimentacao.FormBorderStyle = FormBorderStyle.FixedSingle;
+            adicionarMovimentacao.MaximizeBox = false;
+            adicionarMovimentacao.MinimizeBox = false;
+            adicionarMovimentacao.BackColor = Color.BlueViolet;
 
             Label lblId= new Label();
             lblId.Text = "Id:";
@@ -150,11 +150,11 @@ namespace View {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controller.TipoVeiculo.CriarTipoVeiculo(int.Parse(txtId.Text), txtDescri.Text);
-                    adicionarTipo.Hide();
-                    adicionarTipo.Close();
-                    adicionarTipo.Dispose();
-                    ListarTipos();
+                    Controllers.Movimentacao.CriarMovimentacao(int.Parse(txtId.Text), txtDescri.Text);
+                    adicionarMovimentacao.Hide();
+                    adicionarMovimentacao.Close();
+                    adicionarMovimentacao.Dispose();
+                    ListarMovimentacoes();
                 }
                 catch (Exception err)
                 {
@@ -162,10 +162,10 @@ namespace View {
                 }
                 finally 
                 {
-                    adicionarTipo.Hide();
-                    adicionarTipo.Close();
-                    adicionarTipo.Dispose();
-                    ListarTipos();                    
+                    adicionarMovimentacao.Hide();
+                    adicionarMovimentacao.Close();
+                    adicionarMovimentacao.Dispose();
+                    ListarMovimentacoes();                    
                 }
                                
             };
@@ -179,23 +179,23 @@ namespace View {
             btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
-                adicionarTipo.Close();
+                adicionarMovimentacao.Close();
             };
 
-            adicionarTipo.Controls.Add(lblId);
-            adicionarTipo.Controls.Add(txtId);
-            adicionarTipo.Controls.Add(lblDescri);
-            adicionarTipo.Controls.Add(txtDescri);
-            adicionarTipo.Controls.Add(btnSalvar);
-            adicionarTipo.Controls.Add(btnCancelar);
-            adicionarTipo.ShowDialog();
+            adicionarMovimentacao.Controls.Add(lblId);
+            adicionarMovimentacao.Controls.Add(txtId);
+            adicionarMovimentacao.Controls.Add(lblDescri);
+            adicionarMovimentacao.Controls.Add(txtDescri);
+            adicionarMovimentacao.Controls.Add(btnSalvar);
+            adicionarMovimentacao.Controls.Add(btnCancelar);
+            adicionarMovimentacao.ShowDialog();
         }
 
 
-        public static void AlterarTipoVeiculo(int id) {
-            Model.TipoVeiculo tipoveiculo = Controller.TipoVeiculo.BuscarTipoVeiculo(id);
+        public static void AlterarMovimentacao(int id) {
+            Models.Movimentacao veiculo = Controllers.Movimentacao.BuscarMovimentacao(id);
             Form editar = new Form();
-            editar.Text = "Editar Tipo de veículo";
+            editar.Text = "Editar Movimentacao de veículo";
             editar.Size = new System.Drawing.Size(400, 250);
             editar.StartPosition = FormStartPosition.CenterScreen;
             editar.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -216,7 +216,7 @@ namespace View {
             txtId.Left = 140;
             txtId.BackColor = Color.LightGray;
             txtId.Size = new System.Drawing.Size(230, 35);
-            txtId.Text = tipoveiculo.Id.ToString();
+            txtId.Text = veiculo.Id.ToString();
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
@@ -233,7 +233,7 @@ namespace View {
             txtDescri.Left = 140;
             txtDescri.BackColor = Color.LightGray;
             txtDescri.Size = new System.Drawing.Size(230, 35);
-            txtDescri.Text = tipoveiculo.Descricao;
+            txtDescri.Text = veiculo.Descricao;
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -244,11 +244,11 @@ namespace View {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controller.TipoVeiculo.AlterarTipoVeiculo(id, txtDescri.Text);
+                Controllers.Movimentacao.AlterarMovimentacao(id, txtDescri.Text);
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
-                ListarTipos();
+                ListarMovimentacoes();
             };
 
             Button btnCancelar = new Button();
@@ -274,7 +274,7 @@ namespace View {
     }
 
 
-    public static void ExcluirTipoVeiculo(int id) {
+    public static void ExcluirMovimentacao(int id) {
 
         Form remove = new Form();
         remove.Text = "Remover";
@@ -290,10 +290,10 @@ namespace View {
         sim.Left = 10;
         sim.Size = new System.Drawing.Size(70, 25);
         sim.Click += (sender, e) => {
-            Controller.TipoVeiculo.ExcluirTipoVeiculo(id);
+            Controllers.Movimentacao.ExcluirMovimentacao(id);
             remove.Close();
             remove.Dispose();
-            ListarTipos();          
+            ListarMovimentacoes();          
         };
 
         Button nao = new Button();
@@ -305,7 +305,7 @@ namespace View {
             remove.Hide();
             remove.Close();
             remove.Dispose();
-            ListarTipos();
+            ListarMovimentacoes();
         };
 
         remove.Controls.Add(sim);

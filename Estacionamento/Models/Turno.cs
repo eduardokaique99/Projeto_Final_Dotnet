@@ -1,4 +1,4 @@
-namespace Model
+namespace Models
   {
   public class Turno
     {
@@ -29,19 +29,19 @@ namespace Model
             return Id == turno.Id;
         }
 
-        public static Model.Turno CriarTurno(
+        public static Models.Turno CriarTurno(
             string Periodo,
             int Escala,
             int IdEstacionamento
         ){
-            return new Model.Turno(
+            return new Models.Turno(
                 Periodo,
                 Escala,
                 IdEstacionamento
             );
         }
 
-        public static Model.Turno AlterarTurno(
+        public static Models.Turno AlterarTurno(
             int id,
             string periodo,
             int escala,

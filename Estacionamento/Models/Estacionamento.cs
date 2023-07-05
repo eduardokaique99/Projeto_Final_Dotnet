@@ -1,4 +1,4 @@
- namespace Model
+ namespace Models
   {
   public class Estacionamento
     {
@@ -26,14 +26,14 @@
             return Id == estacionamento.Id;
         }
 
-        public static Model.Estacionamento CriarEstacionamento(
+        public static Models.Estacionamento CriarEstacionamento(
             int qtdVagas
         ) {
-            return new Model.Estacionamento(
+            return new Models.Estacionamento(
                 qtdVagas
             );
         }
-        public static Model.Estacionamento AlterarEstacionamento(
+        public static Models.Estacionamento AlterarEstacionamento(
             int id,
             int qtdVagas
         )

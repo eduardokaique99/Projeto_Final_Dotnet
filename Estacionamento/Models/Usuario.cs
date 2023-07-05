@@ -1,4 +1,4 @@
-  namespace Model
+  namespace Models
   {
   public class Usuario
     {
@@ -33,13 +33,13 @@
             return Id == usuario.Id;
         }
 
-        public static Model.Usuario CriarUsuario(
+        public static Models.Usuario CriarUsuario(
             string nome,
             int CPF,
             int PIS,
             string permissao
         ){
-            return new Model.Usuario(
+            return new Models.Usuario(
                 nome,
                 CPF,
                 PIS,
@@ -47,7 +47,7 @@
             );
         }
 
-        public static Model.Usuario AlterarUsuario(
+        public static Models.Usuario AlterarUsuario(
             int id,
             string nome,
             int CPF,

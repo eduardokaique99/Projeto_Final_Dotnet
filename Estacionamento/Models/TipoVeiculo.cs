@@ -1,4 +1,4 @@
-namespace Model
+namespace Models
   {
   public class TipoVeiculo
     {
@@ -26,14 +26,14 @@ namespace Model
             return Id == tipoveiculo.Id;
         }
 
-        public static Model.TipoVeiculo CriarTipoVeiculo(
+        public static Models.TipoVeiculo CriarTipoVeiculo(
             string descricao
         ) {
-            return new Model.TipoVeiculo(
+            return new Models.TipoVeiculo(
                 descricao
             );
         }
-        public static Model.TipoVeiculo AlterarTipoVeiculo(
+        public static Models.TipoVeiculo AlterarTipoVeiculo(
             int id,
             string descricao
         )

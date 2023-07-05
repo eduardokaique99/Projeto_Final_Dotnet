@@ -1,14 +1,14 @@
-namespace Controller
+namespace Controllers
 {
     public class Usuario {
-        public static Model.Usuario CriarUsuario(
+        public static Models.Usuario CriarUsuario(
             string nome,
             string cpf,
             string pis,
             string permissao
         )
         {
-            return Model.Usuario.CriarUsuario(
+            return Models.Usuario.CriarUsuario(
                 nome,
                 int.Parse(cpf),
                 int.Parse(pis),
@@ -16,7 +16,7 @@ namespace Controller
             );
         }
 
-        public static Model.Usuario AlterarUsuario(
+        public static Models.Usuario AlterarUsuario(
             string id,
             string nome,
             string cpf,
@@ -24,7 +24,7 @@ namespace Controller
             string permissao
         )
         {
-            return Model.Usuario.AlterarUsuario(
+            return Models.Usuario.AlterarUsuario(
                 int.Parse(id),
                 nome,
                 int.Parse(cpf),
@@ -33,26 +33,26 @@ namespace Controller
             );
         }
 
-        public static Model.Usuario ExcluirUsuario(
+        public static Models.Usuario ExcluirUsuario(
             string id
         )
         {
-            return Model.Usuario.ExcluirUsuario(
+            return Models.Usuario.ExcluirUsuario(
                 int.Parse(id)
             );
         }
 
-        public static Model.Usuario BuscarUsuario(
+        public static Models.Usuario BuscarUsuario(
             string id
         ) {
-            return Model.Usuario.BuscarUsuario(
+            return Models.Usuario.BuscarUsuario(
                 int.Parse(id)
             );
         }
 
-        public static IEnumerable<Model.Usuario> BuscarUsuarios()
+        public static IEnumerable<Models.Usuario> BuscarUsuarios()
         {
-            return Model.Usuario.BuscarTodos();
+            return Models.Usuario.BuscarTodos();
         }
     }
 }

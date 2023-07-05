@@ -1,27 +1,27 @@
-namespace Controller
+namespace Controllers
 {
     public class Turno {
-        public static Model.Turno CriarTurno(
+        public static Models.Turno CriarTurno(
             string periodo,
             string escala,
             string idEstacionamento
         )
         {
-            return Model.Turno.CriarTurno(
+            return Models.Turno.CriarTurno(
                 periodo,
                 int.Parse(escala),
                 int.Parse(idEstacionamento)
             );
         }
 
-        public static Model.Turno AlterarTurno(
+        public static Models.Turno AlterarTurno(
             string id,
             string periodo,
             string escala,
             string idEstacionamento
         )
         {
-            return Model.Turno.AlterarTurno(
+            return Models.Turno.AlterarTurno(
                 int.Parse(id),
                 periodo,
                 int.Parse(escala),
@@ -29,26 +29,26 @@ namespace Controller
             );
         }
 
-        public static Model.Turno ExcluirTurno(
+        public static Models.Turno ExcluirTurno(
             string id
         )
         {
-            return Model.Turno.ExcluirTurno(
+            return Models.Turno.ExcluirTurno(
                 int.Parse(id)
             );
         }
 
-        public static Model.Turno BuscarTurno(
+        public static Models.Turno BuscarTurno(
             string id
         ) {
-            return Model.Turno.BuscarTurno(
+            return Models.Turno.BuscarTurno(
                 int.Parse(id)
             );
         }
 
-        public static IEnumerable<Model.Turno> BuscarTurnos()
+        public static IEnumerable<Models.Turno> BuscarTurnos()
         {
-            return Model.Turno.BuscarTodos();
+            return Models.Turno.BuscarTodos();
         }
     }
 }

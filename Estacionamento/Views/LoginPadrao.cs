@@ -2,7 +2,7 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace View {
+namespace Views {
 
     public class LoginPadrao {
 

@@ -2,8 +2,6 @@ namespace Estacionamento;
 
 public partial class Form1 : Form
 {
- 
-
     public  Form1() {
             
             Form menu = new Form();
@@ -86,7 +84,7 @@ public partial class Form1 : Form
             btnLogin.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                View.LoginADM.ADM();
+                Views.LoginADM.ADM();
             };
             
             menu.Controls.Add(lbl1);

@@ -1,7 +1,7 @@
-namespace Controller
+namespace Controllers
 {
     public class Veiculo {
-        public static Model.Veiculo CriarVeiculo(
+        public static Models.Veiculo CriarVeiculo(
             string id,
             string placa,
             string idmovimentacao,
@@ -9,7 +9,7 @@ namespace Controller
             string idcartao
         )
         {
-            return Model.Veiculo.CriarVeiculo(
+            return Models.Veiculo.CriarVeiculo(
                 int.Parse(id),
                 placa,
                 int.Parse(idmovimentacao),
@@ -18,7 +18,7 @@ namespace Controller
             );
         }
 
-        public static Model.Veiculo AlterarVeiculo(
+        public static Models.Veiculo AlterarVeiculo(
             string id,
             string placa,
             string idmovimentacao,
@@ -26,7 +26,7 @@ namespace Controller
             string idcartao
         )
         {
-            return Model.Veiculo.AlterarVeiculo(
+            return Models.Veiculo.AlterarVeiculo(
                 int.Parse(id),
                 placa,
                 int.Parse(idmovimentacao),
@@ -35,26 +35,26 @@ namespace Controller
             );
         }
 
-        public static Model.Veiculo ExcluirVeiculo(
+        public static Models.Veiculo ExcluirVeiculo(
             string id
         )
         {
-            return Model.Veiculo.ExcluirVeiculo(
+            return Models.Veiculo.ExcluirVeiculo(
                 int.Parse(id)
             );
         }
 
-        public static Model.Veiculo BuscarVeiculo(
+        public static Models.Veiculo BuscarVeiculo(
             string id
         ) {
-            return Model.Veiculo.BuscarVeiculo(
+            return Models.Veiculo.BuscarVeiculo(
                 int.Parse(id)
             );
         }
 
-        public static IEnumerable<Model.Veiculo> BuscarVeiculos()
+        public static IEnumerable<Models.Veiculo> BuscarVeiculos()
         {
-            return Model.Veiculo.BuscarTodos();
+            return Models.Veiculo.BuscarTodos();
         }
     }
 }

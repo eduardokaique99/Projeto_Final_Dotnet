@@ -1,27 +1,27 @@
-namespace Controller
+namespace Controllers
 {
     public class Movimentacao {
-        public static Model.Movimentacao CriarMovimentacao(
+        public static Models.Movimentacao CriarMovimentacao(
             string estacionamentoId,
             string dataEntrada,
             string dataSaida
         )
         {
-            return Model.Movimentacao.CriarMovimentacao(
+            return Models.Movimentacao.CriarMovimentacao(
                 int.Parse(estacionamentoId),
                 DateTime.Parse(dataEntrada),
                 DateTime.Parse(dataSaida)
             );
         }
 
-        public static Model.Movimentacao AlterarMovimentacao(
+        public static Models.Movimentacao AlterarMovimentacao(
             string id,
             string estacionamentoId,
             string dataEntrada,
             string dataSaida
         )
         {
-            return Model.Movimentacao.AlterarMovimentacao(
+            return Models.Movimentacao.AlterarMovimentacao(
                 int.Parse(id),
                 int.Parse(estacionamentoId),
                 DateTime.Parse(dataEntrada),
@@ -29,26 +29,26 @@ namespace Controller
             );
         }
 
-        public static Model.Movimentacao ExcluirMovimentacao(
+        public static Models.Movimentacao ExcluirMovimentacao(
             string id
         )
         {
-            return Model.Movimentacao.ExcluirMovimentacao(
+            return Models.Movimentacao.ExcluirMovimentacao(
                 int.Parse(id)
             );
         }
 
-        public static Model.Movimentacao BuscarMovimentacao(
+        public static Models.Movimentacao BuscarMovimentacao(
             string id
         ) {
-            return Model.Movimentacao.BuscarMovimentacao(
+            return Models.Movimentacao.BuscarMovimentacao(
                 int.Parse(id)
             );
         }
 
-        public static IEnumerable<Model.Movimentacao> BuscarMovimentacaos()
+        public static IEnumerable<Models.Movimentacao> BuscarMovimentacaos()
         {
-            return Model.Movimentacao.BuscarTodos();
+            return Models.Movimentacao.BuscarTodos();
         }
     }
 }

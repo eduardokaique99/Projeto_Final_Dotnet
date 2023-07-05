@@ -1,4 +1,4 @@
-namespace Model
+namespace Models
   {
   public class Veiculo
     {
@@ -31,14 +31,14 @@ namespace Model
             return Id == veiculo.Id;
         }
 
-        public static Model.Veiculo CriarVeiculo(
+        public static Models.Veiculo CriarVeiculo(
             int Id,
             string Placa,
             int IdMovimentacao,
             int IdTipo,
             int IdCartao
         ){
-            return new Model.Veiculo(
+            return new Models.Veiculo(
               
                 Placa,
                 IdMovimentacao,
@@ -47,7 +47,7 @@ namespace Model
             );
         }
 
-        public static Model.Veiculo AlterarVeiculo(
+        public static Models.Veiculo AlterarVeiculo(
             int Id,
             string Placa,
             int IdMovimentacao,

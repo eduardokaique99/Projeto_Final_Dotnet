@@ -2,7 +2,7 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace View {
+namespace Views {
 
     public class LoginADM {
 
@@ -34,7 +34,7 @@ namespace View {
             btnUser.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                //View.Usuario.Usuario();
+                //Views.Usuario.Usuario();
             };
 
             Button btnTurno = new Button();
@@ -48,7 +48,7 @@ namespace View {
             btnTurno.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                //View.Turno.Turnos();   
+                //Views.Turno.Turnos();   
             };
 
             Button btnTipo = new Button();
@@ -62,7 +62,7 @@ namespace View {
             btnTipo.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                View.TipoVeiculo.ListarTipos();   
+                Views.TipoVeiculo.ListarTipos();   
             };
 
             Button btnVeiculo = new Button();
@@ -76,7 +76,7 @@ namespace View {
             btnVeiculo.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                View.Veiculo.ListarVeiculos(); 
+                Views.Veiculo.ListarVeiculos(); 
             };
 
             Button btnMov = new Button();
@@ -90,7 +90,7 @@ namespace View {
             btnMov.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                View.Movimentacao.ListarMovimentacoes();  
+                Views.Movimentacao.ListarMovimentacoes();  
             };
 
             

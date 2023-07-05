@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace View {
+namespace Views {
     
     public class Veiculo {
         
@@ -24,8 +24,8 @@ namespace View {
             listaVeiculo.FullRowSelect = true;
             listaVeiculo.GridLines = true;
 
-            List<Model.Veiculo> veiculosList = Controller.Veiculo.ListaVeiculo();
-            foreach (Model.Veiculo veiculo in veiculosList) {
+            List<Models.Veiculo> veiculosList = Controllers.Veiculo.ListaVeiculo();
+            foreach (Models.Veiculo veiculo in veiculosList) {
                 ListViewItem item = new ListViewItem(veiculo.Id.ToString());
                 item.SubItems.Add(veiculo.Descricao);
                 listaVeiculo.Items.Add(item);
@@ -150,7 +150,7 @@ namespace View {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controller.Veiculo.CriarVeiculo(int.Parse(txtId.Text), txtDescri.Text);
+                    Controllers.Veiculo.CriarVeiculo(int.Parse(txtId.Text), txtDescri.Text);
                     adicionarVeiculo.Hide();
                     adicionarVeiculo.Close();
                     adicionarVeiculo.Dispose();
@@ -193,7 +193,7 @@ namespace View {
 
 
         public static void AlterarVeiculo(int id) {
-            Model.Veiculo veiculo = Controller.Veiculo.BuscarVeiculo(id);
+            Models.Veiculo veiculo = Controllers.Veiculo.BuscarVeiculo(id);
             Form editar = new Form();
             editar.Text = "Editar Veiculo de veículo";
             editar.Size = new System.Drawing.Size(400, 250);
@@ -244,7 +244,7 @@ namespace View {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controller.Veiculo.AlterarVeiculo(id, txtDescri.Text);
+                Controllers.Veiculo.AlterarVeiculo(id, txtDescri.Text);
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
@@ -290,7 +290,7 @@ namespace View {
         sim.Left = 10;
         sim.Size = new System.Drawing.Size(70, 25);
         sim.Click += (sender, e) => {
-            Controller.Veiculo.ExcluirVeiculo(id);
+            Controllers.Veiculo.ExcluirVeiculo(id);
             remove.Close();
             remove.Dispose();
             ListarVeiculos();          

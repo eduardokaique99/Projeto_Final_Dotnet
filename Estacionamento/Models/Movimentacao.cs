@@ -1,4 +1,4 @@
-namespace Model
+namespace Models
   {
   public class Movimentacao
     {
@@ -32,16 +32,16 @@ namespace Model
             return Id == movimentacao.Id;
         }
 
-        public static Model.Movimentacao CriarMovimentacao(
+        public static Models.Movimentacao CriarMovimentacao(
             int estacionamentoId, DateTime dataEntrada, DateTime dataSaida
         ) {
-            return new Model.Movimentacao(
+            return new Models.Movimentacao(
                 estacionamentoId, 
                 dataEntrada, 
                 dataSaida
             );
         }
-        public static Model.Movimentacao AlterarMovimentacao(
+        public static Models.Movimentacao AlterarMovimentacao(
             int id,
             int estacionamentoId, 
             DateTime dataEntrada, 

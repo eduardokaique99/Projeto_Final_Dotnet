@@ -1,4 +1,4 @@
- namespace Model
+ namespace Models
   {
   public class Cartao
     {
@@ -26,14 +26,14 @@
             return Id == cartao.Id;
         }
 
-        public static Model.Cartao CriarCartao(
+        public static Models.Cartao CriarCartao(
             string codigo
         ) {
-            return new Model.Cartao(
+            return new Models.Cartao(
                 codigo
             );
         }
-        public static Model.Cartao AlterarCartao(
+        public static Models.Cartao AlterarCartao(
             int id,
             string codigo
         )

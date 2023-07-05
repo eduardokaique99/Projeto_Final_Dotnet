@@ -9,8 +9,9 @@ namespace Models
         public virtual Estacionamento Estacionamento { get; set; }
 
 
-        public Movimentacao(int estacionamentoId, DateTime dataEntrada, DateTime dataSaida)
+        public Movimentacao(int id, int estacionamentoId, DateTime dataEntrada, DateTime dataSaida)
         {
+            Id = id;
             EstacionamentoId = estacionamentoId;
             DataEntrada = dataEntrada;
             DataSaida = dataSaida;
@@ -33,9 +34,10 @@ namespace Models
         }
 
         public static Models.Movimentacao CriarMovimentacao(
-            int estacionamentoId, DateTime dataEntrada, DateTime dataSaida
+            int id, int estacionamentoId, DateTime dataEntrada, DateTime dataSaida
         ) {
             return new Models.Movimentacao(
+                id,
                 estacionamentoId, 
                 dataEntrada, 
                 dataSaida

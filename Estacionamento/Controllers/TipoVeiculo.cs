@@ -12,30 +12,30 @@ namespace Controllers
         }
 
         public static Models.TipoVeiculo AlterarTipoVeiculo(
-            string id,
+            int id,
             string descricao
         )
         {
             return Models.TipoVeiculo.AlterarTipoVeiculo(
-                int.Parse(id),
+                id,
                 descricao
             );
         }
 
         public static Models.TipoVeiculo ExcluirTipoVeiculo(
-            string id
+            int id
         )
         {
             return Models.TipoVeiculo.ExcluirTipoVeiculo(
-                int.Parse(id)
+                id
             );
         }
 
         public static Models.TipoVeiculo BuscarTipoVeiculo(
-            string id
+            int id
         ) {
             return Models.TipoVeiculo.BuscarTipoVeiculo(
-                int.Parse(id)
+                id
             );
         }
 

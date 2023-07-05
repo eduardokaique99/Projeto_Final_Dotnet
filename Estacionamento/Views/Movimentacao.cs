@@ -18,9 +18,11 @@ namespace Views {
             ListView listaMovimentacao = new ListView();
             listaMovimentacao.Size = new System.Drawing.Size(665, 400);
             listaMovimentacao.Location = new System.Drawing.Point(10, 10);
-            listaMovimentacao.View = View.Details;
+            //listaMovimentacao.View = View.Details;
             listaMovimentacao.Columns.Add("Id", 50);
-            listaMovimentacao.Columns.Add("Descrição", 611);
+            listaMovimentacao.Columns.Add("Id Estacionamento", 100);
+            listaMovimentacao.Columns.Add("Data Entrada", 100);
+            listaMovimentacao.Columns.Add("Data Saída", 100);
             listaMovimentacao.FullRowSelect = true;
             listaMovimentacao.GridLines = true;
 
@@ -125,19 +127,47 @@ namespace Views {
             txtId.Size = new System.Drawing.Size(230, 35);
 
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Descrição:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblEstacionamentoId = new Label();
+            lblEstacionamentoId.Text = "Id Estacionamento:";
+            lblEstacionamentoId.Top = 60;
+            lblEstacionamentoId.Left = 10;
+            lblEstacionamentoId.ForeColor = Color.White;
+            lblEstacionamentoId.Font = new Font(lblEstacionamentoId.Font.FontFamily, 19);
+            lblEstacionamentoId.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            TextBox txtEstacionamentoId = new TextBox();
+            txtEstacionamentoId.Top = 67;
+            txtEstacionamentoId.Left = 140;
+            txtEstacionamentoId.BackColor = Color.LightGray;
+            txtEstacionamentoId.Size = new System.Drawing.Size(230, 35);
+
+            Label lblDataEntrada = new Label();
+            lblDataEntrada.Text = "Data Entrada:";
+            lblDataEntrada.Top = 85;
+            lblDataEntrada.Left = 10;
+            lblDataEntrada.ForeColor = Color.White;
+            lblDataEntrada.Font = new Font(lblDataEntrada.Font.FontFamily, 19);
+            lblDataEntrada.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtDataEntrada = new TextBox();
+            txtDataEntrada.Top = 92;
+            txtDataEntrada.Left = 140;
+            txtDataEntrada.BackColor = Color.LightGray;
+            txtDataEntrada.Size = new System.Drawing.Size(230, 35);
+
+            Label lblDataSaida = new Label();
+            lblDataSaida.Text = "Data Saída:";
+            lblDataSaida.Top = 120;
+            lblDataSaida.Left = 10;
+            lblDataSaida.ForeColor = Color.White;
+            lblDataSaida.Font = new Font(lblDataSaida.Font.FontFamily, 19);
+            lblDataSaida.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtDataSaida = new TextBox();
+            txtDataSaida.Top = 127;
+            txtDataSaida.Left = 140;
+            txtDataSaida.BackColor = Color.LightGray;
+            txtDataSaida.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -150,7 +180,7 @@ namespace Views {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controllers.Movimentacao.CriarMovimentacao(int.Parse(txtId.Text), txtDescri.Text);
+                    Controllers.Movimentacao.CriarMovimentacao(int.Parse(txtId.Text), int.Parse(txtEstacionamentoId.Text), txtDataEntrada.Text, txtDataSaida.Text);
                     adicionarMovimentacao.Hide();
                     adicionarMovimentacao.Close();
                     adicionarMovimentacao.Dispose();
@@ -184,8 +214,12 @@ namespace Views {
 
             adicionarMovimentacao.Controls.Add(lblId);
             adicionarMovimentacao.Controls.Add(txtId);
-            adicionarMovimentacao.Controls.Add(lblDescri);
-            adicionarMovimentacao.Controls.Add(txtDescri);
+            adicionarMovimentacao.Controls.Add(lblEstacionamentoId);
+            adicionarMovimentacao.Controls.Add(txtEstacionamentoId);
+            adicionarMovimentacao.Controls.Add(lblDataEntrada);
+            adicionarMovimentacao.Controls.Add(txtDataEntrada);
+            adicionarMovimentacao.Controls.Add(lblDataSaida);
+            adicionarMovimentacao.Controls.Add(txtDataSaida);
             adicionarMovimentacao.Controls.Add(btnSalvar);
             adicionarMovimentacao.Controls.Add(btnCancelar);
             adicionarMovimentacao.ShowDialog();
@@ -220,20 +254,47 @@ namespace Views {
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Descrição:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblEstacionamentoId = new Label();
+            lblEstacionamentoId.Text = "Id Estacionamento:";
+            lblEstacionamentoId.Top = 60;
+            lblEstacionamentoId.Left = 10;
+            lblEstacionamentoId.ForeColor = Color.White;
+            lblEstacionamentoId.Font = new Font(lblEstacionamentoId.Font.FontFamily, 19);
+            lblEstacionamentoId.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
-            txtDescri.Text = veiculo.Descricao;
+            TextBox txtEstacionamentoId = new TextBox();
+            txtEstacionamentoId.Top = 67;
+            txtEstacionamentoId.Left = 140;
+            txtEstacionamentoId.BackColor = Color.LightGray;
+            txtEstacionamentoId.Size = new System.Drawing.Size(230, 35);
+
+            Label lblDataEntrada = new Label();
+            lblDataEntrada.Text = "Data Entrada:";
+            lblDataEntrada.Top = 85;
+            lblDataEntrada.Left = 10;
+            lblDataEntrada.ForeColor = Color.White;
+            lblDataEntrada.Font = new Font(lblDataEntrada.Font.FontFamily, 19);
+            lblDataEntrada.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtDataEntrada = new TextBox();
+            txtDataEntrada.Top = 92;
+            txtDataEntrada.Left = 140;
+            txtDataEntrada.BackColor = Color.LightGray;
+            txtDataEntrada.Size = new System.Drawing.Size(230, 35);
+
+            Label lblDataSaida = new Label();
+            lblDataSaida.Text = "Data Saída:";
+            lblDataSaida.Top = 120;
+            lblDataSaida.Left = 10;
+            lblDataSaida.ForeColor = Color.White;
+            lblDataSaida.Font = new Font(lblDataSaida.Font.FontFamily, 19);
+            lblDataSaida.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtDataSaida = new TextBox();
+            txtDataSaida.Top = 127;
+            txtDataSaida.Left = 140;
+            txtDataSaida.BackColor = Color.LightGray;
+            txtDataSaida.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -244,7 +305,7 @@ namespace Views {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controllers.Movimentacao.AlterarMovimentacao(id, txtDescri.Text);
+                Controllers.Movimentacao.AlterarMovimentacao(int.Parse(txtId.Text), int.Parse(txtEstacionamentoId.Text), txtDataEntrada.Text, txtDataSaida.Text);
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
@@ -266,8 +327,12 @@ namespace Views {
 
             editar.Controls.Add(lblId);
             editar.Controls.Add(txtId);
-            editar.Controls.Add(lblDescri);
-            editar.Controls.Add(txtDescri);
+            editar.Controls.Add(lblEstacionamentoId);
+            editar.Controls.Add(txtEstacionamentoId);
+            editar.Controls.Add(lblDataEntrada);
+            editar.Controls.Add(txtDataEntrada);
+            editar.Controls.Add(lblDataSaida);
+            editar.Controls.Add(txtDataSaida);
             editar.Controls.Add(btnSalvar);
             editar.Controls.Add(btnCancelar);
             editar.ShowDialog();

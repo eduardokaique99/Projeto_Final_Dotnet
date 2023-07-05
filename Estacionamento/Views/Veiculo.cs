@@ -18,18 +18,21 @@ namespace Views {
             ListView listaVeiculo = new ListView();
             listaVeiculo.Size = new System.Drawing.Size(665, 400);
             listaVeiculo.Location = new System.Drawing.Point(10, 10);
-            listaVeiculo.View = View.Details;
+            //listaVeiculo.View = View.Details;
             listaVeiculo.Columns.Add("Id", 50);
-            listaVeiculo.Columns.Add("Placa", 611);
+            listaVeiculo.Columns.Add("Placa", 100);
+            listaVeiculo.Columns.Add("Id Movimen.", 100);
+            listaVeiculo.Columns.Add("Id Tipo", 100);
+            listaVeiculo.Columns.Add("Id Cartão", 100);
             listaVeiculo.FullRowSelect = true;
             listaVeiculo.GridLines = true;
 
-            List<Models.Veiculo> veiculosList = Controllers.Veiculo.ListaVeiculo();
-            foreach (Models.Veiculo veiculo in veiculosList) {
-                ListViewItem item = new ListViewItem(veiculo.Id.ToString());
-                item.SubItems.Add(veiculo.Descricao);
-                listaVeiculo.Items.Add(item);
-            }
+            //List<Models.Veiculo> veiculosList = Controllers.Veiculo.ListaVeiculo();
+            //foreach (Models.Veiculo veiculo in veiculosList) {
+            //    ListViewItem item = new ListViewItem(veiculo.Id.ToString());
+            //    item.SubItems.Add(veiculo.Descricao);
+            //    listaVeiculo.Items.Add(item);
+            //}
 
             Button btnAdicionar = new Button();
             btnAdicionar.Text = "Adicionar";
@@ -124,20 +127,61 @@ namespace Views {
             txtId.BackColor = Color.LightGray;
             txtId.Size = new System.Drawing.Size(230, 35);
 
+            Label lblPlaca = new Label();
+            lblPlaca.Text = "Placa:";
+            lblPlaca.Top = 60;
+            lblPlaca.Left = 10;
+            lblPlaca.ForeColor = Color.White;
+            lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 19);
+            lblPlaca.Size = new System.Drawing.Size(130, 35);
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Placa:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            TextBox txtPlaca = new TextBox();
+            txtPlaca.Top = 67;
+            txtPlaca.Left = 140;
+            txtPlaca.BackColor = Color.LightGray;
+            txtPlaca.Size = new System.Drawing.Size(230, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            Label lblIdMovimentacao = new Label();
+            lblIdMovimentacao.Text = "Id Movimentação:";
+            lblIdMovimentacao.Top = 60;
+            lblIdMovimentacao.Left = 10;
+            lblIdMovimentacao.ForeColor = Color.White;
+            lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 19);
+            lblIdMovimentacao.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdMovimentacao = new TextBox();
+            txtIdMovimentacao.Top = 67;
+            txtIdMovimentacao.Left = 140;
+            txtIdMovimentacao.BackColor = Color.LightGray;
+            txtIdMovimentacao.Size = new System.Drawing.Size(230, 35);
+
+            Label lblIdTipo = new Label();
+            lblIdTipo.Text = "Id Tipo:";
+            lblIdTipo.Top = 85;
+            lblIdTipo.Left = 10;
+            lblIdTipo.ForeColor = Color.White;
+            lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 19);
+            lblIdTipo.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdTipo = new TextBox();
+            txtIdTipo.Top = 92;
+            txtIdTipo.Left = 140;
+            txtIdTipo.BackColor = Color.LightGray;
+            txtIdTipo.Size = new System.Drawing.Size(230, 35);
+
+            Label lblIdCartao = new Label();
+            lblIdCartao.Text = "Id Cartão:";
+            lblIdCartao.Top = 120;
+            lblIdCartao.Left = 10;
+            lblIdCartao.ForeColor = Color.White;
+            lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 19);
+            lblIdCartao.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdCartao = new TextBox();
+            txtIdCartao.Top = 127;
+            txtIdCartao.Left = 140;
+            txtIdCartao.BackColor = Color.LightGray;
+            txtIdCartao.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -150,7 +194,7 @@ namespace Views {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controllers.Veiculo.CriarVeiculo(int.Parse(txtId.Text), txtDescri.Text);
+                    Controllers.Veiculo.CriarVeiculo(int.Parse(txtId.Text), txtPlaca.Text, int.Parse(txtIdMovimentacao.Text), int.Parse(txtIdTipo.Text), int.Parse(txtIdCartao.Text));
                     adicionarVeiculo.Hide();
                     adicionarVeiculo.Close();
                     adicionarVeiculo.Dispose();
@@ -184,8 +228,14 @@ namespace Views {
 
             adicionarVeiculo.Controls.Add(lblId);
             adicionarVeiculo.Controls.Add(txtId);
-            adicionarVeiculo.Controls.Add(lblDescri);
-            adicionarVeiculo.Controls.Add(txtDescri);
+            adicionarVeiculo.Controls.Add(lblPlaca);
+            adicionarVeiculo.Controls.Add(txtPlaca);
+            adicionarVeiculo.Controls.Add(lblIdMovimentacao);
+            adicionarVeiculo.Controls.Add(txtIdMovimentacao);
+            adicionarVeiculo.Controls.Add(lblIdTipo);
+            adicionarVeiculo.Controls.Add(txtIdTipo);
+            adicionarVeiculo.Controls.Add(lblIdCartao);
+            adicionarVeiculo.Controls.Add(txtIdCartao);
             adicionarVeiculo.Controls.Add(btnSalvar);
             adicionarVeiculo.Controls.Add(btnCancelar);
             adicionarVeiculo.ShowDialog();
@@ -220,20 +270,61 @@ namespace Views {
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Placa:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblPlaca = new Label();
+            lblPlaca.Text = "Placa:";
+            lblPlaca.Top = 60;
+            lblPlaca.Left = 10;
+            lblPlaca.ForeColor = Color.White;
+            lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 19);
+            lblPlaca.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
-            txtDescri.Text = veiculo.Descricao;
+            TextBox txtPlaca = new TextBox();
+            txtPlaca.Top = 67;
+            txtPlaca.Left = 140;
+            txtPlaca.BackColor = Color.LightGray;
+            txtPlaca.Size = new System.Drawing.Size(230, 35);
+
+            Label lblIdMovimentacao = new Label();
+            lblIdMovimentacao.Text = "Id Movimentação:";
+            lblIdMovimentacao.Top = 60;
+            lblIdMovimentacao.Left = 10;
+            lblIdMovimentacao.ForeColor = Color.White;
+            lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 19);
+            lblIdMovimentacao.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdMovimentacao = new TextBox();
+            txtIdMovimentacao.Top = 67;
+            txtIdMovimentacao.Left = 140;
+            txtIdMovimentacao.BackColor = Color.LightGray;
+            txtIdMovimentacao.Size = new System.Drawing.Size(230, 35);
+
+            Label lblIdTipo = new Label();
+            lblIdTipo.Text = "Id Tipo:";
+            lblIdTipo.Top = 85;
+            lblIdTipo.Left = 10;
+            lblIdTipo.ForeColor = Color.White;
+            lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 19);
+            lblIdTipo.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdTipo = new TextBox();
+            txtIdTipo.Top = 92;
+            txtIdTipo.Left = 140;
+            txtIdTipo.BackColor = Color.LightGray;
+            txtIdTipo.Size = new System.Drawing.Size(230, 35);
+
+            Label lblIdCartao = new Label();
+            lblIdCartao.Text = "Id Cartão:";
+            lblIdCartao.Top = 120;
+            lblIdCartao.Left = 10;
+            lblIdCartao.ForeColor = Color.White;
+            lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 19);
+            lblIdCartao.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdCartao = new TextBox();
+            txtIdCartao.Top = 127;
+            txtIdCartao.Left = 140;
+            txtIdCartao.BackColor = Color.LightGray;
+            txtIdCartao.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -244,7 +335,7 @@ namespace Views {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controllers.Veiculo.AlterarVeiculo(id, txtDescri.Text);
+                Controllers.Veiculo.AlterarVeiculo(int.Parse(txtId.Text), txtPlaca.Text, int.Parse(txtIdMovimentacao.Text), int.Parse(txtIdTipo.Text), int.Parse(txtIdCartao.Text));
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
@@ -266,8 +357,14 @@ namespace Views {
 
             editar.Controls.Add(lblId);
             editar.Controls.Add(txtId);
-            editar.Controls.Add(lblDescri);
-            editar.Controls.Add(txtDescri);
+            editar.Controls.Add(lblPlaca);
+            editar.Controls.Add(txtPlaca);
+            editar.Controls.Add(lblIdMovimentacao);
+            editar.Controls.Add(txtIdMovimentacao);
+            editar.Controls.Add(lblIdTipo);
+            editar.Controls.Add(txtIdTipo);
+            editar.Controls.Add(lblIdCartao);
+            editar.Controls.Add(txtIdCartao);
             editar.Controls.Add(btnSalvar);
             editar.Controls.Add(btnCancelar);
             editar.ShowDialog();

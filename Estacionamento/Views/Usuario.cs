@@ -1,6 +1,6 @@
-using Controller;
+using Controllers;
 
-namespace View
+namespace Views
 {
    /* public class Usuario
     {

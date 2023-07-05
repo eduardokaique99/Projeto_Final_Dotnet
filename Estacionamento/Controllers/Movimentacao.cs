@@ -2,47 +2,49 @@ namespace Controllers
 {
     public class Movimentacao {
         public static Models.Movimentacao CriarMovimentacao(
-            string estacionamentoId,
+            int id,
+            int estacionamentoId,
             string dataEntrada,
             string dataSaida
         )
         {
             return Models.Movimentacao.CriarMovimentacao(
-                int.Parse(estacionamentoId),
+                id,
+                estacionamentoId,
                 DateTime.Parse(dataEntrada),
                 DateTime.Parse(dataSaida)
             );
         }
 
         public static Models.Movimentacao AlterarMovimentacao(
-            string id,
-            string estacionamentoId,
+            int id,
+            int estacionamentoId,
             string dataEntrada,
             string dataSaida
         )
         {
             return Models.Movimentacao.AlterarMovimentacao(
-                int.Parse(id),
-                int.Parse(estacionamentoId),
+                id,
+                estacionamentoId,
                 DateTime.Parse(dataEntrada),
                 DateTime.Parse(dataSaida)
             );
         }
 
         public static Models.Movimentacao ExcluirMovimentacao(
-            string id
+            int id
         )
         {
             return Models.Movimentacao.ExcluirMovimentacao(
-                int.Parse(id)
+                id
             );
         }
 
         public static Models.Movimentacao BuscarMovimentacao(
-            string id
+            int id
         ) {
             return Models.Movimentacao.BuscarMovimentacao(
-                int.Parse(id)
+                id
             );
         }
 

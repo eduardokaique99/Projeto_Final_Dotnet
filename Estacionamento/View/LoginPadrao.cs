@@ -32,7 +32,7 @@ namespace View {
             btnTipo.BackColor = Color.BlueViolet;
             btnTipo.ForeColor = Color.White;
             btnTipo.Click += (sender, e) => {
-                TipoVeiculo.ListarTipos();
+                //TipoVeiculo.ListarTipos();
             };
 
             Button btnVeiculo = new Button();

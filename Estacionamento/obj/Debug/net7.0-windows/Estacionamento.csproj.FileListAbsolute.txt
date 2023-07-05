@@ -67,3 +67,11 @@ C:\Users\Mariane Camilo Costa\DevFaculdade\3° Semestre\Projeto_Final_Jackson\Es
 C:\Users\Mariane Camilo Costa\DevFaculdade\3° Semestre\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Mariane Camilo Costa\DevFaculdade\3° Semestre\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Mariane Camilo Costa\DevFaculdade\3° Semestre\Projeto_Final_Jackson\Estacionamento\bin\Debug\net7.0-windows\Mono.TextTemplating.dll
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.csproj.AssemblyReference.cache
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.AssemblyInfoInputs.cache
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.AssemblyInfo.cs
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.csproj.CoreCompileInputs.cache
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.dll
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\refint\Estacionamento.dll
+C:\Users\eduardo.furlaneto\JACKSON\Projeto_Final_Jackson\Estacionamento\obj\Debug\net7.0-windows\Estacionamento.pdb

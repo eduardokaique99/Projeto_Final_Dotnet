@@ -84,9 +84,9 @@ public partial class Form1 : Form
             btnLogin.BackColor = Color.BlueViolet;
             btnLogin.ForeColor = Color.White;
             btnLogin.Click += (sender, e) => {
-                //produtos.Close();
-                //produtos.Dispose();
-                //AdicionarProduto();   
+                menu.Close();
+                menu.Dispose();
+                View.LoginADM.ADM();
             };
             
             menu.Controls.Add(lbl1);

@@ -2,6 +2,7 @@ namespace Controller
 {
     public class TipoVeiculo {
         public static Model.TipoVeiculo CriarTipoVeiculo(
+            int id,
             string descricao
         )
         {

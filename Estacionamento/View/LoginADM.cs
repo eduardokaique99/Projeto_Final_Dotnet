@@ -2,11 +2,11 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Views {
+namespace View {
 
-    public class Menu {
+    public class LoginADM {
 
-        public static void Menus() {
+        public static void ADM() {
             
             Form menu = new Form();
             menu.Text = "Administrador";
@@ -32,9 +32,9 @@ namespace Views {
             btnUser.BackColor = Color.BlueViolet;
             btnUser.ForeColor = Color.White;
             btnUser.Click += (sender, e) => {
-                //produtos.Close();
-                //produtos.Dispose();
-                //AdicionarProduto();   
+                menu.Close();
+                menu.Dispose();
+                //View.Usuario.Usuario();
             };
 
             Button btnTurno = new Button();
@@ -46,9 +46,9 @@ namespace Views {
             btnTurno.BackColor = Color.BlueViolet;
             btnTurno.ForeColor = Color.White;
             btnTurno.Click += (sender, e) => {
-                //produtos.Close();
-                //produtos.Dispose();
-                //AdicionarProduto();   
+                menu.Close();
+                menu.Dispose();
+                //View.Turno.Turnos();   
             };
 
             Button btnTipo = new Button();
@@ -60,9 +60,9 @@ namespace Views {
             btnTipo.BackColor = Color.BlueViolet;
             btnTipo.ForeColor = Color.White;
             btnTipo.Click += (sender, e) => {
-                //produtos.Close();
-                //produtos.Dispose();
-                //AdicionarProduto();   
+                menu.Close();
+                menu.Dispose();
+                View.TipoVeiculo.ListarTipos();   
             };
 
             Button btnVeiculo = new Button();
@@ -74,9 +74,9 @@ namespace Views {
             btnVeiculo.BackColor = Color.BlueViolet;
             btnVeiculo.ForeColor = Color.White;
             btnVeiculo.Click += (sender, e) => {
-                //produtos.Close();
-                //produtos.Dispose();
-                //AdicionarProduto();   
+                menu.Close();
+                menu.Dispose();
+                View.Veiculo.ListarVeiculos(); 
             };
 
             Button btnMov = new Button();
@@ -88,9 +88,9 @@ namespace Views {
             btnMov.BackColor = Color.BlueViolet;
             btnMov.ForeColor = Color.White;
             btnMov.Click += (sender, e) => {
-                //produtos.Close();
-                //produtos.Dispose();
-                //AdicionarProduto();   
+                menu.Close();
+                menu.Dispose();
+                View.Movimentacao.ListarMovimentacoes();  
             };
 
             

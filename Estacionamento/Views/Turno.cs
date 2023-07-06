@@ -1,309 +1,316 @@
-using Controllers;
+using System;
+using System.Windows.Forms;
 
-namespace View
-{
-    /*public class Turno
-    {
-        public static void listarTurno()
-        {
-            Form form = new Form();
-            form.Text = "Lista de Usuários";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {listarForm.Dispose();};
+namespace Views {
+    
+    public class Turno {
+        
+        public static void ListarTurno() {
+            Form tipos = new Form();
+            tipos.Text = "Turnos";
+            tipos.Size = new System.Drawing.Size(700, 500);
+            tipos.StartPosition = FormStartPosition.CenterScreen;
+            tipos.FormBorderStyle = FormBorderStyle.FixedSingle;
+            tipos.MaximizeBox = false;
+            tipos.MinimizeBox = false;
+            tipos.BackColor = Color.BlueViolet;
 
-            ListView lista = new ListView();
-            lista.Location = new System.Drawing.Point(10,10);
-            lista.Size = new System.Drawing.Size(480,350);
-            lista.View = System.Windows.Forms.View.Details;
+            ListView listaTipo = new ListView();
+            listaTipo.Size = new System.Drawing.Size(665, 400);
+            listaTipo.Location = new System.Drawing.Point(10, 10);
+            listaTipo.View = View.Details;
+            listaTipo.Columns.Add("Id", 50);
+            listaTipo.Columns.Add("Descrição", 611);
+            listaTipo.FullRowSelect = true;
+            listaTipo.GridLines = true;
 
-            lista.Columns.Add("Id");
-            lista.Columns.Add("Período");
-            lista.Columns.Add("Escala");
-
-            foreach(Model.Turno turno in Model.Turno.turnos){
-                lista.Items.Add(new ListViewItem(new string[] {turno.id.ToString(), turno.nome.ToString()}));
+            List<Models.Turno> turnoList = Controllers.Turno.ListaTurno();
+            foreach (Models.Turno turno in turnoList) {
+                ListViewItem item = new ListViewItem(turno.Id.ToString());
+                item.SubItems.Add(turno.Descricao);
+                listaTipo.Items.Add(item);
             }
 
-            Button CadastrarTurnoButton = new Button();
-            CadastrarTurnoButton.Text = "Incluir";
-            CadastrarTurnoButton.Top = 360;
-            CadastrarTurnoButton.Left = 10;
-            CadastrarTurnoButton.Width = 70;
-            CadastrarTurnoButton.Click += (sender, e) => {View.Turno.addTurno();
+            Button btnAdicionar = new Button();
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.Top = 420;
+            btnAdicionar.Left = 10;
+            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 19);
+            btnAdicionar.BackColor = Color.White;
+            btnAdicionar.ForeColor = Color.BlueViolet;
+            btnAdicionar.Size = new System.Drawing.Size(150, 35);
+            btnAdicionar.Click += (sender, e) => {
+                tipos.Close();
+                tipos.Dispose();
+                CriarTurno();
+            };
             
-                form.Close();
-                form.Dispose();            
+            
+            Button btnEdit = new Button();
+            btnEdit.Text = "Editar";
+            btnEdit.Top = 420;
+            btnEdit.Left = 181;
+            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 19);
+            btnEdit.BackColor = Color.White;
+            btnEdit.ForeColor = Color.BlueViolet;
+            btnEdit.Size = new System.Drawing.Size(150, 35);
+            btnEdit.Click += (sender, e) => {
+                string id = listaTipo.SelectedItems[0].Text;
+                tipos.Close();
+                tipos.Dispose();
+                AlterarTurno(Int32.Parse(id));
+                tipos.Close();
             };
 
-            Button AlterarTurnoButton = new Button();
-            AlterarTurnoButton.Text = "Alterar";
-            AlterarTurnoButton.Top = 360;
-            AlterarTurnoButton.Left = 90;
-            AlterarTurnoButton.Width = 60;
-            AlterarTurnoButton.Click += (sender, e) => {View.Turno.addTurno();
-            
-                form.Close();
-                form.Dispose();
+
+            Button BtnRemove = new Button();
+            BtnRemove.Text = "Remove";
+            BtnRemove.Top = 420;
+            BtnRemove.Left = 352;
+            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 19);
+            BtnRemove.BackColor = Color.White;
+            BtnRemove.ForeColor = Color.BlueViolet;
+            BtnRemove.Size = new System.Drawing.Size(150, 35);
+            BtnRemove.Click += (sender, e) => {
+                string id = listaTipo.SelectedItems[0].Text;
+                ExcluirTurno(Int32.Parse(id));
+                tipos.Dispose();
+                tipos.Close();
             };
 
-            Button ExcluirTurnoButton = new Button();
-            ExcluirTurnoButton.Text = "Excluir";
-            ExcluirTurnoButton.Top = 360;
-            ExcluirTurnoButton.Left = 160;
-            ExcluirTurnoButton.Width = 60;
-            ExcluirTurnoButton.Click += (sender, e) => {View.Turno.addTurno();
-            
-                form.Close();
-                form.Dispose();
+            Button BtnVoltar = new Button();
+            BtnVoltar.Text = "Voltar";
+            BtnVoltar.Top = 420;
+            BtnVoltar.Left = 523;
+            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 19);
+            BtnVoltar.BackColor = Color.White;
+            BtnVoltar.ForeColor = Color.BlueViolet;
+            BtnVoltar.Size = new System.Drawing.Size(150, 35);
+            BtnVoltar.Click += (sender, e) => {
+                tipos.Hide();
+                tipos.Close();
+                tipos.Dispose();
             };
 
-            Button SairTurnoButton = new Button();
-            SairTurnoButton.Text = "Voltar";
-            SairTurnoButton.Top = 360;
-            SairTurnoButton = 230;
-            SairTurnoButton = 60;
-            SairTurnoButton.Click += (sender, e) => {View.Turno.addTurno();};
+            tipos.Controls.Add(listaTipo);
+            tipos.Controls.Add(btnAdicionar);
+            tipos.Controls.Add(btnEdit);
+            tipos.Controls.Add(BtnRemove);
+            tipos.Controls.Add(BtnVoltar);
+            tipos.ShowDialog();
+        } 
 
-            form.Controller.Add(CadastrarTurnoButton);
-            form.Controller.Add(AlterarTurnoButton);
-            form.Controller.Add(ExcluirTurnoButton);
-            form.Controller.Add(SairTurnoButton);
-            form.Controller.Add(lista);
-            form.Controller.Add(lista);
-            form.ShowDialog();
+          public static void CriarTurno() {
+            Form adicionarTipo = new Form();
+            adicionarTipo.Text = "Adicionar Turno";
+            adicionarTipo.Size = new System.Drawing.Size(400, 250);
+            adicionarTipo.StartPosition = FormStartPosition.CenterScreen;
+            adicionarTipo.FormBorderStyle = FormBorderStyle.FixedSingle;
+            adicionarTipo.MaximizeBox = false;
+            adicionarTipo.MinimizeBox = false;
+            adicionarTipo.BackColor = Color.BlueViolet;
+
+            Label lblId= new Label();
+            lblId.Text = "Id:";
+            lblId.Top = 25;
+            lblId.Left = 10;
+            lblId.ForeColor = Color.White;
+            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtId = new TextBox();
+            txtId.Top = 32;
+            txtId.Left = 140;
+            txtId.BackColor = Color.LightGray;
+            txtId.Size = new System.Drawing.Size(230, 35);
+
+
+            Label lblDescri = new Label();
+            lblDescri.Text = "Descrição:";
+            lblDescri.Top = 60;
+            lblDescri.Left = 10;
+            lblDescri.ForeColor = Color.White;
+            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
+            lblDescri.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtDescri = new TextBox();
+            txtDescri.Top = 67;
+            txtDescri.Left = 140;
+            txtDescri.BackColor = Color.LightGray;
+            txtDescri.Size = new System.Drawing.Size(230, 35);
+
+            Button btnSalvar = new Button();
+            btnSalvar.Text = "Salvar";
+            btnSalvar.Top = 127;
+            btnSalvar.Left = 20;
+            btnSalvar.BackColor = Color.White;
+            btnSalvar.ForeColor = Color.BlueViolet;
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Size = new System.Drawing.Size(150, 35);
+            btnSalvar.Click += (sender, e) => {
+                try
+                {
+                    Controllers.Turno.CriarTurno(int.Parse(txtId.Text), txtDescri.Text);
+                    adicionarTipo.Hide();
+                    adicionarTipo.Close();
+                    adicionarTipo.Dispose();
+                    ListarTurno();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show($"Erro ao adicionar produto: {err.Message}");
+                }
+                finally 
+                {
+                    adicionarTipo.Hide();
+                    adicionarTipo.Close();
+                    adicionarTipo.Dispose();
+                    ListarTurno();                    
+                }
+                               
+            };
+
+            Button btnCancelar = new Button();
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Top = 127;
+            btnCancelar.Left = 220;
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.ForeColor = Color.BlueViolet;
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Size = new System.Drawing.Size(150, 35);
+            btnCancelar.Click += (sender, e) => {
+                adicionarTipo.Close();
+            };
+
+            adicionarTipo.Controls.Add(lblId);
+            adicionarTipo.Controls.Add(txtId);
+            adicionarTipo.Controls.Add(lblDescri);
+            adicionarTipo.Controls.Add(txtDescri);
+            adicionarTipo.Controls.Add(btnSalvar);
+            adicionarTipo.Controls.Add(btnCancelar);
+            adicionarTipo.ShowDialog();
         }
 
-        public static void AdicionarTurno(){
 
-            Form form = new Form();
-            form.Text = "Turnos";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
+        public static void AlterarTurno(int id) {
+            Models.Turno turno = Controllers.Turno.BuscarTurno(id);
+            Form editar = new Form();
+            editar.Text = "Editar Tipo de veículo";
+            editar.Size = new System.Drawing.Size(400, 250);
+            editar.StartPosition = FormStartPosition.CenterScreen;
+            editar.FormBorderStyle = FormBorderStyle.FixedSingle;
+            editar.MaximizeBox = false;
+            editar.MinimizeBox = false;
+            editar.BackColor = Color.BlueViolet;
 
-            Label LBLIncluirTurno = new Label();
-            LBLIncluirTurno.Text = "Cadastrar turno";
-            LBLIncluirTurno.Top = 10;
-            LBLIncluirTurno.Left = 200;
-            LBLIncluirTurno.Width = 300;
+            Label lblId= new Label();
+            lblId.Text = "Id:";
+            lblId.Top = 25;
+            lblId.Left = 10;
+            lblId.ForeColor = Color.White;
+            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Size = new System.Drawing.Size(130, 35);
 
-            Label LBLIncluirPeriodo = new Label();
-            LBLIncluirPeriodo.Text = "Período: ";
-            LBLIncluirPeriodo.Location = new Ponit (100, 30);
-            LBLIncluirPeriodo.AutoSize = true;
-            LBLIncluirPeriodo.Controller.Add(LBLIncluirPeriodo);
+            TextBox txtId = new TextBox();
+            txtId.Top = 32;
+            txtId.Left = 140;
+            txtId.BackColor = Color.LightGray;
+            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Text = turno.Id.ToString();
+            txtId.ReadOnly = true;
+            txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            TextBox TextoPeriodo = new TextBox();
-            TextoPeriodo.Top = 55;
-            TextoPeriodo.Left = 100;
-            TextoPeriodo.Width = 300;
+            Label lblDescri = new Label();
+            lblDescri.Text = "Descrição:";
+            lblDescri.Top = 60;
+            lblDescri.Left = 10;
+            lblDescri.ForeColor = Color.White;
+            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
+            lblDescri.Size = new System.Drawing.Size(130, 35);
 
-            Label LBLIncluirEscala = new Label();
-            LBLIncluirEscala.Text = "Escala: ";
-            LBLIncluirEscala.Location = new Point (100,60);
-            LBLIncluirEscala.AutoSize = true;
-            LBLIncluirEscala.Controller.Add(LBLIncluirEscala);
+            TextBox txtDescri = new TextBox();
+            txtDescri.Top = 67;
+            txtDescri.Left = 140;
+            txtDescri.BackColor = Color.LightGray;
+            txtDescri.Size = new System.Drawing.Size(230, 35);
+            txtDescri.Text = turno.Descricao;
 
-            TextBox TextoEscala = new TextBox();
-            TextoEscala.Top = 85;
-            TextoEscala.Left = 130;
-            TextoEscala.Width = 330;
-
-            Button CadastrarTurnoButton = new Button();
-            CadastrarTurnoButton.Text = "Cadastrar";
-            CadastrarTurnoButton.Top = 360;
-            CadastrarTurnoButton.Left = 220;
-            CadastrarTurnoButton.Width = 70;
-            CadastrarTurnoButton.Click += (sender, e) => {Controller.Turno.CadastrarTurnoButton(new Model.Turno(id, TextoNome.Text));
-            
-                form.Close();
-                form.Dispose();
-                View.Turno.listarTurno();
+            Button btnSalvar = new Button();
+            btnSalvar.Text = "Salvar";
+            btnSalvar.Top = 127;
+            btnSalvar.Left = 10;
+            btnSalvar.BackColor = Color.White;
+            btnSalvar.ForeColor = Color.BlueViolet;
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Size = new System.Drawing.Size(150, 35);
+            btnSalvar.Click += (sender, e) => {
+                Controllers.Turno.AlterarTurno(id, txtDescri.Text);
+                editar.Hide();
+                editar.Close();
+                editar.Dispose();
+                ListarTurno();
             };
 
-            Button SairTurnoButton = new Button();
-            SairTurnoButton.Text = "Voltar";
-            SairTurnoButton.Top = 360;
-            SairTurnoButton.Left = 300;
-            SairTurnoButton.Width = 60;
-            SairTurnoButton.Click += (sender, e) => {form.Close();
-            
-                form.Dispose();
+            Button btnCancelar = new Button();
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.Top = 127;
+            btnCancelar.Left = 220;
+            btnCancelar.BackColor = Color.White;
+            btnCancelar.ForeColor = Color.BlueViolet;
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Size = new System.Drawing.Size(150, 35);
+            btnCancelar.Click += (sender, e) => {
+                editar.Close();
+                editar.Dispose();
             };
 
-            form.Controller.Add(LBLIncluirTurno);
-            form.Controller.Add(LBLIncluirPeriodo);
-            form.Controller.Add(LBLIncluirEscala);
-            form.Controller.Add(TextoPeriodo);
-            form.Controller.Add(TextoEscala);
-            form.Controller.Add(CadastrarTurnoButton);
-            form.Controller.Add(SairTurnoButton);
-            form.ShowDialog();
+            editar.Controls.Add(lblId);
+            editar.Controls.Add(txtId);
+            editar.Controls.Add(lblDescri);
+            editar.Controls.Add(txtDescri);
+            editar.Controls.Add(btnSalvar);
+            editar.Controls.Add(btnCancelar);
+            editar.ShowDialog();
+    }
+
+
+    public static void ExcluirTurno(int id) {
+
+        Form remove = new Form();
+        remove.Text = "Remover";
+        remove.Size = new System.Drawing.Size(188, 83);
+        remove.StartPosition = FormStartPosition.CenterScreen;
+        remove.FormBorderStyle = FormBorderStyle.FixedSingle;
+        remove.MaximizeBox = false;
+        remove.MinimizeBox = false;
+
+        Button sim = new Button();
+        sim.Text = "Sim";
+        sim.Top = 10;
+        sim.Left = 10;
+        sim.Size = new System.Drawing.Size(70, 25);
+        sim.Click += (sender, e) => {
+            Controllers.Turno.ExcluirTurno(id);
+            remove.Close();
+            remove.Dispose();
+            ListarTurno();          
+        };
+
+        Button nao = new Button();
+        nao.Text = "Não";
+        nao.Top = 10;
+        nao.Left = 90;
+        nao.Size = new System.Drawing.Size(70, 25);
+        nao.Click += (sender, e) => {
+            remove.Hide();
+            remove.Close();
+            remove.Dispose();
+            ListarTurno();
+        };
+
+        remove.Controls.Add(sim);
+        remove.Controls.Add(nao);   
+        remove.ShowDialog();
         }
-
-        public static void AlterarTurno(){
-
-            Form form = new Form();
-            form.Text = "Turnos";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
-
-            Label LBLAlterarTurno = new Label();
-            LBLAlterarTurno.Text = "Alterar turno";
-            LBLAlterarTurno.Top = 10;
-            LBLAlterarTurno.Left = 200;
-            LBLAlterarTurno.Width = 300;
-
-            Label LBLAlterarId = new Label();
-            LBLAlterarId.Text = "Id: ";
-            LBLAlterarId.Location = new point(100,30);
-            LBLAlterarId.AutoSize = true;
-            form.Controller.Add(LBLAlterarId);
-
-            TextBox TextoAlterarId = new TextBox();
-            TextoAlterarId.Top = 60;
-            TextoAlterarId.Left = 100;
-            TextoAlterarId.Width = 300;
-
-            Label LBLAlterarPeriodo = new Label();
-            LBLAlterarPeriodo.Text = "Período: ";
-            LBLAlterarPeriodo.Location = new Point(100, 90);
-            LBLAlterarPeriodo.AutoSize = true;
-            form.Controller.Add(LBLAlterarPeriodo);
-
-            TextBox TextoAlterarPeriodo = new TextBox();
-            TextoAlterarPeriodo.Top = 120;
-            TextoAlterarPeriodo.Left = 100;
-            TextoAlterarPeriodo.Width = 300;
-
-            Label LBLAlterarEscala = new Label();
-            LBLAlterarEscala.Text = "Escala: ";
-            LBLAlterarEscala.Location = new Point (100,60);
-            LBLAlterarEscala.AutoSize = true;
-            LBLAlterarEscala.Controller.Add(LBLIncluirCPF);
-
-            TextBox TextoAlterarEscala = new TextBox();
-            TextoAlterarEscala.Top = 85;
-            TextoAlterarEscala.Left = 130;
-            TextoAlterarEscala.Width = 330;
-
-            Button AlterarTurnoButton = new Button();
-            AlterarTurnoButton.Text = "Alterar";
-            AlterarTurnoButton.Top = 360;
-            AlterarTurnoButton.Left = 220;
-            AlterarTurnoButton.Width = 70;
-            AlterarTurnoButton.Click += (sender, e) => {Controller.Turno.AlterarTurno(new Model.Turno(TextoAlterarNome,int.Parse(TextoAlterarCPF), int.Parse(TextoAlterarPIS)));
-                
-                form.Close();
-                form.Dispose();
-                View.Turno.listarTurno();
-            };
-
-            Button SairTurnoButton = new Button();
-            SairTurnoButton.Text = "Voltar";
-            SairTurnoButton.Top = 360;
-            SairTurnoButton.Left = 300;
-            SairTurnoButton.Width = 60;
-            SairTurnoButton.Click += (sender, e) => { form.Close();
-            
-                form.Dispose();
-            };
-
-            form.Controller.Add(LBLAlterarTurno);
-            form.Controller.Add(LBLAlterarId);
-            form.Controller.Add(LBLAlterarPeriodo);
-            form.Controller.Add(LBLAlterarEscala);
-            form.Controller.Add(TextoAlterarId);
-            form.Controller.Add(TextoAlterarPeriodo);
-            form.Controller.Addo(TextoAlterarEscala);
-            form.Controller.Add(AlterarTurnoButton);
-            form.Controller.Add(SairTurnoButton);
-            form.ShowDialog();
-        }
-
-        public static void ExcluirTurno(){
-
-            Form form = new Form();
-            form.Text = "Turnos";
-            form.Width = 500;
-            form.Height = 500;
-            form.StartPosition = FormStartPosition.CenterScreen;
-            form.FormBorderStyle = FormBorderStyle.FixedDialog;
-            form.MaximizeBox = true;
-            form.MinimizeBox = true;
-            form.ShowIcon = false;
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.FormClosed += (sender, e) => {form.Dispose();};
-        
-            Label LBLExcuir = new Label();
-            LBLExcuir.Text = "Excluir turno";
-            LBLExcuir.Top = 10;
-            LBLExcuir.Left = 200;
-            LBLExcuir.Width = 300;
-
-            Label LBLExcluirId = new Label();
-            LBLExcluirId.Text = "Id:";
-            LBLExcluirId.Location = new Point(100, 30);
-            LBLExcluirId.AutoSize = true;
-            form.Controls.Add(LBLExcluirId);
-
-            TextBox TextoExcluirId = new TextBox();
-            TextoExcluirId.Top = 60;
-            TextoExcluirId.Left = 100;
-            TextoExcluirId.Width = 300;
-
-            Button ExcluirTurnoButton = new Button();
-            ExcluirTurnoButton.Text = "Excluir";
-            ExcluirTurnoButton.Top = 360;
-            ExcluirTurnoButton.Left = 220;
-            ExcluirTurnoButton.Width = 60;
-            ExcluirTurnoButton.Click += (sender, e) => { 
-                Controllers.Turno.excluirTurnos (int.Parse(TextoExcluirId.Text));
-                form.Close(); 
-                form.Dispose();
-                Views.Turno.listarTurno();
-                };
-
-            Button SairTurnoButton = new Button();
-            SairTurnoButton.Text = "Voltar";
-            SairTurnoButton.Top = 360;
-            SairTurnoButton.Left = 300;
-            SairTurnoButton.Width = 60;
-            SairTurnoButton.Click += (sender, e) => { form.Close();
-            
-                form.Dispose();
-            };
-
-            form.Controller.Add(LBLExcuir);
-            form.Controller.Add(LBLExcluirId);
-            form.Controller.Add(TextoExcluirId);
-            form.Controller.Add(ExcluirTurnoButton);
-            form.Controller.Add(SairTurnoButton);
-            form.ShowDialog();
-        }
-    }*/
+    }
 }

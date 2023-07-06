@@ -32,7 +32,7 @@ namespace Views {
             listaVeiculo.GridLines = true;
             veiculos.Controls.Add(listaVeiculo);
 
-            List<Models.Veiculo> veiculoList = (List<Models.Veiculo>)Controllers.Veiculo.BuscarVeiculos();
+            List<Models.Veiculo> veiculoList = Models.Veiculo.BuscarTodos();
             foreach (Models.Veiculo veiculo in veiculoList) {
                 ListViewItem item = new ListViewItem(veiculo.Id.ToString());
                 item.SubItems.Add(veiculo.Placa);

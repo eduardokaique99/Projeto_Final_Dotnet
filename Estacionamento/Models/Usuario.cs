@@ -14,7 +14,6 @@ using MySql.Data.MySqlClient;
 
         public Usuario(int id, string nome, int cpf, int pis, string permissao, string senha)
         {
-            Id = id;
             Nome = nome;
             CPF = cpf;
             PIS = pis;
@@ -105,13 +104,49 @@ using MySql.Data.MySqlClient;
             ).First();
         }
 
-        public static IEnumerable<Usuario> BuscarTodos()
+        //public static IEnumerable<Usuario> BuscarTodos()
+        //{
+        //    Repository.Context context = new Repository.Context();
+        //    return (
+        //        from a in context.Usuarios
+        //        select a
+        //    );
+        //}
+
+        public static List<Usuario> BuscarTodos()
         {
-            Repository.Context context = new Repository.Context();
-            return (
-                from a in context.Usuarios
-                select a
-            );
+            List<Usuario> usuarios = new List<Usuario>();
+
+            string connectionString = "Server=localhost;User Id=root;Database=estacionamento;";
+            string query = "SELECT * FROM Usuario";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Usuario usuario = new Usuario
+                            {
+                                Id = reader.GetInt32("id"),
+                                Nome = reader.GetString("nome"),
+                                CPF = reader.GetInt32("id"),
+                                PIS = reader.GetInt32("id"),
+                                Permissao = reader.GetString("nome"),
+                                Senha = reader.GetString("nome")
+                            };
+
+                            usuarios.Add(usuario);
+                        }
+                    }
+                }
+            }
+
+        return usuarios;
         }
 
         public static bool Login(string nome, string senha)

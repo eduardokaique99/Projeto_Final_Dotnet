@@ -26,7 +26,7 @@ namespace Views {
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
-            List<Models.Turno> turnoList = (List<Models.Turno>)Controllers.Turno.BuscarTurnos();
+            List<Models.Turno> turnoList = Models.Turno.BuscarTodos();
             foreach (Models.Turno turno in turnoList) {
                 ListViewItem item = new ListViewItem(turno.Id.ToString());
                 item.SubItems.Add(turno.Periodo);

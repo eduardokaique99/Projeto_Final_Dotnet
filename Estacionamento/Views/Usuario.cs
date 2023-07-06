@@ -20,13 +20,13 @@ namespace Views {
             listaTipo.Location = new System.Drawing.Point(10, 10);
             listaTipo.View = View.Details;
             listaTipo.Columns.Add("Id:", 50);
-            listaTipo.Columns.Add("Nome:", 611);
-            listaTipo.Columns.Add("CPF:", 611);
-            listaTipo.Columns.Add("PIS:", 611);
+            listaTipo.Columns.Add("Nome:", 150);
+            listaTipo.Columns.Add("CPF:", 150);
+            listaTipo.Columns.Add("PIS:", 150);
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
-            List<Models.Usuario> usuarioList = (List<Models.Usuario>)Controllers.Usuario.BuscarUsuarios();
+            List<Models.Usuario> usuarioList = Models.Usuario.BuscarTodos();
             foreach (Models.Usuario usuario in usuarioList) {
                 ListViewItem item = new ListViewItem(usuario.Id.ToString());
                 item.SubItems.Add(usuario.Nome);

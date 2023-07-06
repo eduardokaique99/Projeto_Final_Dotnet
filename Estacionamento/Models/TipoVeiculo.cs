@@ -1,11 +1,13 @@
+using MySql.Data.MySqlClient;
+
 namespace Models
   {
   public class TipoVeiculo
     {
-        public int Id { get; set; }
-        public string Descricao { get; set; }
+        public int Id {get; set; }
+        public string Descricao {get; set; }
 
-        public TipoVeiculo(string descricao)
+        public TipoVeiculo(int id, string descricao)
         {
             Descricao = descricao;
         }
@@ -27,9 +29,11 @@ namespace Models
         }
 
         public static Models.TipoVeiculo CriarTipoVeiculo(
+            int id,
             string descricao
         ) {
             return new Models.TipoVeiculo(
+                id,
                 descricao
             );
         }
@@ -78,13 +82,45 @@ namespace Models
             ).First();
         }
 
-        public static IEnumerable<TipoVeiculo> BuscarTodos()
+        //public static IEnumerable<TipoVeiculo> BuscarTodos()
+        //{
+        //    Repository.Context context = new Repository.Context();
+        //    return (
+        //        from a in context.TipoVeiculos
+        //        select a
+        //    );
+        //}
+
+        public static List<TipoVeiculo> BuscarTodos()
         {
-            Repository.Context context = new Repository.Context();
-            return (
-                from a in context.TipoVeiculos
-                select a
-            );
+            List<TipoVeiculo> tipoVeiculos = new List<TipoVeiculo>();
+
+            string connectionString = "Server=localhost;User Id=root;Database=estacionamento;";
+            string query = "SELECT * FROM TipoVeiculo";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            TipoVeiculo tipoVeiculo = new TipoVeiculo
+                            {
+                                Id = reader.GetInt32("id"),
+                                Descricao = reader.GetString("descricao"),
+                            };
+
+                            tipoVeiculos.Add(tipoVeiculo);
+                        }
+                    }
+                }
+            }
+
+        return tipoVeiculos;
         }
     }
 }

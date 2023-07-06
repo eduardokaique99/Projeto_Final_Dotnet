@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Controllers
 {
     public class Usuario {
@@ -68,9 +70,10 @@ namespace Controllers
             );
         }
 
-        public static IEnumerable<Models.Usuario> BuscarUsuarios()
-        {
-            return Models.Usuario.BuscarTodos();
-        }
+        //public static IEnumerable<Models.Usuario> BuscarUsuarios()
+        //{
+        //    return Models.Usuario.BuscarTodos();
+        //}
+
     }
 }

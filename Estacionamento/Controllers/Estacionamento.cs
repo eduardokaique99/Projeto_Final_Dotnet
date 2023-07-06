@@ -2,10 +2,12 @@ namespace Controllers
 {
     public class Estacionamento {
         public static Models.Estacionamento CriarEstacionamento(
+            int id,
             string qtdVagas
         )
         {
             return Models.Estacionamento.CriarEstacionamento(
+                id,
                 int.Parse(qtdVagas)
             );
         }
@@ -38,9 +40,9 @@ namespace Controllers
             );
         }
 
-        public static IEnumerable<Models.Estacionamento> BuscarEstacionamentos()
-        {
-            return Models.Estacionamento.BuscarTodos();
-        }
+        //public static IEnumerable<Models.Estacionamento> BuscarEstacionamentos()
+        //{
+        //    return Models.Estacionamento.BuscarTodos();
+        //}
     }
 }

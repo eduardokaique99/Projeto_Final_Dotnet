@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace Models
   {
   public class Turno
@@ -9,7 +11,6 @@ namespace Models
 
         public Turno(int id, string periodo, int escala, int idEstacionamento)
         {   
-            Id = id;
             Periodo = periodo;
             Escala = escala;
             IdEstacionamento = idEstacionamento;
@@ -92,13 +93,47 @@ namespace Models
             ).First();
         }
 
-        public static IEnumerable<Turno> BuscarTodos()
+        //public static IEnumerable<Turno> BuscarTodos()
+        //{
+        //    Repository.Context context = new Repository.Context();
+        //    return (
+        //        from a in context.Turnos
+        //        select a
+        //    );
+        //}
+
+        public static List<Turno> BuscarTodos()
         {
-            Repository.Context context = new Repository.Context();
-            return (
-                from a in context.Turnos
-                select a
-            );
+            List<Turno> turnos = new List<Turno>();
+
+            string connectionString = "Server=localhost;User Id=root;Database=estacionamento;";
+            string query = "SELECT * FROM Turno";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Turno turno = new Turno
+                            {
+                                Id = reader.GetInt32("id"),
+                                Periodo = reader.GetString("periodo"),
+                                Escala = reader.GetInt32("escala"),
+                                IdEstacionamento = reader.GetInt32("idestacionamento"),
+                            };
+
+                            turnos.Add(turno);
+                        }
+                    }
+                }
+            }
+
+        return turnos;
         } 
     }
 }

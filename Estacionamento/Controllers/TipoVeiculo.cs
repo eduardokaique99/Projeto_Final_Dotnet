@@ -7,6 +7,7 @@ namespace Controllers
         )
         {
             return Models.TipoVeiculo.CriarTipoVeiculo(
+                id,
                 descricao
             );
         }

@@ -1,4 +1,6 @@
- namespace Models
+using MySql.Data.MySqlClient;
+
+namespace Models
   {
   public class Cartao
     {
@@ -7,7 +9,6 @@
 
         public Cartao(string codigo)
         {
-            Id = Id;
             Codigo = codigo;
         }
 
@@ -80,13 +81,45 @@
             ).First();
         }
 
-        public static IEnumerable<Cartao> BuscarTodos()
+        //public static IEnumerable<Cartao> BuscarTodos()
+        //{
+        //    Repository.Context context = new Repository.Context();
+        //    return (
+        //        from a in context.Cartoes
+        //        select a
+        //    );
+        //}
+
+        public static List<Cartao> BuscarTodos()
         {
-            Repository.Context context = new Repository.Context();
-            return (
-                from a in context.Cartoes
-                select a
-            );
+            List<Cartao> cartoes = new List<Cartao>();
+
+            string connectionString = "Server=localhost;User Id=root;Database=estacionamento;";
+            string query = "SELECT * FROM Cartao";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Cartao cartao = new Cartao
+                            {
+                                Id = reader.GetInt32("id"),
+                                Codigo = reader.GetString("codigo"),
+                            };
+
+                            cartoes.Add(cartao);
+                        }
+                    }
+                }
+            }
+
+        return cartoes;
         }
     }
 }

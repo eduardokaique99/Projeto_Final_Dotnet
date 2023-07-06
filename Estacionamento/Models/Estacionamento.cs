@@ -1,4 +1,6 @@
- namespace Models
+using MySql.Data.MySqlClient;
+
+namespace Models
   {
   public class Estacionamento
     {
@@ -27,6 +29,7 @@
         }
 
         public static Models.Estacionamento CriarEstacionamento(
+            int id,
             int qtdVagas
         ) {
             return new Models.Estacionamento(
@@ -78,13 +81,13 @@
             ).First();
         }
 
-        public static IEnumerable<Estacionamento> BuscarTodos()
-        {
-            Repository.Context context = new Repository.Context();
-            return (
-                from a in context.Estacionamentos
-                select a
-            );
-        }
+        //public static IEnumerable<Estacionamento> BuscarTodos()
+        //{
+        //    Repository.Context context = new Repository.Context();
+        //    return (
+        //        from a in context.Estacionamentos
+        //        select a
+        //    );
+        //}
     }
 }

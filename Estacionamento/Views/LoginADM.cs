@@ -32,8 +32,8 @@ namespace Views {
             btnUser.BackColor = Color.BlueViolet;
             btnUser.ForeColor = Color.White;
             btnUser.Click += (sender, e) => {
-                menu.Close();
-                menu.Dispose();
+                //menu.Close();
+                //menu.Dispose();
                 Views.Usuario.ListarUsuario();
             };
 
@@ -46,8 +46,8 @@ namespace Views {
             btnTurno.BackColor = Color.BlueViolet;
             btnTurno.ForeColor = Color.White;
             btnTurno.Click += (sender, e) => {
-                menu.Close();
-                menu.Dispose();
+                //menu.Close();
+                //menu.Dispose();
                 Views.Turno.ListarTurno();   
             };
 
@@ -60,8 +60,8 @@ namespace Views {
             btnTipo.BackColor = Color.BlueViolet;
             btnTipo.ForeColor = Color.White;
             btnTipo.Click += (sender, e) => {
-                menu.Close();
-                menu.Dispose();
+                //menu.Close();
+                //menu.Dispose();
                 Views.TipoVeiculo.ListarTipos();   
             };
 
@@ -74,8 +74,8 @@ namespace Views {
             btnVeiculo.BackColor = Color.BlueViolet;
             btnVeiculo.ForeColor = Color.White;
             btnVeiculo.Click += (sender, e) => {
-                menu.Close();
-                menu.Dispose();
+                //menu.Close();
+                //menu.Dispose();
                 Views.Veiculo.ListarVeiculos(); 
             };
 
@@ -88,8 +88,8 @@ namespace Views {
             btnMov.BackColor = Color.BlueViolet;
             btnMov.ForeColor = Color.White;
             btnMov.Click += (sender, e) => {
-                menu.Close();
-                menu.Dispose();
+                //menu.Close();
+                //menu.Dispose();
                 Views.Movimentacao.ListarMovimentacoes();  
             };
 

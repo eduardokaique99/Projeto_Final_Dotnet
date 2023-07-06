@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace Models
   {
   public class Movimentacao
@@ -11,7 +13,6 @@ namespace Models
 
         public Movimentacao(int id, int idEstacionamento, DateTime dataEntrada, DateTime dataSaida)
         {
-            Id = id;
             IdEstacionamento = idEstacionamento;
             DataEntrada = dataEntrada;
             DataSaida = dataSaida;
@@ -92,13 +93,47 @@ namespace Models
             ).First();
         }
 
-        public static IEnumerable<Movimentacao> BuscarTodos()
+        //public static IEnumerable<Movimentacao> BuscarTodos()
+        //{
+        //    Repository.Context context = new Repository.Context();
+        //    return (
+        //        from a in context.Movimentacoes
+        //        select a
+        //    );
+        //}
+
+        public static List<Movimentacao> BuscarTodos()
         {
-            Repository.Context context = new Repository.Context();
-            return (
-                from a in context.Movimentacoes
-                select a
-            );
+            List<Movimentacao> movimentacoes = new List<Movimentacao>();
+
+            string connectionString = "Server=localhost;User Id=root;Database=estacionamento;";
+            string query = "SELECT * FROM Movimentacao";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Movimentacao movimentacao = new Movimentacao
+                            {
+                                Id = reader.GetInt32("id"),
+                                IdEstacionamento = reader.GetInt32("idestacionamento"),
+                                DataEntrada = reader.GetDateTime("dataentrada"),
+                                DataSaida = reader.GetDateTime("datasaida"),
+                            };
+
+                            movimentacoes.Add(movimentacao);
+                        }
+                    }
+                }
+            }
+
+        return movimentacoes;
         }
     }
 }

@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;  
+  
   namespace Models
   {
   public class Usuario
@@ -39,16 +41,16 @@
         public static Models.Usuario CriarUsuario(
             int id,
             string nome,
-            int CPF,
-            int PIS,
+            int cpf,
+            int pis,
             string permissao,
             string senha
         ){
             return new Models.Usuario(
                 id,
                 nome,
-                CPF,
-                PIS,
+                cpf,
+                pis,
                 permissao,
                 senha
             );
@@ -57,8 +59,8 @@
         public static Models.Usuario AlterarUsuario(
             int id,
             string nome,
-            int CPF,
-            int PIS,
+            int cpf,
+            int pis,
             string permissao,
             string senha
         )
@@ -110,6 +112,31 @@
                 from a in context.Usuarios
                 select a
             );
-        } 
+        }
+
+        public static bool Login(string nome, string senha)
+        {
+            string connectionString = "Server=localhost;User Id=root;Database=estacionamento;";
+            string query = "SELECT COUNT(*) FROM Usuario WHERE Nome = @nome AND Senha = @senha";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@nome", nome);
+                    command.Parameters.AddWithValue("@senha", senha);
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    return count > 0;
+                }
+            }
+        }
+
+
+
+
     }
 }

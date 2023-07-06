@@ -15,15 +15,10 @@ namespace Repository
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
 
-        private const string _CONNECTION = "Server=localhost;User Id=root;Database=estacionamento;";
+        public string _CONNECTION = "Server=localhost;User Id=root;Database=estacionamento;";
 
-        protected override void OnConfiguring(
-            DbContextOptionsBuilder optionsBuilder
-        ) {
-            optionsBuilder.UseMySql(
-                _CONNECTION,
-                MySqlServerVersion.AutoDetect(_CONNECTION)
-            );
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            optionsBuilder.UseMySql(_CONNECTION, MySqlServerVersion.AutoDetect(_CONNECTION));
         }
     }
 }

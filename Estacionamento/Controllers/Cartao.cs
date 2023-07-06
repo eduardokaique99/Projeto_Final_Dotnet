@@ -2,39 +2,41 @@ namespace Controllers
 {
     public class Cartao {
         public static Models.Cartao CriarCartao(
+            int Id,
             string Codigo
         )
         {
             return Models.Cartao.CriarCartao(
+                Id,
                 Codigo
             );
         }
 
         public static Models.Cartao AlterarCartao(
-            string id,
+            int id,
             string Codigo
         )
         {
             return Models.Cartao.AlterarCartao(
-                int.Parse(id),
+                id,
                 Codigo
             );
         }
 
         public static Models.Cartao ExcluirCartao(
-            string id
+            int id
         )
         {
             return Models.Cartao.ExcluirCartao(
-                int.Parse(id)
+                id
             );
         }
 
         public static Models.Cartao BuscarCartao(
-            string id
+            int id
         ) {
             return Models.Cartao.BuscarCartao(
-                int.Parse(id)
+                id
             );
         }
 

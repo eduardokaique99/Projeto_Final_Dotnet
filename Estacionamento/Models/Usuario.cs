@@ -9,8 +9,9 @@
         public string Permissao {get; set;}
 
 
-        public Usuario(string nome, int cpf, int pis, string permissao)
+        public Usuario(int id, string nome, int cpf, int pis, string permissao)
         {
+            Id = id;
             Nome = nome;
             CPF = cpf;
             PIS = pis;
@@ -34,12 +35,14 @@
         }
 
         public static Models.Usuario CriarUsuario(
+            int id,
             string nome,
             int CPF,
             int PIS,
             string permissao
         ){
             return new Models.Usuario(
+                id,
                 nome,
                 CPF,
                 PIS,

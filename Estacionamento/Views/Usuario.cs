@@ -26,10 +26,11 @@ namespace Views {
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
-            List<Models.Usuario> turnoList = Controllers.Usuario.ListaUsuario();
-            foreach (Models.Usuario turno in turnoList) {
-                ListViewItem item = new ListViewItem(turno.Id.ToString());
-                item.SubItems.Add(turno.Descricao);
+            List<Models.Usuario> usuarioList = Controllers.Usuario.ListaUsuario();
+            
+            foreach (Models.Usuario usuario in usuarioList) {
+                ListViewItem item = new ListViewItem(usuario.Id.ToString());
+                item.SubItems.Add(usuario.Nome);
                 listaTipo.Items.Add(item);
             }
 
@@ -141,34 +142,47 @@ namespace Views {
             txtDescri.BackColor = Color.LightGray;
             txtDescri.Size = new System.Drawing.Size(230, 35);
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "CPF:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblCPF = new Label();
+            lblCPF.Text = "CPF:";
+            lblCPF.Top = 60;
+            lblCPF.Left = 10;
+            lblCPF.ForeColor = Color.White;
+            lblCPF.Font = new Font(lblCPF.Font.FontFamily, 19);
+            lblCPF.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            TextBox txtCPF = new TextBox();
+            txtCPF.Top = 67;
+            txtCPF.Left = 140;
+            txtCPF.BackColor = Color.LightGray;
+            txtCPF.Size = new System.Drawing.Size(230, 35);
             
-            Label lblDescri = new Label();
-            lblDescri.Text = "PIS:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblPIS = new Label();
+            lblPIS.Text = "PIS:";
+            lblPIS.Top = 60;
+            lblPIS.Left = 10;
+            lblPIS.ForeColor = Color.White;
+            lblPIS.Font = new Font(lblPIS.Font.FontFamily, 19);
+            lblPIS.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            TextBox txtPIS = new TextBox();
+            txtPIS.Top = 67;
+            txtPIS.Left = 140;
+            txtPIS.BackColor = Color.LightGray;
+            txtPIS.Size = new System.Drawing.Size(230, 35);
 
+            Label lblPermissao = new Label();
+            lblPermissao.Text = "PIS:";
+            lblPermissao.Top = 60;
+            lblPermissao.Left = 10;
+            lblPermissao.ForeColor = Color.White;
+            lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 19);
+            lblPermissao.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtPermissao = new TextBox();
+            txtPermissao.Top = 67;
+            txtPermissao.Left = 140;
+            txtPermissao.BackColor = Color.LightGray;
+            txtPermissao.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -181,7 +195,7 @@ namespace Views {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtDescri.Text);
+                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text);
                     adicionarTipo.Hide();
                     adicionarTipo.Close();
                     adicionarTipo.Dispose();
@@ -217,6 +231,12 @@ namespace Views {
             adicionarTipo.Controls.Add(txtId);
             adicionarTipo.Controls.Add(lblDescri);
             adicionarTipo.Controls.Add(txtDescri);
+            adicionarTipo.Controls.Add(lblCPF);
+            adicionarTipo.Controls.Add(txtCPF);
+            adicionarTipo.Controls.Add(lblPIS);
+            adicionarTipo.Controls.Add(txtPIS);
+            adicionarTipo.Controls.Add(lblPermissao);
+            adicionarTipo.Controls.Add(txtPermissao);
             adicionarTipo.Controls.Add(btnSalvar);
             adicionarTipo.Controls.Add(btnCancelar);
             adicionarTipo.ShowDialog();
@@ -224,7 +244,7 @@ namespace Views {
 
 
         public static void AlterarUsuario(int id) {
-            Models.Usuario turno = Controllers.Usuario.BuscarUsuario(id);
+            Models.Usuario usuario = Controllers.Usuario.BuscarUsuario(id);
             Form editar = new Form();
             editar.Text = "Editar usuario";
             editar.Size = new System.Drawing.Size(400, 250);
@@ -247,12 +267,12 @@ namespace Views {
             txtId.Left = 140;
             txtId.BackColor = Color.LightGray;
             txtId.Size = new System.Drawing.Size(230, 35);
-            txtId.Text = turno.Id.ToString();
+            txtId.Text = usuario.Id.ToString();
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
             Label lblDescri = new Label();
-            lblDescri.Text = "Descrição:";
+            lblDescri.Text = "Nome:";
             lblDescri.Top = 60;
             lblDescri.Left = 10;
             lblDescri.ForeColor = Color.White;
@@ -264,7 +284,48 @@ namespace Views {
             txtDescri.Left = 140;
             txtDescri.BackColor = Color.LightGray;
             txtDescri.Size = new System.Drawing.Size(230, 35);
-            txtDescri.Text = turno.Descricao;
+
+            Label lblCPF = new Label();
+            lblCPF.Text = "CPF:";
+            lblCPF.Top = 60;
+            lblCPF.Left = 10;
+            lblCPF.ForeColor = Color.White;
+            lblCPF.Font = new Font(lblCPF.Font.FontFamily, 19);
+            lblCPF.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtCPF = new TextBox();
+            txtCPF.Top = 67;
+            txtCPF.Left = 140;
+            txtCPF.BackColor = Color.LightGray;
+            txtCPF.Size = new System.Drawing.Size(230, 35);
+            
+            Label lblPIS = new Label();
+            lblPIS.Text = "PIS:";
+            lblPIS.Top = 60;
+            lblPIS.Left = 10;
+            lblPIS.ForeColor = Color.White;
+            lblPIS.Font = new Font(lblPIS.Font.FontFamily, 19);
+            lblPIS.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtPIS = new TextBox();
+            txtPIS.Top = 67;
+            txtPIS.Left = 140;
+            txtPIS.BackColor = Color.LightGray;
+            txtPIS.Size = new System.Drawing.Size(230, 35);
+
+            Label lblPermissao = new Label();
+            lblPermissao.Text = "PIS:";
+            lblPermissao.Top = 60;
+            lblPermissao.Left = 10;
+            lblPermissao.ForeColor = Color.White;
+            lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 19);
+            lblPermissao.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtPermissao = new TextBox();
+            txtPermissao.Top = 67;
+            txtPermissao.Left = 140;
+            txtPermissao.BackColor = Color.LightGray;
+            txtPermissao.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -275,7 +336,7 @@ namespace Views {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controllers.Usuario.AlterarUsuario(id, txtDescri.Text);
+                Controllers.Usuario.AlterarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text);
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
@@ -299,6 +360,12 @@ namespace Views {
             editar.Controls.Add(txtId);
             editar.Controls.Add(lblDescri);
             editar.Controls.Add(txtDescri);
+            editar.Controls.Add(lblCPF);
+            editar.Controls.Add(txtCPF);
+            editar.Controls.Add(lblPIS);
+            editar.Controls.Add(txtPIS);
+            editar.Controls.Add(lblPermissao);
+            editar.Controls.Add(txtPermissao);
             editar.Controls.Add(btnSalvar);
             editar.Controls.Add(btnCancelar);
             editar.ShowDialog();

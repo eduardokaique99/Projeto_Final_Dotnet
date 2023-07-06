@@ -20,14 +20,16 @@ namespace Views {
             listaTipo.Location = new System.Drawing.Point(10, 10);
             listaTipo.View = View.Details;
             listaTipo.Columns.Add("Id", 50);
-            listaTipo.Columns.Add("Descrição", 611);
+            listaTipo.Columns.Add("Período", 100);
+            listaTipo.Columns.Add("Escala", 100);
+            listaTipo.Columns.Add("Id Estacionamento", 100);
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
             List<Models.Turno> turnoList = Controllers.Turno.ListaTurno();
             foreach (Models.Turno turno in turnoList) {
                 ListViewItem item = new ListViewItem(turno.Id.ToString());
-                item.SubItems.Add(turno.Descricao);
+                item.SubItems.Add(turno.Periodo);
                 listaTipo.Items.Add(item);
             }
 
@@ -124,20 +126,47 @@ namespace Views {
             txtId.BackColor = Color.LightGray;
             txtId.Size = new System.Drawing.Size(230, 35);
 
+            Label lblPeriodo = new Label();
+            lblPeriodo.Text = "Periodo:";
+            lblPeriodo.Top = 60;
+            lblPeriodo.Left = 10;
+            lblPeriodo.ForeColor = Color.White;
+            lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 19);
+            lblPeriodo.Size = new System.Drawing.Size(130, 35);
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Descrição:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            TextBox txtPerido = new TextBox();
+            txtPerido.Top = 67;
+            txtPerido.Left = 140;
+            txtPerido.BackColor = Color.LightGray;
+            txtPerido.Size = new System.Drawing.Size(230, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            Label lblEscala = new Label();
+            lblEscala.Text = "Escala:";
+            lblEscala.Top = 60;
+            lblEscala.Left = 10;
+            lblEscala.ForeColor = Color.White;
+            lblEscala.Font = new Font(lblEscala.Font.FontFamily, 19);
+            lblEscala.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtEscala = new TextBox();
+            txtEscala.Top = 67;
+            txtEscala.Left = 140;
+            txtEscala.BackColor = Color.LightGray;
+            txtEscala.Size = new System.Drawing.Size(230, 35);
+
+            Label lblIdEstacionamento = new Label();
+            lblIdEstacionamento.Text = "Id Estacionamento:";
+            lblIdEstacionamento.Top = 60;
+            lblIdEstacionamento.Left = 10;
+            lblIdEstacionamento.ForeColor = Color.White;
+            lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 19);
+            lblIdEstacionamento.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdEstacionamento = new TextBox();
+            txtIdEstacionamento.Top = 67;
+            txtIdEstacionamento.Left = 140;
+            txtIdEstacionamento.BackColor = Color.LightGray;
+            txtIdEstacionamento.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -150,7 +179,7 @@ namespace Views {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controllers.Turno.CriarTurno(int.Parse(txtId.Text), txtDescri.Text);
+                    Controllers.Turno.CriarTurno(int.Parse(txtId.Text), txtPerido.Text, int.Parse(txtEscala.Text), int.Parse(txtIdEstacionamento.Text));
                     adicionarTipo.Hide();
                     adicionarTipo.Close();
                     adicionarTipo.Dispose();
@@ -184,8 +213,12 @@ namespace Views {
 
             adicionarTipo.Controls.Add(lblId);
             adicionarTipo.Controls.Add(txtId);
-            adicionarTipo.Controls.Add(lblDescri);
-            adicionarTipo.Controls.Add(txtDescri);
+            adicionarTipo.Controls.Add(lblPeriodo);
+            adicionarTipo.Controls.Add(txtPerido);
+            adicionarTipo.Controls.Add(lblEscala);
+            adicionarTipo.Controls.Add(txtEscala);
+            adicionarTipo.Controls.Add(lblIdEstacionamento);
+            adicionarTipo.Controls.Add(txtIdEstacionamento);
             adicionarTipo.Controls.Add(btnSalvar);
             adicionarTipo.Controls.Add(btnCancelar);
             adicionarTipo.ShowDialog();
@@ -220,20 +253,47 @@ namespace Views {
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Descrição:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblPeriodo = new Label();
+            lblPeriodo.Text = "Periodo:";
+            lblPeriodo.Top = 60;
+            lblPeriodo.Left = 10;
+            lblPeriodo.ForeColor = Color.White;
+            lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 19);
+            lblPeriodo.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
-            txtDescri.Text = turno.Descricao;
+            TextBox txtPerido = new TextBox();
+            txtPerido.Top = 67;
+            txtPerido.Left = 140;
+            txtPerido.BackColor = Color.LightGray;
+            txtPerido.Size = new System.Drawing.Size(230, 35);
+
+            Label lblEscala = new Label();
+            lblEscala.Text = "Escala:";
+            lblEscala.Top = 60;
+            lblEscala.Left = 10;
+            lblEscala.ForeColor = Color.White;
+            lblEscala.Font = new Font(lblEscala.Font.FontFamily, 19);
+            lblEscala.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtEscala = new TextBox();
+            txtEscala.Top = 67;
+            txtEscala.Left = 140;
+            txtEscala.BackColor = Color.LightGray;
+            txtEscala.Size = new System.Drawing.Size(230, 35);
+
+            Label lblIdEstacionamento = new Label();
+            lblIdEstacionamento.Text = "Id Estacionamento:";
+            lblIdEstacionamento.Top = 60;
+            lblIdEstacionamento.Left = 10;
+            lblIdEstacionamento.ForeColor = Color.White;
+            lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 19);
+            lblIdEstacionamento.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtIdEstacionamento = new TextBox();
+            txtIdEstacionamento.Top = 67;
+            txtIdEstacionamento.Left = 140;
+            txtIdEstacionamento.BackColor = Color.LightGray;
+            txtIdEstacionamento.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -244,7 +304,7 @@ namespace Views {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controllers.Turno.AlterarTurno(id, txtDescri.Text);
+                Controllers.Turno.AlterarTurno(int.Parse(txtId.Text), txtPerido.Text, int.Parse(txtEscala.Text), int.Parse(txtIdEstacionamento.Text));
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
@@ -266,8 +326,12 @@ namespace Views {
 
             editar.Controls.Add(lblId);
             editar.Controls.Add(txtId);
-            editar.Controls.Add(lblDescri);
-            editar.Controls.Add(txtDescri);
+            editar.Controls.Add(lblPeriodo);
+            editar.Controls.Add(txtPerido);
+            editar.Controls.Add(lblEscala);
+            editar.Controls.Add(txtEscala);
+            editar.Controls.Add(lblIdEstacionamento);
+            editar.Controls.Add(txtIdEstacionamento);
             editar.Controls.Add(btnSalvar);
             editar.Controls.Add(btnCancelar);
             editar.ShowDialog();

@@ -7,8 +7,9 @@ namespace Models
         private int Escala {get; set;}
         public int IdEstacionamento {get; set;}
 
-        public Turno(string periodo, int escala, int Idestacionamento)
-        {
+        public Turno(int id, string periodo, int escala, int Idestacionamento)
+        {   
+            Id = id;
             Periodo = periodo;
             Escala = escala;
             IdEstacionamento = Idestacionamento;
@@ -30,11 +31,13 @@ namespace Models
         }
 
         public static Models.Turno CriarTurno(
+            int Id,
             string Periodo,
             int Escala,
             int IdEstacionamento
         ){
             return new Models.Turno(
+                Id,
                 Periodo,
                 Escala,
                 IdEstacionamento

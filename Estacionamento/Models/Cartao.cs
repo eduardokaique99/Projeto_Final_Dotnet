@@ -7,6 +7,7 @@
 
         public Cartao(string codigo)
         {
+            Id = Id;
             Codigo = codigo;
         }
 
@@ -27,6 +28,7 @@
         }
 
         public static Models.Cartao CriarCartao(
+            int id,
             string codigo
         ) {
             return new Models.Cartao(

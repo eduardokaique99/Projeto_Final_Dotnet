@@ -20,14 +20,14 @@ namespace Views {
             listaTipo.Location = new System.Drawing.Point(10, 10);
             listaTipo.View = View.Details;
             listaTipo.Columns.Add("Id", 50);
-            listaTipo.Columns.Add("Código", 611);
+            listaTipo.Columns.Add("Código", 100);
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
-            List<Models.Cartao> turnoList = Controllers.Cartao.ListaCartao();
-            foreach (Models.Cartao turno in turnoList) {
-                ListViewItem item = new ListViewItem(turno.Id.ToString());
-                item.SubItems.Add(turno.Descricao);
+            List<Models.Cartao> cartaoList = Controllers.Cartao.ListaCartao();
+            foreach (Models.Cartao cartao in cartaoList) {
+                ListViewItem item = new ListViewItem(cartao.Id.ToString());
+                item.SubItems.Add(cartao.Codigo);
                 listaTipo.Items.Add(item);
             }
 
@@ -193,7 +193,7 @@ namespace Views {
 
 
         public static void AlterarCartao(int id) {
-            Models.Cartao turno = Controllers.Cartao.BuscarCartao(id);
+            Models.Cartao cartao = Controllers.Cartao.BuscarCartao(id);
             Form editar = new Form();
             editar.Text = "Editar Cartao";
             editar.Size = new System.Drawing.Size(400, 250);
@@ -216,7 +216,7 @@ namespace Views {
             txtId.Left = 140;
             txtId.BackColor = Color.LightGray;
             txtId.Size = new System.Drawing.Size(230, 35);
-            txtId.Text = turno.Id.ToString();
+            txtId.Text = cartao.Id.ToString();
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
@@ -233,7 +233,7 @@ namespace Views {
             txtDescri.Left = 140;
             txtDescri.BackColor = Color.LightGray;
             txtDescri.Size = new System.Drawing.Size(230, 35);
-            txtDescri.Text = turno.Descricao;
+            txtDescri.Text = cartao.Codigo;
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";

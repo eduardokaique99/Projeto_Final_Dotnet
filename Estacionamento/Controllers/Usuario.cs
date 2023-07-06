@@ -2,51 +2,65 @@ namespace Controllers
 {
     public class Usuario {
         public static Models.Usuario CriarUsuario(
+            int id,
             string nome,
-            string cpf,
-            string pis,
+            int cpf,
+            int pis,
             string permissao
         )
         {
             return Models.Usuario.CriarUsuario(
+                id,
                 nome,
-                int.Parse(cpf),
-                int.Parse(pis),
+                cpf,
+                pis,
                 permissao
             );
         }
 
+
+        public static void ListaUsuario()
+        {
+        List<Usuario> usuarios = new List<Usuario>();
+
+        //foreach (string usuario in usuarios)
+        //{
+        //    Console.WriteLine(usuario);
+        //}
+        }
+
+
         public static Models.Usuario AlterarUsuario(
-            string id,
+            int id,
             string nome,
-            string cpf,
-            string pis,
+            int cpf,
+            int pis,
             string permissao
         )
         {
             return Models.Usuario.AlterarUsuario(
-                int.Parse(id),
+                id,
                 nome,
-                int.Parse(cpf),
-                int.Parse(pis),
+                cpf,
+                pis,
                 permissao
             );
         }
 
         public static Models.Usuario ExcluirUsuario(
-            string id
+            int id
         )
         {
             return Models.Usuario.ExcluirUsuario(
-                int.Parse(id)
+                id
             );
         }
 
         public static Models.Usuario BuscarUsuario(
-            string id
+            int id
         ) {
             return Models.Usuario.BuscarUsuario(
-                int.Parse(id)
+                id
             );
         }
 

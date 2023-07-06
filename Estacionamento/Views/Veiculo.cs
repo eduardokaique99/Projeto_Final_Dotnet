@@ -1,9 +1,12 @@
 using System;
+using Models;
+using Controllers;
 using System.Windows.Forms;
 
 namespace Views {
     
     public class Veiculo {
+
         
         public static void ListarVeiculos() {
             Form veiculos = new Form();
@@ -19,19 +22,21 @@ namespace Views {
             listaVeiculo.Size = new System.Drawing.Size(665, 400);
             listaVeiculo.Location = new System.Drawing.Point(10, 10);
             //listaVeiculo.View = View.Details;
+
             listaVeiculo.Columns.Add("Id", 50);
-            listaVeiculo.Columns.Add("Placa", 100);
-            listaVeiculo.Columns.Add("Id Movimen.", 100);
-            listaVeiculo.Columns.Add("Id Tipo", 100);
-            listaVeiculo.Columns.Add("Id Cartão", 100);
+            listaVeiculo.Columns.Add("Placa", 50);
+            listaVeiculo.Columns.Add("Id Movimen.", 50);
+            listaVeiculo.Columns.Add("Id Tipo", 50);
+            listaVeiculo.Columns.Add("Id Cartão", 50);
             listaVeiculo.FullRowSelect = true;
             listaVeiculo.GridLines = true;
+            veiculos.Controls.Add(listaVeiculo);
 
-            //List<Models.Veiculo> veiculosList = Controllers.Veiculo.ListaVeiculo();
-            //foreach (Models.Veiculo veiculo in veiculosList) {
-            //    ListViewItem item = new ListViewItem(veiculo.Id.ToString());
-            //    item.SubItems.Add(veiculo.Descricao);
-            //    listaVeiculo.Items.Add(item);
+            //foreach (Models.Veiculo veiculo in Models.Veiculo.veiculos) {
+            //    //ListViewItem item = new ListViewItem(veiculo.Id.ToString());
+            //    //item.SubItems.Add(veiculo.Descricao);
+            //    listaVeiculo.Items.Add(new ListViewItem(new string[] {veiculo.Id.ToString(), veiculo.Placa.ToString(), 
+            //    veiculo.IdMovimentacao.ToString(), veiculo.IdTipo.ToString(), veiculo.IdCartao.ToString()}));
             //}
 
             Button btnAdicionar = new Button();

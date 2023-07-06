@@ -42,8 +42,8 @@ namespace Views {
             btnAdicionar.ForeColor = Color.BlueViolet;
             btnAdicionar.Size = new System.Drawing.Size(150, 35);
             btnAdicionar.Click += (sender, e) => {
-                movimentacoes.Close();
-                movimentacoes.Dispose();
+                //movimentacoes.Close();
+                //movimentacoes.Dispose();
                 CriarMovimentacao();
             };
             
@@ -105,7 +105,7 @@ namespace Views {
           public static void CriarMovimentacao() {
             Form adicionarMovimentacao = new Form();
             adicionarMovimentacao.Text = "Adicionar Movimentacao de veículo";
-            adicionarMovimentacao.Size = new System.Drawing.Size(400, 250);
+            adicionarMovimentacao.Size = new System.Drawing.Size(600, 450);
             adicionarMovimentacao.StartPosition = FormStartPosition.CenterScreen;
             adicionarMovimentacao.FormBorderStyle = FormBorderStyle.FixedSingle;
             adicionarMovimentacao.MaximizeBox = false;
@@ -117,65 +117,64 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
+            lblId.Size = new System.Drawing.Size(250, 50);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 32;
-            txtId.Left = 140;
+            txtId.Top = 25;
+            txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
-
+            txtId.Size = new System.Drawing.Size(300, 35);
 
             Label lblEstacionamentoId = new Label();
             lblEstacionamentoId.Text = "Id Estacionamento:";
-            lblEstacionamentoId.Top = 60;
+            lblEstacionamentoId.Top = 70;
             lblEstacionamentoId.Left = 10;
             lblEstacionamentoId.ForeColor = Color.White;
-            lblEstacionamentoId.Font = new Font(lblEstacionamentoId.Font.FontFamily, 19);
-            lblEstacionamentoId.Size = new System.Drawing.Size(130, 35);
+            lblEstacionamentoId.Font = new Font(lblEstacionamentoId.Font.FontFamily, 18);
+            lblEstacionamentoId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtEstacionamentoId = new TextBox();
-            txtEstacionamentoId.Top = 67;
-            txtEstacionamentoId.Left = 140;
+            txtEstacionamentoId.Top = 70;
+            txtEstacionamentoId.Left = 270;
             txtEstacionamentoId.BackColor = Color.LightGray;
-            txtEstacionamentoId.Size = new System.Drawing.Size(230, 35);
+            txtEstacionamentoId.Size = new System.Drawing.Size(300, 35);
 
             Label lblDataEntrada = new Label();
             lblDataEntrada.Text = "Data Entrada:";
-            lblDataEntrada.Top = 85;
+            lblDataEntrada.Top = 115;
             lblDataEntrada.Left = 10;
             lblDataEntrada.ForeColor = Color.White;
-            lblDataEntrada.Font = new Font(lblDataEntrada.Font.FontFamily, 19);
-            lblDataEntrada.Size = new System.Drawing.Size(130, 35);
+            lblDataEntrada.Font = new Font(lblDataEntrada.Font.FontFamily, 18);
+            lblDataEntrada.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtDataEntrada = new TextBox();
-            txtDataEntrada.Top = 92;
-            txtDataEntrada.Left = 140;
+            txtDataEntrada.Top = 115;
+            txtDataEntrada.Left = 270;
             txtDataEntrada.BackColor = Color.LightGray;
-            txtDataEntrada.Size = new System.Drawing.Size(230, 35);
+            txtDataEntrada.Size = new System.Drawing.Size(300, 35);
 
             Label lblDataSaida = new Label();
             lblDataSaida.Text = "Data Saída:";
-            lblDataSaida.Top = 120;
+            lblDataSaida.Top = 160;
             lblDataSaida.Left = 10;
             lblDataSaida.ForeColor = Color.White;
-            lblDataSaida.Font = new Font(lblDataSaida.Font.FontFamily, 19);
-            lblDataSaida.Size = new System.Drawing.Size(130, 35);
+            lblDataSaida.Font = new Font(lblDataSaida.Font.FontFamily, 18);
+            lblDataSaida.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtDataSaida = new TextBox();
-            txtDataSaida.Top = 127;
-            txtDataSaida.Left = 140;
+            txtDataSaida.Top = 160;
+            txtDataSaida.Left = 270;
             txtDataSaida.BackColor = Color.LightGray;
-            txtDataSaida.Size = new System.Drawing.Size(230, 35);
+            txtDataSaida.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
-            btnSalvar.Top = 127;
-            btnSalvar.Left = 20;
+            btnSalvar.Top = 330;
+            btnSalvar.Left = 70;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
                 try
@@ -202,11 +201,11 @@ namespace Views {
 
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Top = 127;
-            btnCancelar.Left = 220;
+            btnCancelar.Top = 330;
+            btnCancelar.Left = 370;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 adicionarMovimentacao.Close();
@@ -259,7 +258,7 @@ namespace Views {
             lblEstacionamentoId.Top = 60;
             lblEstacionamentoId.Left = 10;
             lblEstacionamentoId.ForeColor = Color.White;
-            lblEstacionamentoId.Font = new Font(lblEstacionamentoId.Font.FontFamily, 19);
+            lblEstacionamentoId.Font = new Font(lblEstacionamentoId.Font.FontFamily, 18);
             lblEstacionamentoId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtEstacionamentoId = new TextBox();
@@ -273,7 +272,7 @@ namespace Views {
             lblDataEntrada.Top = 85;
             lblDataEntrada.Left = 10;
             lblDataEntrada.ForeColor = Color.White;
-            lblDataEntrada.Font = new Font(lblDataEntrada.Font.FontFamily, 19);
+            lblDataEntrada.Font = new Font(lblDataEntrada.Font.FontFamily, 18);
             lblDataEntrada.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtDataEntrada = new TextBox();
@@ -287,7 +286,7 @@ namespace Views {
             lblDataSaida.Top = 120;
             lblDataSaida.Left = 10;
             lblDataSaida.ForeColor = Color.White;
-            lblDataSaida.Font = new Font(lblDataSaida.Font.FontFamily, 19);
+            lblDataSaida.Font = new Font(lblDataSaida.Font.FontFamily, 18);
             lblDataSaida.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtDataSaida = new TextBox();
@@ -302,7 +301,7 @@ namespace Views {
             btnSalvar.Left = 10;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
                 Controllers.Movimentacao.AlterarMovimentacao(int.Parse(txtId.Text), int.Parse(txtEstacionamentoId.Text), txtDataEntrada.Text, txtDataSaida.Text);
@@ -318,7 +317,7 @@ namespace Views {
             btnCancelar.Left = 220;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 editar.Close();

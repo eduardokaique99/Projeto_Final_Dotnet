@@ -1,3 +1,5 @@
+
+
 namespace Models
   {
   public class Veiculo
@@ -102,6 +104,7 @@ namespace Models
                 from a in context.Veiculos
                 select a
             );
-        } 
+        }
+         
     }
 }

@@ -1,3 +1,5 @@
+using Models;
+
 namespace Controllers
 {
     public class Veiculo {

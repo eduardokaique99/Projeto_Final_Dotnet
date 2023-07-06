@@ -3,16 +3,16 @@ namespace Models
   public class Movimentacao
     {
         public int Id { get; set; }
-        public int EstacionamentoId { get; set; }
+        public int IdEstacionamento { get; set; }
         public DateTime DataEntrada { get; set; }
         public DateTime DataSaida { get; set; }
         public virtual Estacionamento Estacionamento { get; set; }
 
 
-        public Movimentacao(int id, int estacionamentoId, DateTime dataEntrada, DateTime dataSaida)
+        public Movimentacao(int id, int idEstacionamento, DateTime dataEntrada, DateTime dataSaida)
         {
             Id = id;
-            EstacionamentoId = estacionamentoId;
+            IdEstacionamento = idEstacionamento;
             DataEntrada = dataEntrada;
             DataSaida = dataSaida;
         }
@@ -24,7 +24,7 @@ namespace Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Data de Entrada: {DataEntrada}, Data de Saida: {DataSaida}, IdEstacionamento: {EstacionamentoId}";
+            return $"Id: {Id}, Data de Entrada: {DataEntrada}, Data de Saida: {DataSaida}, IdEstacionamento: {IdEstacionamento}";
         }
 
         public override bool Equals(object obj)
@@ -34,18 +34,18 @@ namespace Models
         }
 
         public static Models.Movimentacao CriarMovimentacao(
-            int id, int estacionamentoId, DateTime dataEntrada, DateTime dataSaida
+            int id, int idEstacionamento, DateTime dataEntrada, DateTime dataSaida
         ) {
             return new Models.Movimentacao(
                 id,
-                estacionamentoId, 
+                idEstacionamento, 
                 dataEntrada, 
                 dataSaida
             );
         }
         public static Models.Movimentacao AlterarMovimentacao(
             int id,
-            int estacionamentoId, 
+            int idEstacionamento, 
             DateTime dataEntrada, 
             DateTime dataSaida
         )
@@ -54,7 +54,7 @@ namespace Models
                 id
             );
 
-            movimentacao.EstacionamentoId = estacionamentoId;
+            movimentacao.IdEstacionamento = idEstacionamento;
             movimentacao.DataEntrada = dataEntrada;
             movimentacao.DataSaida = dataSaida;
 

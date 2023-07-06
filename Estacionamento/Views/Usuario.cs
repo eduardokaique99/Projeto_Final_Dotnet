@@ -170,7 +170,7 @@ namespace Views {
             txtPIS.Size = new System.Drawing.Size(230, 35);
 
             Label lblPermissao = new Label();
-            lblPermissao.Text = "PIS:";
+            lblPermissao.Text = "Permissão:";
             lblPermissao.Top = 60;
             lblPermissao.Left = 10;
             lblPermissao.ForeColor = Color.White;
@@ -183,6 +183,20 @@ namespace Views {
             txtPermissao.BackColor = Color.LightGray;
             txtPermissao.Size = new System.Drawing.Size(230, 35);
 
+            Label lblSenha = new Label();
+            lblSenha.Text = "Senha:";
+            lblSenha.Top = 60;
+            lblSenha.Left = 10;
+            lblSenha.ForeColor = Color.White;
+            lblSenha.Font = new Font(lblSenha.Font.FontFamily, 19);
+            lblSenha.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtSenha = new TextBox();
+            txtSenha.Top = 67;
+            txtSenha.Left = 140;
+            txtSenha.BackColor = Color.LightGray;
+            txtSenha.Size = new System.Drawing.Size(230, 35);
+
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
             btnSalvar.Top = 127;
@@ -194,7 +208,7 @@ namespace Views {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text);
+                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
                     adicionarTipo.Hide();
                     adicionarTipo.Close();
                     adicionarTipo.Dispose();
@@ -236,6 +250,8 @@ namespace Views {
             adicionarTipo.Controls.Add(txtPIS);
             adicionarTipo.Controls.Add(lblPermissao);
             adicionarTipo.Controls.Add(txtPermissao);
+            adicionarTipo.Controls.Add(lblSenha);
+            adicionarTipo.Controls.Add(txtSenha);
             adicionarTipo.Controls.Add(btnSalvar);
             adicionarTipo.Controls.Add(btnCancelar);
             adicionarTipo.ShowDialog();
@@ -313,7 +329,7 @@ namespace Views {
             txtPIS.Size = new System.Drawing.Size(230, 35);
 
             Label lblPermissao = new Label();
-            lblPermissao.Text = "PIS:";
+            lblPermissao.Text = "Permissão:";
             lblPermissao.Top = 60;
             lblPermissao.Left = 10;
             lblPermissao.ForeColor = Color.White;
@@ -326,6 +342,20 @@ namespace Views {
             txtPermissao.BackColor = Color.LightGray;
             txtPermissao.Size = new System.Drawing.Size(230, 35);
 
+            Label lblSenha = new Label();
+            lblSenha.Text = "Senha:";
+            lblSenha.Top = 60;
+            lblSenha.Left = 10;
+            lblSenha.ForeColor = Color.White;
+            lblSenha.Font = new Font(lblSenha.Font.FontFamily, 19);
+            lblSenha.Size = new System.Drawing.Size(130, 35);
+
+            TextBox txtSenha = new TextBox();
+            txtSenha.Top = 67;
+            txtSenha.Left = 140;
+            txtSenha.BackColor = Color.LightGray;
+            txtSenha.Size = new System.Drawing.Size(230, 35);
+
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
             btnSalvar.Top = 127;
@@ -335,7 +365,7 @@ namespace Views {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controllers.Usuario.AlterarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text);
+                Controllers.Usuario.AlterarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
@@ -365,6 +395,8 @@ namespace Views {
             editar.Controls.Add(txtPIS);
             editar.Controls.Add(lblPermissao);
             editar.Controls.Add(txtPermissao);
+            editar.Controls.Add(lblSenha);
+            editar.Controls.Add(txtSenha);
             editar.Controls.Add(btnSalvar);
             editar.Controls.Add(btnCancelar);
             editar.ShowDialog();

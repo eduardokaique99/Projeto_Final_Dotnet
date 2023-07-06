@@ -6,7 +6,8 @@ namespace Controllers
             string nome,
             int cpf,
             int pis,
-            string permissao
+            string permissao,
+            string senha
         )
         {
             return Models.Usuario.CriarUsuario(
@@ -14,7 +15,8 @@ namespace Controllers
                 nome,
                 cpf,
                 pis,
-                permissao
+                permissao,
+                senha
             );
         }
 
@@ -35,7 +37,8 @@ namespace Controllers
             string nome,
             int cpf,
             int pis,
-            string permissao
+            string permissao,
+            string senha
         )
         {
             return Models.Usuario.AlterarUsuario(
@@ -43,7 +46,8 @@ namespace Controllers
                 nome,
                 cpf,
                 pis,
-                permissao
+                permissao,
+                senha
             );
         }
 

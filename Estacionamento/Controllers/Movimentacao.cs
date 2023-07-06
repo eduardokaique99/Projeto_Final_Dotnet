@@ -3,14 +3,14 @@ namespace Controllers
     public class Movimentacao {
         public static Models.Movimentacao CriarMovimentacao(
             int id,
-            int estacionamentoId,
+            int idEstacionamento,
             string dataEntrada,
             string dataSaida
         )
         {
             return Models.Movimentacao.CriarMovimentacao(
                 id,
-                estacionamentoId,
+                idEstacionamento,
                 DateTime.Parse(dataEntrada),
                 DateTime.Parse(dataSaida)
             );
@@ -18,14 +18,14 @@ namespace Controllers
 
         public static Models.Movimentacao AlterarMovimentacao(
             int id,
-            int estacionamentoId,
+            int idEstacionamento,
             string dataEntrada,
             string dataSaida
         )
         {
             return Models.Movimentacao.AlterarMovimentacao(
                 id,
-                estacionamentoId,
+                idEstacionamento,
                 DateTime.Parse(dataEntrada),
                 DateTime.Parse(dataSaida)
             );

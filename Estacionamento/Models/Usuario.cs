@@ -7,15 +7,17 @@
         private int CPF {get; set;}
         public int PIS {get; set;}
         public string Permissao {get; set;}
+        public string Senha {get; set;}
 
 
-        public Usuario(int id, string nome, int cpf, int pis, string permissao)
+        public Usuario(int id, string nome, int cpf, int pis, string permissao, string senha)
         {
             Id = id;
             Nome = nome;
             CPF = cpf;
             PIS = pis;
             Permissao = permissao;
+            Senha = senha;
         }
 
         public Usuario()
@@ -39,14 +41,16 @@
             string nome,
             int CPF,
             int PIS,
-            string permissao
+            string permissao,
+            string senha
         ){
             return new Models.Usuario(
                 id,
                 nome,
                 CPF,
                 PIS,
-                permissao
+                permissao,
+                senha
             );
         }
 
@@ -55,7 +59,8 @@
             string nome,
             int CPF,
             int PIS,
-            string permissao
+            string permissao,
+            string senha
         )
         {
             Usuario usuario = BuscarUsuario(

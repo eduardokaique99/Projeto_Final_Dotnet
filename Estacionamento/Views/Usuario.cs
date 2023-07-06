@@ -26,8 +26,7 @@ namespace Views {
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
-            List<Models.Usuario> usuarioList = Controllers.Usuario.ListaUsuario();
-            
+            List<Models.Usuario> usuarioList = (List<Models.Usuario>)Controllers.Usuario.BuscarUsuarios();
             foreach (Models.Usuario usuario in usuarioList) {
                 ListViewItem item = new ListViewItem(usuario.Id.ToString());
                 item.SubItems.Add(usuario.Nome);

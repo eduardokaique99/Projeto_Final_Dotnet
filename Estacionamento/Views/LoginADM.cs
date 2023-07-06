@@ -34,7 +34,7 @@ namespace Views {
             btnUser.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                //Views.Usuario.Usuario();
+                Views.Usuario.ListarUsuario();
             };
 
             Button btnTurno = new Button();
@@ -48,7 +48,7 @@ namespace Views {
             btnTurno.Click += (sender, e) => {
                 menu.Close();
                 menu.Dispose();
-                //Views.Turno.Turnos();   
+                Views.Turno.ListarTurno();   
             };
 
             Button btnTipo = new Button();
@@ -93,7 +93,7 @@ namespace Views {
                 Views.Movimentacao.ListarMovimentacoes();  
             };
 
-            
+
             menu.Controls.Add(btnUser);
             menu.Controls.Add(btnTurno);
             menu.Controls.Add(btnTipo);

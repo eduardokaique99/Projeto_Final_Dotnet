@@ -18,7 +18,7 @@ namespace Views {
             ListView listaMovimentacao = new ListView();
             listaMovimentacao.Size = new System.Drawing.Size(665, 400);
             listaMovimentacao.Location = new System.Drawing.Point(10, 10);
-            //listaMovimentacao.View = View.Details;
+            listaMovimentacao.View = View.Details;
             listaMovimentacao.Columns.Add("Id", 50);
             listaMovimentacao.Columns.Add("Id Estacionamento", 100);
             listaMovimentacao.Columns.Add("Data Entrada", 100);
@@ -26,12 +26,12 @@ namespace Views {
             listaMovimentacao.FullRowSelect = true;
             listaMovimentacao.GridLines = true;
 
-            //List<Model.Movimentacao> movimentacoesList = Controller.Movimentacao.ListaMovimentacao();
-            //foreach (Model.Movimentacao veiculo in movimentacoesList) {
-            //    ListViewItem item = new ListViewItem(veiculo.Id.ToString());
-            //    item.SubItems.Add(veiculo.Descricao);
-            //    listaMovimentacao.Items.Add(item);
-            //}
+            List<Models.Movimentacao> movimentacoesList = (List<Models.Movimentacao>)Controllers.Movimentacao.BuscarMovimentacaos();
+            foreach (Models.Movimentacao veiculo in movimentacoesList) {
+                ListViewItem item = new ListViewItem(veiculo.Id.ToString());
+                //item.SubItems.Add(veiculo.EstacionamentoId);
+                listaMovimentacao.Items.Add(item);
+            }
 
             Button btnAdicionar = new Button();
             btnAdicionar.Text = "Adicionar";

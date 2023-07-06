@@ -18,18 +18,18 @@ namespace Views {
             ListView listaTipo = new ListView();
             listaTipo.Size = new System.Drawing.Size(665, 400);
             listaTipo.Location = new System.Drawing.Point(10, 10);
-            //listaTipo.View = View.Details;
+            listaTipo.View = View.Details;
             listaTipo.Columns.Add("Id", 50);
             listaTipo.Columns.Add("Descrição", 611);
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
-            //List<Models.TipoVeiculo> tipoveiculosList = Controllers.TipoVeiculo.ListarTipos();
-            //foreach (Models.TipoVeiculo tipoveiculo in tipoveiculosList) {
-            //    ListViewItem item = new ListViewItem(tipoveiculo.Id.ToString());
-            //    item.SubItems.Add(tipoveiculo.Descricao);
-            //    listaTipo.Items.Add(item);
-            //}
+            List<Models.TipoVeiculo> tipoveiculosList = (List<Models.TipoVeiculo>)Controllers.TipoVeiculo.BuscarTipoVeiculos();
+            foreach (Models.TipoVeiculo tipoveiculo in tipoveiculosList) {
+                ListViewItem item = new ListViewItem(tipoveiculo.Id.ToString());
+                item.SubItems.Add(tipoveiculo.Descricao);
+                listaTipo.Items.Add(item);
+            }
 
             Button btnAdicionar = new Button();
             btnAdicionar.Text = "Adicionar";

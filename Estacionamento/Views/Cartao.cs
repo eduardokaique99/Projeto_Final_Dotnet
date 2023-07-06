@@ -24,7 +24,7 @@ namespace Views {
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
-            List<Models.Cartao> cartaoList = Controllers.Cartao.ListaCartao();
+            List<Models.Cartao> cartaoList = (List<Models.Cartao>)Controllers.Cartao.BuscarCartaos();
             foreach (Models.Cartao cartao in cartaoList) {
                 ListViewItem item = new ListViewItem(cartao.Id.ToString());
                 item.SubItems.Add(cartao.Codigo);

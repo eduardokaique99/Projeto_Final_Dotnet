@@ -21,7 +21,7 @@ namespace Views {
             ListView listaVeiculo = new ListView();
             listaVeiculo.Size = new System.Drawing.Size(665, 400);
             listaVeiculo.Location = new System.Drawing.Point(10, 10);
-            //listaVeiculo.View = View.Details;
+            listaVeiculo.View = View.Details;
 
             listaVeiculo.Columns.Add("Id", 50);
             listaVeiculo.Columns.Add("Placa", 50);
@@ -32,12 +32,15 @@ namespace Views {
             listaVeiculo.GridLines = true;
             veiculos.Controls.Add(listaVeiculo);
 
-            //foreach (Models.Veiculo veiculo in Models.Veiculo.veiculos) {
-            //    //ListViewItem item = new ListViewItem(veiculo.Id.ToString());
-            //    //item.SubItems.Add(veiculo.Descricao);
-            //    listaVeiculo.Items.Add(new ListViewItem(new string[] {veiculo.Id.ToString(), veiculo.Placa.ToString(), 
-            //    veiculo.IdMovimentacao.ToString(), veiculo.IdTipo.ToString(), veiculo.IdCartao.ToString()}));
-            //}
+            List<Models.Veiculo> veiculoList = (List<Models.Veiculo>)Controllers.Veiculo.BuscarVeiculos();
+            foreach (Models.Veiculo veiculo in veiculoList) {
+                ListViewItem item = new ListViewItem(veiculo.Id.ToString());
+                item.SubItems.Add(veiculo.Placa);
+                //item.SubItems.Add(veiculo.IdMovimentacao);
+                //item.SubItems.Add(veiculo.IdTipo);
+                //item.SubItems.Add(veiculo.IdCartao);
+                listaVeiculo.Items.Add(item);
+            }
 
             Button btnAdicionar = new Button();
             btnAdicionar.Text = "Adicionar";

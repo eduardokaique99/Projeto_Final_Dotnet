@@ -21,8 +21,9 @@ namespace Views {
             listaTipo.View = View.Details;
             listaTipo.Columns.Add("Id:", 50);
             listaTipo.Columns.Add("Nome:", 150);
-            listaTipo.Columns.Add("CPF:", 150);
-            listaTipo.Columns.Add("PIS:", 150);
+            listaTipo.Columns.Add("CPF:", 120);
+            listaTipo.Columns.Add("PIS:", 120);
+            listaTipo.Columns.Add("Permissão:", 150);
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
@@ -30,6 +31,9 @@ namespace Views {
             foreach (Models.Usuario usuario in usuarioList) {
                 ListViewItem item = new ListViewItem(usuario.Id.ToString());
                 item.SubItems.Add(usuario.Nome);
+                //item.SubItems.Add(usuario.CPF);
+                //item.SubItems.Add(usuario.PIS);
+                //item.SubItems.Add(usuario.Permissao);
                 listaTipo.Items.Add(item);
             }
 
@@ -37,7 +41,7 @@ namespace Views {
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.Top = 420;
             btnAdicionar.Left = 10;
-            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 19);
+            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 18);
             btnAdicionar.BackColor = Color.White;
             btnAdicionar.ForeColor = Color.BlueViolet;
             btnAdicionar.Size = new System.Drawing.Size(150, 35);
@@ -52,7 +56,7 @@ namespace Views {
             btnEdit.Text = "Editar";
             btnEdit.Top = 420;
             btnEdit.Left = 181;
-            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 19);
+            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 18);
             btnEdit.BackColor = Color.White;
             btnEdit.ForeColor = Color.BlueViolet;
             btnEdit.Size = new System.Drawing.Size(150, 35);
@@ -69,7 +73,7 @@ namespace Views {
             BtnRemove.Text = "Remove";
             BtnRemove.Top = 420;
             BtnRemove.Left = 352;
-            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 19);
+            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 18);
             BtnRemove.BackColor = Color.White;
             BtnRemove.ForeColor = Color.BlueViolet;
             BtnRemove.Size = new System.Drawing.Size(150, 35);
@@ -84,7 +88,7 @@ namespace Views {
             BtnVoltar.Text = "Voltar";
             BtnVoltar.Top = 420;
             BtnVoltar.Left = 523;
-            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 19);
+            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 18);
             BtnVoltar.BackColor = Color.White;
             BtnVoltar.ForeColor = Color.BlueViolet;
             BtnVoltar.Size = new System.Drawing.Size(150, 35);
@@ -117,7 +121,7 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();
@@ -127,26 +131,26 @@ namespace Views {
             txtId.Size = new System.Drawing.Size(230, 35);
 
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Nome:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblNome = new Label();
+            lblNome.Text = "Nome:";
+            lblNome.Top = 60;
+            lblNome.Left = 10;
+            lblNome.ForeColor = Color.White;
+            lblNome.Font = new Font(lblNome.Font.FontFamily, 18);
+            lblNome.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            TextBox txtNome = new TextBox();
+            txtNome.Top = 67;
+            txtNome.Left = 140;
+            txtNome.BackColor = Color.LightGray;
+            txtNome.Size = new System.Drawing.Size(230, 35);
 
             Label lblCPF = new Label();
             lblCPF.Text = "CPF:";
             lblCPF.Top = 60;
             lblCPF.Left = 10;
             lblCPF.ForeColor = Color.White;
-            lblCPF.Font = new Font(lblCPF.Font.FontFamily, 19);
+            lblCPF.Font = new Font(lblCPF.Font.FontFamily, 18);
             lblCPF.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtCPF = new TextBox();
@@ -160,7 +164,7 @@ namespace Views {
             lblPIS.Top = 60;
             lblPIS.Left = 10;
             lblPIS.ForeColor = Color.White;
-            lblPIS.Font = new Font(lblPIS.Font.FontFamily, 19);
+            lblPIS.Font = new Font(lblPIS.Font.FontFamily, 18);
             lblPIS.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPIS = new TextBox();
@@ -174,7 +178,7 @@ namespace Views {
             lblPermissao.Top = 60;
             lblPermissao.Left = 10;
             lblPermissao.ForeColor = Color.White;
-            lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 19);
+            lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 18);
             lblPermissao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPermissao = new TextBox();
@@ -188,7 +192,7 @@ namespace Views {
             lblSenha.Top = 60;
             lblSenha.Left = 10;
             lblSenha.ForeColor = Color.White;
-            lblSenha.Font = new Font(lblSenha.Font.FontFamily, 19);
+            lblSenha.Font = new Font(lblSenha.Font.FontFamily, 18);
             lblSenha.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtSenha = new TextBox();
@@ -203,12 +207,12 @@ namespace Views {
             btnSalvar.Left = 20;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
+                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtNome.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
                     adicionarTipo.Hide();
                     adicionarTipo.Close();
                     adicionarTipo.Dispose();
@@ -234,7 +238,7 @@ namespace Views {
             btnCancelar.Left = 220;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 adicionarTipo.Close();
@@ -242,8 +246,8 @@ namespace Views {
 
             adicionarTipo.Controls.Add(lblId);
             adicionarTipo.Controls.Add(txtId);
-            adicionarTipo.Controls.Add(lblDescri);
-            adicionarTipo.Controls.Add(txtDescri);
+            adicionarTipo.Controls.Add(lblNome);
+            adicionarTipo.Controls.Add(txtNome);
             adicionarTipo.Controls.Add(lblCPF);
             adicionarTipo.Controls.Add(txtCPF);
             adicionarTipo.Controls.Add(lblPIS);
@@ -274,7 +278,7 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();
@@ -286,26 +290,26 @@ namespace Views {
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            Label lblDescri = new Label();
-            lblDescri.Text = "Nome:";
-            lblDescri.Top = 60;
-            lblDescri.Left = 10;
-            lblDescri.ForeColor = Color.White;
-            lblDescri.Font = new Font(lblDescri.Font.FontFamily, 19);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            Label lblNome = new Label();
+            lblNome.Text = "Nome:";
+            lblNome.Top = 60;
+            lblNome.Left = 10;
+            lblNome.ForeColor = Color.White;
+            lblNome.Font = new Font(lblNome.Font.FontFamily, 18);
+            lblNome.Size = new System.Drawing.Size(130, 35);
 
-            TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
-            txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            TextBox txtNome = new TextBox();
+            txtNome.Top = 67;
+            txtNome.Left = 140;
+            txtNome.BackColor = Color.LightGray;
+            txtNome.Size = new System.Drawing.Size(230, 35);
 
             Label lblCPF = new Label();
             lblCPF.Text = "CPF:";
             lblCPF.Top = 60;
             lblCPF.Left = 10;
             lblCPF.ForeColor = Color.White;
-            lblCPF.Font = new Font(lblCPF.Font.FontFamily, 19);
+            lblCPF.Font = new Font(lblCPF.Font.FontFamily, 18);
             lblCPF.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtCPF = new TextBox();
@@ -319,7 +323,7 @@ namespace Views {
             lblPIS.Top = 60;
             lblPIS.Left = 10;
             lblPIS.ForeColor = Color.White;
-            lblPIS.Font = new Font(lblPIS.Font.FontFamily, 19);
+            lblPIS.Font = new Font(lblPIS.Font.FontFamily, 18);
             lblPIS.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPIS = new TextBox();
@@ -333,7 +337,7 @@ namespace Views {
             lblPermissao.Top = 60;
             lblPermissao.Left = 10;
             lblPermissao.ForeColor = Color.White;
-            lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 19);
+            lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 18);
             lblPermissao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPermissao = new TextBox();
@@ -347,7 +351,7 @@ namespace Views {
             lblSenha.Top = 60;
             lblSenha.Left = 10;
             lblSenha.ForeColor = Color.White;
-            lblSenha.Font = new Font(lblSenha.Font.FontFamily, 19);
+            lblSenha.Font = new Font(lblSenha.Font.FontFamily, 18);
             lblSenha.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtSenha = new TextBox();
@@ -362,10 +366,10 @@ namespace Views {
             btnSalvar.Left = 10;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controllers.Usuario.AlterarUsuario(int.Parse(txtId.Text), txtDescri.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
+                Controllers.Usuario.AlterarUsuario(int.Parse(txtId.Text), txtNome.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();
@@ -378,7 +382,7 @@ namespace Views {
             btnCancelar.Left = 220;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 editar.Close();
@@ -387,8 +391,8 @@ namespace Views {
 
             editar.Controls.Add(lblId);
             editar.Controls.Add(txtId);
-            editar.Controls.Add(lblDescri);
-            editar.Controls.Add(txtDescri);
+            editar.Controls.Add(lblNome);
+            editar.Controls.Add(txtNome);
             editar.Controls.Add(lblCPF);
             editar.Controls.Add(txtCPF);
             editar.Controls.Add(lblPIS);

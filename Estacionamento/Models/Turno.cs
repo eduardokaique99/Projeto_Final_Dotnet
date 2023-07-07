@@ -6,7 +6,7 @@ namespace Models
     {
         public int Id {get ; set;}
         public string Periodo {get; set;}
-        private int Escala {get; set;}
+        public int Escala {get; set;}
         public int IdEstacionamento {get; set;}
 
         public Turno(int id, string periodo, int escala, int idEstacionamento)

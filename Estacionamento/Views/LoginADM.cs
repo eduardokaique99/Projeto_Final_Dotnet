@@ -25,7 +25,7 @@ namespace Views {
 
             Button btnUser = new Button();
             btnUser.Text = "Usuários";
-            btnUser.Font = new Font(btnUser.Font.FontFamily, 19);
+            btnUser.Font = new Font(btnUser.Font.FontFamily, 18);
             btnUser.Top = 20;
             btnUser.Left = 20;
             btnUser.Size = new System.Drawing.Size(1045, 80);
@@ -39,7 +39,7 @@ namespace Views {
 
             Button btnTurno = new Button();
             btnTurno.Text = "Turnos";
-            btnTurno.Font = new Font(btnTurno.Font.FontFamily, 19);
+            btnTurno.Font = new Font(btnTurno.Font.FontFamily, 18);
             btnTurno.Top = 110;
             btnTurno.Left = 20;
             btnTurno.Size = new System.Drawing.Size(1045, 80);
@@ -53,7 +53,7 @@ namespace Views {
 
             Button btnTipo = new Button();
             btnTipo.Text = "Tipos de Veículos";
-            btnTipo.Font = new Font(btnTipo.Font.FontFamily, 19);
+            btnTipo.Font = new Font(btnTipo.Font.FontFamily, 18);
             btnTipo.Top = 200;
             btnTipo.Left = 20;
             btnTipo.Size = new System.Drawing.Size(1045, 80);
@@ -67,7 +67,7 @@ namespace Views {
 
             Button btnVeiculo = new Button();
             btnVeiculo.Text = "Veículos";
-            btnVeiculo.Font = new Font(btnVeiculo.Font.FontFamily, 19);
+            btnVeiculo.Font = new Font(btnVeiculo.Font.FontFamily, 18);
             btnVeiculo.Top = 290;
             btnVeiculo.Left = 20;
             btnVeiculo.Size = new System.Drawing.Size(1045, 80);
@@ -81,7 +81,7 @@ namespace Views {
 
             Button btnMov = new Button();
             btnMov.Text = "Movimentação";
-            btnMov.Font = new Font(btnMov.Font.FontFamily, 19);
+            btnMov.Font = new Font(btnMov.Font.FontFamily, 18);
             btnMov.Top = 380;
             btnMov.Left = 20;
             btnMov.Size = new System.Drawing.Size(1045, 80);

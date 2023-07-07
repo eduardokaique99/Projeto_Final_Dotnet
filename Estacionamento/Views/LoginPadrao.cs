@@ -25,7 +25,7 @@ namespace Views {
 
             Button btnTipo = new Button();
             btnTipo.Text = "Tipos de Veículos";
-            btnTipo.Font = new Font(btnTipo.Font.FontFamily, 19);
+            btnTipo.Font = new Font(btnTipo.Font.FontFamily, 18);
             btnTipo.Top = 20;
             btnTipo.Left = 20;
             btnTipo.Size = new System.Drawing.Size(1045, 140);
@@ -37,7 +37,7 @@ namespace Views {
 
             Button btnVeiculo = new Button();
             btnVeiculo.Text = "Veículos";
-            btnVeiculo.Font = new Font(btnVeiculo.Font.FontFamily, 19);
+            btnVeiculo.Font = new Font(btnVeiculo.Font.FontFamily, 18);
             btnVeiculo.Top = 170;
             btnVeiculo.Left = 20;
             btnVeiculo.Size = new System.Drawing.Size(1045, 140);
@@ -51,7 +51,7 @@ namespace Views {
 
             Button btnMov = new Button();
             btnMov.Text = "Movimentação";
-            btnMov.Font = new Font(btnMov.Font.FontFamily, 19);
+            btnMov.Font = new Font(btnMov.Font.FontFamily, 18);
             btnMov.Top = 320;
             btnMov.Left = 20;
             btnMov.Size = new System.Drawing.Size(1045, 140);

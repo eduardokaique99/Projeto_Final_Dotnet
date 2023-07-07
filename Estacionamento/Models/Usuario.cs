@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
     {
         public int Id {get ; set;}
         public string Nome {get; set;}
-        private int CPF {get; set;}
+        public int CPF {get; set;}
         public int PIS {get; set;}
         public string Permissao {get; set;}
         public string Senha {get; set;}
@@ -134,10 +134,10 @@ using MySql.Data.MySqlClient;
                             {
                                 Id = reader.GetInt32("id"),
                                 Nome = reader.GetString("nome"),
-                                CPF = reader.GetInt32("id"),
-                                PIS = reader.GetInt32("id"),
-                                Permissao = reader.GetString("nome"),
-                                Senha = reader.GetString("nome")
+                                CPF = reader.GetInt32("cpf"),
+                                PIS = reader.GetInt32("pis"),
+                                Permissao = reader.GetString("permissao"),
+                                Senha = reader.GetString("senha")
                             };
 
                             usuarios.Add(usuario);

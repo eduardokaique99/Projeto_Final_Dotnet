@@ -2,13 +2,13 @@ namespace Controllers
 {
     public class Cartao {
         public static Models.Cartao CriarCartao(
-            int Id,
-            string Codigo
+            int id,
+            string codigo
         )
         {
             return Models.Cartao.CriarCartao(
-                Id,
-                Codigo
+                id,
+                codigo
             );
         }
 

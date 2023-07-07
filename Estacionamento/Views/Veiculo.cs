@@ -24,7 +24,7 @@ namespace Views {
             listaVeiculo.View = View.Details;
 
             listaVeiculo.Columns.Add("Id", 50);
-            listaVeiculo.Columns.Add("Placa", 50);
+            listaVeiculo.Columns.Add("Placa", 150);
             listaVeiculo.Columns.Add("Id Movimen.", 50);
             listaVeiculo.Columns.Add("Id Tipo", 50);
             listaVeiculo.Columns.Add("Id Cartão", 50);
@@ -46,7 +46,7 @@ namespace Views {
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.Top = 420;
             btnAdicionar.Left = 10;
-            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 19);
+            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 18);
             btnAdicionar.BackColor = Color.White;
             btnAdicionar.ForeColor = Color.BlueViolet;
             btnAdicionar.Size = new System.Drawing.Size(150, 35);
@@ -61,7 +61,7 @@ namespace Views {
             btnEdit.Text = "Editar";
             btnEdit.Top = 420;
             btnEdit.Left = 181;
-            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 19);
+            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 18);
             btnEdit.BackColor = Color.White;
             btnEdit.ForeColor = Color.BlueViolet;
             btnEdit.Size = new System.Drawing.Size(150, 35);
@@ -78,7 +78,7 @@ namespace Views {
             BtnRemove.Text = "Remove";
             BtnRemove.Top = 420;
             BtnRemove.Left = 352;
-            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 19);
+            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 18);
             BtnRemove.BackColor = Color.White;
             BtnRemove.ForeColor = Color.BlueViolet;
             BtnRemove.Size = new System.Drawing.Size(150, 35);
@@ -93,7 +93,7 @@ namespace Views {
             BtnVoltar.Text = "Voltar";
             BtnVoltar.Top = 420;
             BtnVoltar.Left = 523;
-            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 19);
+            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 18);
             BtnVoltar.BackColor = Color.White;
             BtnVoltar.ForeColor = Color.BlueViolet;
             BtnVoltar.Size = new System.Drawing.Size(150, 35);
@@ -126,7 +126,7 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();
@@ -140,7 +140,7 @@ namespace Views {
             lblPlaca.Top = 60;
             lblPlaca.Left = 10;
             lblPlaca.ForeColor = Color.White;
-            lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 19);
+            lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 18);
             lblPlaca.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPlaca = new TextBox();
@@ -154,7 +154,7 @@ namespace Views {
             lblIdMovimentacao.Top = 60;
             lblIdMovimentacao.Left = 10;
             lblIdMovimentacao.ForeColor = Color.White;
-            lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 19);
+            lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 18);
             lblIdMovimentacao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdMovimentacao = new TextBox();
@@ -168,7 +168,7 @@ namespace Views {
             lblIdTipo.Top = 85;
             lblIdTipo.Left = 10;
             lblIdTipo.ForeColor = Color.White;
-            lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 19);
+            lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 18);
             lblIdTipo.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdTipo = new TextBox();
@@ -182,7 +182,7 @@ namespace Views {
             lblIdCartao.Top = 120;
             lblIdCartao.Left = 10;
             lblIdCartao.ForeColor = Color.White;
-            lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 19);
+            lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 18);
             lblIdCartao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdCartao = new TextBox();
@@ -197,7 +197,7 @@ namespace Views {
             btnSalvar.Left = 20;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
                 try
@@ -228,7 +228,7 @@ namespace Views {
             btnCancelar.Left = 220;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 adicionarVeiculo.Close();
@@ -266,7 +266,7 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();
@@ -283,7 +283,7 @@ namespace Views {
             lblPlaca.Top = 60;
             lblPlaca.Left = 10;
             lblPlaca.ForeColor = Color.White;
-            lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 19);
+            lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 18);
             lblPlaca.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPlaca = new TextBox();
@@ -297,7 +297,7 @@ namespace Views {
             lblIdMovimentacao.Top = 60;
             lblIdMovimentacao.Left = 10;
             lblIdMovimentacao.ForeColor = Color.White;
-            lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 19);
+            lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 18);
             lblIdMovimentacao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdMovimentacao = new TextBox();
@@ -311,7 +311,7 @@ namespace Views {
             lblIdTipo.Top = 85;
             lblIdTipo.Left = 10;
             lblIdTipo.ForeColor = Color.White;
-            lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 19);
+            lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 18);
             lblIdTipo.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdTipo = new TextBox();
@@ -325,7 +325,7 @@ namespace Views {
             lblIdCartao.Top = 120;
             lblIdCartao.Left = 10;
             lblIdCartao.ForeColor = Color.White;
-            lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 19);
+            lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 18);
             lblIdCartao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdCartao = new TextBox();
@@ -340,7 +340,7 @@ namespace Views {
             btnSalvar.Left = 10;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
                 Controllers.Veiculo.AlterarVeiculo(int.Parse(txtId.Text), txtPlaca.Text, int.Parse(txtIdMovimentacao.Text), int.Parse(txtIdTipo.Text), int.Parse(txtIdCartao.Text));
@@ -356,7 +356,7 @@ namespace Views {
             btnCancelar.Left = 220;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 editar.Close();

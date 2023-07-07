@@ -20,9 +20,9 @@ namespace Views {
             listaTipo.Location = new System.Drawing.Point(10, 10);
             listaTipo.View = View.Details;
             listaTipo.Columns.Add("Id", 50);
-            listaTipo.Columns.Add("Período", 100);
-            listaTipo.Columns.Add("Escala", 100);
-            listaTipo.Columns.Add("Id Estacionamento", 100);
+            listaTipo.Columns.Add("Período", 15);
+            listaTipo.Columns.Add("Escala", 150);
+            listaTipo.Columns.Add("Id Estacionamento", 50);
             listaTipo.FullRowSelect = true;
             listaTipo.GridLines = true;
 
@@ -30,6 +30,8 @@ namespace Views {
             foreach (Models.Turno turno in turnoList) {
                 ListViewItem item = new ListViewItem(turno.Id.ToString());
                 item.SubItems.Add(turno.Periodo);
+                //item.SubItems.Add(turno.Escala);
+                //item.SubItems.Add(turno.IdEstacionamento);
                 listaTipo.Items.Add(item);
             }
 
@@ -37,7 +39,7 @@ namespace Views {
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.Top = 420;
             btnAdicionar.Left = 10;
-            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 19);
+            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 18);
             btnAdicionar.BackColor = Color.White;
             btnAdicionar.ForeColor = Color.BlueViolet;
             btnAdicionar.Size = new System.Drawing.Size(150, 35);
@@ -52,7 +54,7 @@ namespace Views {
             btnEdit.Text = "Editar";
             btnEdit.Top = 420;
             btnEdit.Left = 181;
-            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 19);
+            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 18);
             btnEdit.BackColor = Color.White;
             btnEdit.ForeColor = Color.BlueViolet;
             btnEdit.Size = new System.Drawing.Size(150, 35);
@@ -69,7 +71,7 @@ namespace Views {
             BtnRemove.Text = "Remove";
             BtnRemove.Top = 420;
             BtnRemove.Left = 352;
-            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 19);
+            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 18);
             BtnRemove.BackColor = Color.White;
             BtnRemove.ForeColor = Color.BlueViolet;
             BtnRemove.Size = new System.Drawing.Size(150, 35);
@@ -84,7 +86,7 @@ namespace Views {
             BtnVoltar.Text = "Voltar";
             BtnVoltar.Top = 420;
             BtnVoltar.Left = 523;
-            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 19);
+            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 18);
             BtnVoltar.BackColor = Color.White;
             BtnVoltar.ForeColor = Color.BlueViolet;
             BtnVoltar.Size = new System.Drawing.Size(150, 35);
@@ -117,7 +119,7 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();
@@ -131,7 +133,7 @@ namespace Views {
             lblPeriodo.Top = 60;
             lblPeriodo.Left = 10;
             lblPeriodo.ForeColor = Color.White;
-            lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 19);
+            lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 18);
             lblPeriodo.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPerido = new TextBox();
@@ -145,7 +147,7 @@ namespace Views {
             lblEscala.Top = 60;
             lblEscala.Left = 10;
             lblEscala.ForeColor = Color.White;
-            lblEscala.Font = new Font(lblEscala.Font.FontFamily, 19);
+            lblEscala.Font = new Font(lblEscala.Font.FontFamily, 18);
             lblEscala.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtEscala = new TextBox();
@@ -159,7 +161,7 @@ namespace Views {
             lblIdEstacionamento.Top = 60;
             lblIdEstacionamento.Left = 10;
             lblIdEstacionamento.ForeColor = Color.White;
-            lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 19);
+            lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 18);
             lblIdEstacionamento.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdEstacionamento = new TextBox();
@@ -174,7 +176,7 @@ namespace Views {
             btnSalvar.Left = 20;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
                 try
@@ -205,7 +207,7 @@ namespace Views {
             btnCancelar.Left = 220;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 adicionarTipo.Close();
@@ -241,7 +243,7 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();
@@ -258,7 +260,7 @@ namespace Views {
             lblPeriodo.Top = 60;
             lblPeriodo.Left = 10;
             lblPeriodo.ForeColor = Color.White;
-            lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 19);
+            lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 18);
             lblPeriodo.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPerido = new TextBox();
@@ -272,7 +274,7 @@ namespace Views {
             lblEscala.Top = 60;
             lblEscala.Left = 10;
             lblEscala.ForeColor = Color.White;
-            lblEscala.Font = new Font(lblEscala.Font.FontFamily, 19);
+            lblEscala.Font = new Font(lblEscala.Font.FontFamily, 18);
             lblEscala.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtEscala = new TextBox();
@@ -286,7 +288,7 @@ namespace Views {
             lblIdEstacionamento.Top = 60;
             lblIdEstacionamento.Left = 10;
             lblIdEstacionamento.ForeColor = Color.White;
-            lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 19);
+            lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 18);
             lblIdEstacionamento.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdEstacionamento = new TextBox();
@@ -301,7 +303,7 @@ namespace Views {
             btnSalvar.Left = 10;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
-            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 19);
+            btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
                 Controllers.Turno.AlterarTurno(int.Parse(txtId.Text), txtPerido.Text, int.Parse(txtEscala.Text), int.Parse(txtIdEstacionamento.Text));
@@ -317,7 +319,7 @@ namespace Views {
             btnCancelar.Left = 220;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
-            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 19);
+            btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
             btnCancelar.Size = new System.Drawing.Size(150, 35);
             btnCancelar.Click += (sender, e) => {
                 editar.Close();

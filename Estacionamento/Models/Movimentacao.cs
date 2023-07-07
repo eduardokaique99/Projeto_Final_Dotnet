@@ -35,7 +35,10 @@ namespace Models
         }
 
         public static Models.Movimentacao CriarMovimentacao(
-            int id, int idEstacionamento, DateTime dataEntrada, DateTime dataSaida
+            int id, 
+            int idEstacionamento, 
+            DateTime dataEntrada, 
+            DateTime dataSaida
         ) {
             return new Models.Movimentacao(
                 id,

@@ -20,7 +20,7 @@ namespace Views {
             listaMovimentacao.Location = new System.Drawing.Point(10, 10);
             listaMovimentacao.View = View.Details;
             listaMovimentacao.Columns.Add("Id", 50);
-            listaMovimentacao.Columns.Add("Id Estacionamento", 100);
+            listaMovimentacao.Columns.Add("Id Estacionamento", 50);
             listaMovimentacao.Columns.Add("Data Entrada", 100);
             listaMovimentacao.Columns.Add("Data Saída", 100);
             listaMovimentacao.FullRowSelect = true;
@@ -29,7 +29,9 @@ namespace Views {
             List<Models.Movimentacao> movimentacoesList = (List<Models.Movimentacao>)Controllers.Movimentacao.BuscarMovimentacaos();
             foreach (Models.Movimentacao veiculo in movimentacoesList) {
                 ListViewItem item = new ListViewItem(veiculo.Id.ToString());
-                //item.SubItems.Add(veiculo.EstacionamentoId);
+                //item.SubItems.Add(veiculo.IdEstacionamento);
+                //item.SubItems.Add(veiculo.DataEntrada);
+                //item.SubItems.Add(veiculo.DataSaida);
                 listaMovimentacao.Items.Add(item);
             }
 
@@ -37,7 +39,7 @@ namespace Views {
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.Top = 420;
             btnAdicionar.Left = 10;
-            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 19);
+            btnAdicionar.Font = new Font(btnAdicionar.Font.FontFamily, 18);
             btnAdicionar.BackColor = Color.White;
             btnAdicionar.ForeColor = Color.BlueViolet;
             btnAdicionar.Size = new System.Drawing.Size(150, 35);
@@ -52,7 +54,7 @@ namespace Views {
             btnEdit.Text = "Editar";
             btnEdit.Top = 420;
             btnEdit.Left = 181;
-            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 19);
+            btnEdit.Font = new Font(btnEdit.Font.FontFamily, 18);
             btnEdit.BackColor = Color.White;
             btnEdit.ForeColor = Color.BlueViolet;
             btnEdit.Size = new System.Drawing.Size(150, 35);
@@ -69,7 +71,7 @@ namespace Views {
             BtnRemove.Text = "Remove";
             BtnRemove.Top = 420;
             BtnRemove.Left = 352;
-            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 19);
+            BtnRemove.Font = new Font(BtnRemove.Font.FontFamily, 18);
             BtnRemove.BackColor = Color.White;
             BtnRemove.ForeColor = Color.BlueViolet;
             BtnRemove.Size = new System.Drawing.Size(150, 35);
@@ -84,7 +86,7 @@ namespace Views {
             BtnVoltar.Text = "Voltar";
             BtnVoltar.Top = 420;
             BtnVoltar.Left = 523;
-            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 19);
+            BtnVoltar.Font = new Font(BtnVoltar.Font.FontFamily, 18);
             BtnVoltar.BackColor = Color.White;
             BtnVoltar.ForeColor = Color.BlueViolet;
             BtnVoltar.Size = new System.Drawing.Size(150, 35);
@@ -241,7 +243,7 @@ namespace Views {
             lblId.Top = 25;
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
-            lblId.Font = new Font(lblId.Font.FontFamily, 19);
+            lblId.Font = new Font(lblId.Font.FontFamily, 18);
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();

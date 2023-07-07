@@ -123,7 +123,7 @@ public partial class Form1 : Form
                 if (Models.Usuario.Login(txtUser.Text, txtSenha.Text))
                 {
                     menu.Close();
-                    menu.Dispose();
+                    //menu.Dispose();
                     Views.LoginADM.ADM();
                 }
                 else

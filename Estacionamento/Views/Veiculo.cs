@@ -23,11 +23,11 @@ namespace Views {
             listaVeiculo.Location = new System.Drawing.Point(10, 10);
             listaVeiculo.View = View.Details;
 
-            listaVeiculo.Columns.Add("Id", 50);
+            listaVeiculo.Columns.Add("Id", 100);
             listaVeiculo.Columns.Add("Placa", 150);
-            listaVeiculo.Columns.Add("Id Movimen.", 50);
-            listaVeiculo.Columns.Add("Id Tipo", 50);
-            listaVeiculo.Columns.Add("Id Cartão", 50);
+            listaVeiculo.Columns.Add("Id Movimen.", 150);
+            listaVeiculo.Columns.Add("Id Tipo", 130);
+            listaVeiculo.Columns.Add("Id Cartão", 131);
             listaVeiculo.FullRowSelect = true;
             listaVeiculo.GridLines = true;
             veiculos.Controls.Add(listaVeiculo);
@@ -36,9 +36,9 @@ namespace Views {
             foreach (Models.Veiculo veiculo in veiculoList) {
                 ListViewItem item = new ListViewItem(veiculo.Id.ToString());
                 item.SubItems.Add(veiculo.Placa);
-                //item.SubItems.Add(veiculo.IdMovimentacao);
-                //item.SubItems.Add(veiculo.IdTipo);
-                //item.SubItems.Add(veiculo.IdCartao);
+                item.SubItems.Add(veiculo.IdMovimentacao.ToString());
+                item.SubItems.Add(veiculo.IdTipo.ToString());
+                item.SubItems.Add(veiculo.IdCartao.ToString());
                 listaVeiculo.Items.Add(item);
             }
 
@@ -113,8 +113,8 @@ namespace Views {
 
           public static void CriarVeiculo() {
             Form adicionarVeiculo = new Form();
-            adicionarVeiculo.Text = "Adicionar Veiculo de veículo";
-            adicionarVeiculo.Size = new System.Drawing.Size(400, 250);
+            adicionarVeiculo.Text = "Adicionar veículo";
+            adicionarVeiculo.Size = new System.Drawing.Size(600, 450);
             adicionarVeiculo.StartPosition = FormStartPosition.CenterScreen;
             adicionarVeiculo.FormBorderStyle = FormBorderStyle.FixedSingle;
             adicionarVeiculo.MaximizeBox = false;
@@ -130,71 +130,71 @@ namespace Views {
             lblId.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 32;
-            txtId.Left = 140;
+            txtId.Top = 25;
+            txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
             txtId.Size = new System.Drawing.Size(230, 35);
 
             Label lblPlaca = new Label();
             lblPlaca.Text = "Placa:";
-            lblPlaca.Top = 60;
+            lblPlaca.Top = 70;
             lblPlaca.Left = 10;
             lblPlaca.ForeColor = Color.White;
             lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 18);
             lblPlaca.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtPlaca = new TextBox();
-            txtPlaca.Top = 67;
-            txtPlaca.Left = 140;
+            txtPlaca.Top = 70;
+            txtPlaca.Left = 270;
             txtPlaca.BackColor = Color.LightGray;
             txtPlaca.Size = new System.Drawing.Size(230, 35);
 
             Label lblIdMovimentacao = new Label();
             lblIdMovimentacao.Text = "Id Movimentação:";
-            lblIdMovimentacao.Top = 60;
+            lblIdMovimentacao.Top = 115;
             lblIdMovimentacao.Left = 10;
             lblIdMovimentacao.ForeColor = Color.White;
             lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 18);
             lblIdMovimentacao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdMovimentacao = new TextBox();
-            txtIdMovimentacao.Top = 67;
-            txtIdMovimentacao.Left = 140;
+            txtIdMovimentacao.Top = 115;
+            txtIdMovimentacao.Left = 270;
             txtIdMovimentacao.BackColor = Color.LightGray;
             txtIdMovimentacao.Size = new System.Drawing.Size(230, 35);
 
             Label lblIdTipo = new Label();
             lblIdTipo.Text = "Id Tipo:";
-            lblIdTipo.Top = 85;
+            lblIdTipo.Top = 160;
             lblIdTipo.Left = 10;
             lblIdTipo.ForeColor = Color.White;
             lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 18);
             lblIdTipo.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdTipo = new TextBox();
-            txtIdTipo.Top = 92;
-            txtIdTipo.Left = 140;
+            txtIdTipo.Top = 160;
+            txtIdTipo.Left = 270;
             txtIdTipo.BackColor = Color.LightGray;
             txtIdTipo.Size = new System.Drawing.Size(230, 35);
 
             Label lblIdCartao = new Label();
             lblIdCartao.Text = "Id Cartão:";
-            lblIdCartao.Top = 120;
+            lblIdCartao.Top = 205;
             lblIdCartao.Left = 10;
             lblIdCartao.ForeColor = Color.White;
             lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 18);
             lblIdCartao.Size = new System.Drawing.Size(130, 35);
 
             TextBox txtIdCartao = new TextBox();
-            txtIdCartao.Top = 127;
-            txtIdCartao.Left = 140;
+            txtIdCartao.Top = 205;
+            txtIdCartao.Left = 270;
             txtIdCartao.BackColor = Color.LightGray;
             txtIdCartao.Size = new System.Drawing.Size(230, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
-            btnSalvar.Top = 127;
-            btnSalvar.Left = 20;
+            btnSalvar.Top = 330;
+            btnSalvar.Left = 70;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
@@ -224,8 +224,8 @@ namespace Views {
 
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Top = 127;
-            btnCancelar.Left = 220;
+            btnCancelar.Top = 330;
+            btnCancelar.Left = 360;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
             btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
@@ -254,7 +254,7 @@ namespace Views {
             Models.Veiculo veiculo = Controllers.Veiculo.BuscarVeiculo(id);
             Form editar = new Form();
             editar.Text = "Editar Veiculo de veículo";
-            editar.Size = new System.Drawing.Size(400, 250);
+            editar.Size = new System.Drawing.Size(600, 450);
             editar.StartPosition = FormStartPosition.CenterScreen;
             editar.FormBorderStyle = FormBorderStyle.FixedSingle;
             editar.MaximizeBox = false;
@@ -352,8 +352,8 @@ namespace Views {
 
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Top = 127;
-            btnCancelar.Left = 220;
+            btnCancelar.Top = 330;
+            btnCancelar.Left = 360;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
             btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);

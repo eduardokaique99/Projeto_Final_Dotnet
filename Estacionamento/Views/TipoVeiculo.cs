@@ -103,7 +103,7 @@ namespace Views {
           public static void CriarTipoVeiculo() {
             Form adicionarTipo = new Form();
             adicionarTipo.Text = "Adicionar Tipo de veículo";
-            adicionarTipo.Size = new System.Drawing.Size(400, 250);
+            adicionarTipo.Size = new System.Drawing.Size(600, 450);
             adicionarTipo.StartPosition = FormStartPosition.CenterScreen;
             adicionarTipo.FormBorderStyle = FormBorderStyle.FixedSingle;
             adicionarTipo.MaximizeBox = false;
@@ -141,8 +141,8 @@ namespace Views {
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
-            btnSalvar.Top = 127;
-            btnSalvar.Left = 20;
+            btnSalvar.Top = 330;
+            btnSalvar.Left = 70;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
@@ -172,8 +172,8 @@ namespace Views {
 
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Top = 127;
-            btnCancelar.Left = 220;
+            btnCancelar.Top = 330;
+            btnCancelar.Left = 360;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
             btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
@@ -196,7 +196,7 @@ namespace Views {
             Models.TipoVeiculo tipoveiculo = Controllers.TipoVeiculo.BuscarTipoVeiculo(id);
             Form editar = new Form();
             editar.Text = "Editar Tipo de veículo";
-            editar.Size = new System.Drawing.Size(400, 250);
+            editar.Size = new System.Drawing.Size(600, 450);
             editar.StartPosition = FormStartPosition.CenterScreen;
             editar.FormBorderStyle = FormBorderStyle.FixedSingle;
             editar.MaximizeBox = false;
@@ -237,8 +237,8 @@ namespace Views {
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
-            btnSalvar.Top = 127;
-            btnSalvar.Left = 10;
+            btnSalvar.Top = 330;
+            btnSalvar.Left = 70;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
@@ -253,8 +253,8 @@ namespace Views {
 
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Top = 127;
-            btnCancelar.Left = 220;
+            btnCancelar.Top = 330;
+            btnCancelar.Left = 360;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
             btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);

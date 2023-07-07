@@ -19,19 +19,19 @@ namespace Views {
             listaMovimentacao.Size = new System.Drawing.Size(665, 400);
             listaMovimentacao.Location = new System.Drawing.Point(10, 10);
             listaMovimentacao.View = View.Details;
-            listaMovimentacao.Columns.Add("Id", 50);
-            listaMovimentacao.Columns.Add("Id Estacionamento", 50);
-            listaMovimentacao.Columns.Add("Data Entrada", 100);
-            listaMovimentacao.Columns.Add("Data Saída", 100);
+            listaMovimentacao.Columns.Add("Id", 100);
+            listaMovimentacao.Columns.Add("Id Estacionamento", 150);
+            listaMovimentacao.Columns.Add("Data Entrada", 210);
+            listaMovimentacao.Columns.Add("Data Saída", 201);
             listaMovimentacao.FullRowSelect = true;
             listaMovimentacao.GridLines = true;
 
             List<Models.Movimentacao> movimentacoesList = (List<Models.Movimentacao>)Controllers.Movimentacao.BuscarMovimentacaos();
             foreach (Models.Movimentacao veiculo in movimentacoesList) {
                 ListViewItem item = new ListViewItem(veiculo.Id.ToString());
-                //item.SubItems.Add(veiculo.IdEstacionamento);
-                //item.SubItems.Add(veiculo.DataEntrada);
-                //item.SubItems.Add(veiculo.DataSaida);
+                item.SubItems.Add(veiculo.IdEstacionamento.ToString());
+                item.SubItems.Add(veiculo.DataEntrada.ToString());
+                item.SubItems.Add(veiculo.DataSaida.ToString());
                 listaMovimentacao.Items.Add(item);
             }
 
@@ -204,7 +204,7 @@ namespace Views {
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
             btnCancelar.Top = 330;
-            btnCancelar.Left = 370;
+            btnCancelar.Left = 360;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
             btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);
@@ -231,7 +231,7 @@ namespace Views {
             Models.Movimentacao veiculo = Controllers.Movimentacao.BuscarMovimentacao(id);
             Form editar = new Form();
             editar.Text = "Editar Movimentacao de veículo";
-            editar.Size = new System.Drawing.Size(400, 250);
+            editar.Size = new System.Drawing.Size(600, 450);
             editar.StartPosition = FormStartPosition.CenterScreen;
             editar.FormBorderStyle = FormBorderStyle.FixedSingle;
             editar.MaximizeBox = false;
@@ -299,8 +299,8 @@ namespace Views {
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
-            btnSalvar.Top = 127;
-            btnSalvar.Left = 10;
+            btnSalvar.Top = 330;
+            btnSalvar.Left = 70;
             btnSalvar.BackColor = Color.White;
             btnSalvar.ForeColor = Color.BlueViolet;
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
@@ -315,8 +315,8 @@ namespace Views {
 
             Button btnCancelar = new Button();
             btnCancelar.Text = "Cancelar";
-            btnCancelar.Top = 127;
-            btnCancelar.Left = 220;
+            btnCancelar.Top = 330;
+            btnCancelar.Left = 360;
             btnCancelar.BackColor = Color.White;
             btnCancelar.ForeColor = Color.BlueViolet;
             btnCancelar.Font = new Font(btnCancelar.Font.FontFamily, 18);

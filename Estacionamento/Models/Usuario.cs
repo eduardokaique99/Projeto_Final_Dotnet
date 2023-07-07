@@ -58,8 +58,8 @@ using MySql.Data.MySqlClient;
         public static Models.Usuario AlterarUsuario(
             int id,
             string nome,
-            int cpf,
-            int pis,
+            Int64 cpf,
+            Int64 pis,
             string permissao,
             string senha
         )
@@ -134,10 +134,9 @@ using MySql.Data.MySqlClient;
                             {
                                 Id = reader.GetInt32("id"),
                                 Nome = reader.GetString("nome"),
-                                CPF = reader.GetInt32("cpf"),
-                                PIS = reader.GetInt32("pis"),
+                                CPF = (int)reader.GetInt64("cpf"),
+                                PIS = (int)reader.GetInt64("pis"),
                                 Permissao = reader.GetString("permissao"),
-                                Senha = reader.GetString("senha")
                             };
 
                             usuarios.Add(usuario);
@@ -169,9 +168,5 @@ using MySql.Data.MySqlClient;
                 }
             }
         }
-
-
-
-
     }
 }

@@ -116,28 +116,28 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
             txtId.Top = 32;
-            txtId.Left = 140;
+            txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
 
 
             Label lblDescri = new Label();
             lblDescri.Text = "Descrição:";
-            lblDescri.Top = 60;
+            lblDescri.Top = 70;
             lblDescri.Left = 10;
             lblDescri.ForeColor = Color.White;
             lblDescri.Font = new Font(lblDescri.Font.FontFamily, 18);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            lblDescri.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
+            txtDescri.Top = 77;
+            txtDescri.Left = 270;
             txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            txtDescri.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -209,30 +209,30 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
             txtId.Top = 32;
-            txtId.Left = 140;
+            txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
             txtId.Text = tipoveiculo.Id.ToString();
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
             Label lblDescri = new Label();
             lblDescri.Text = "Descrição:";
-            lblDescri.Top = 60;
+            lblDescri.Top = 70;
             lblDescri.Left = 10;
             lblDescri.ForeColor = Color.White;
             lblDescri.Font = new Font(lblDescri.Font.FontFamily, 18);
-            lblDescri.Size = new System.Drawing.Size(130, 35);
+            lblDescri.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtDescri = new TextBox();
-            txtDescri.Top = 67;
-            txtDescri.Left = 140;
+            txtDescri.Top = 77;
+            txtDescri.Left = 270;
             txtDescri.BackColor = Color.LightGray;
-            txtDescri.Size = new System.Drawing.Size(230, 35);
+            txtDescri.Size = new System.Drawing.Size(300, 35);
             txtDescri.Text = tipoveiculo.Descricao;
 
             Button btnSalvar = new Button();

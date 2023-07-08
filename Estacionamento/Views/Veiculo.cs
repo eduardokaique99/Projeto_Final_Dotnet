@@ -127,13 +127,13 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 25;
+            txtId.Top = 32;
             txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
 
             Label lblPlaca = new Label();
             lblPlaca.Text = "Placa:";
@@ -141,13 +141,13 @@ namespace Views {
             lblPlaca.Left = 10;
             lblPlaca.ForeColor = Color.White;
             lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 18);
-            lblPlaca.Size = new System.Drawing.Size(130, 35);
+            lblPlaca.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPlaca = new TextBox();
-            txtPlaca.Top = 70;
+            txtPlaca.Top = 77;
             txtPlaca.Left = 270;
             txtPlaca.BackColor = Color.LightGray;
-            txtPlaca.Size = new System.Drawing.Size(230, 35);
+            txtPlaca.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdMovimentacao = new Label();
             lblIdMovimentacao.Text = "Id Movimentação:";
@@ -155,13 +155,13 @@ namespace Views {
             lblIdMovimentacao.Left = 10;
             lblIdMovimentacao.ForeColor = Color.White;
             lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 18);
-            lblIdMovimentacao.Size = new System.Drawing.Size(130, 35);
+            lblIdMovimentacao.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdMovimentacao = new TextBox();
-            txtIdMovimentacao.Top = 115;
+            txtIdMovimentacao.Top = 122;
             txtIdMovimentacao.Left = 270;
             txtIdMovimentacao.BackColor = Color.LightGray;
-            txtIdMovimentacao.Size = new System.Drawing.Size(230, 35);
+            txtIdMovimentacao.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdTipo = new Label();
             lblIdTipo.Text = "Id Tipo:";
@@ -169,13 +169,13 @@ namespace Views {
             lblIdTipo.Left = 10;
             lblIdTipo.ForeColor = Color.White;
             lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 18);
-            lblIdTipo.Size = new System.Drawing.Size(130, 35);
+            lblIdTipo.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdTipo = new TextBox();
-            txtIdTipo.Top = 160;
+            txtIdTipo.Top = 167;
             txtIdTipo.Left = 270;
             txtIdTipo.BackColor = Color.LightGray;
-            txtIdTipo.Size = new System.Drawing.Size(230, 35);
+            txtIdTipo.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdCartao = new Label();
             lblIdCartao.Text = "Id Cartão:";
@@ -183,13 +183,13 @@ namespace Views {
             lblIdCartao.Left = 10;
             lblIdCartao.ForeColor = Color.White;
             lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 18);
-            lblIdCartao.Size = new System.Drawing.Size(130, 35);
+            lblIdCartao.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdCartao = new TextBox();
-            txtIdCartao.Top = 205;
+            txtIdCartao.Top = 212;
             txtIdCartao.Left = 270;
             txtIdCartao.BackColor = Color.LightGray;
-            txtIdCartao.Size = new System.Drawing.Size(230, 35);
+            txtIdCartao.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -267,72 +267,72 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
             txtId.Top = 32;
             txtId.Left = 140;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
             txtId.Text = veiculo.Id.ToString();
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
             Label lblPlaca = new Label();
             lblPlaca.Text = "Placa:";
-            lblPlaca.Top = 60;
+            lblPlaca.Top = 70;
             lblPlaca.Left = 10;
             lblPlaca.ForeColor = Color.White;
             lblPlaca.Font = new Font(lblPlaca.Font.FontFamily, 18);
-            lblPlaca.Size = new System.Drawing.Size(130, 35);
+            lblPlaca.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPlaca = new TextBox();
-            txtPlaca.Top = 67;
+            txtPlaca.Top = 77;
             txtPlaca.Left = 140;
             txtPlaca.BackColor = Color.LightGray;
-            txtPlaca.Size = new System.Drawing.Size(230, 35);
+            txtPlaca.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdMovimentacao = new Label();
             lblIdMovimentacao.Text = "Id Movimentação:";
-            lblIdMovimentacao.Top = 60;
+            lblIdMovimentacao.Top = 115;
             lblIdMovimentacao.Left = 10;
             lblIdMovimentacao.ForeColor = Color.White;
             lblIdMovimentacao.Font = new Font(lblIdMovimentacao.Font.FontFamily, 18);
-            lblIdMovimentacao.Size = new System.Drawing.Size(130, 35);
+            lblIdMovimentacao.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdMovimentacao = new TextBox();
-            txtIdMovimentacao.Top = 67;
+            txtIdMovimentacao.Top = 122;
             txtIdMovimentacao.Left = 140;
             txtIdMovimentacao.BackColor = Color.LightGray;
-            txtIdMovimentacao.Size = new System.Drawing.Size(230, 35);
+            txtIdMovimentacao.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdTipo = new Label();
             lblIdTipo.Text = "Id Tipo:";
-            lblIdTipo.Top = 85;
+            lblIdTipo.Top = 160;
             lblIdTipo.Left = 10;
             lblIdTipo.ForeColor = Color.White;
             lblIdTipo.Font = new Font(lblIdTipo.Font.FontFamily, 18);
-            lblIdTipo.Size = new System.Drawing.Size(130, 35);
+            lblIdTipo.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdTipo = new TextBox();
-            txtIdTipo.Top = 92;
+            txtIdTipo.Top = 167;
             txtIdTipo.Left = 140;
             txtIdTipo.BackColor = Color.LightGray;
-            txtIdTipo.Size = new System.Drawing.Size(230, 35);
+            txtIdTipo.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdCartao = new Label();
             lblIdCartao.Text = "Id Cartão:";
-            lblIdCartao.Top = 120;
+            lblIdCartao.Top = 205;
             lblIdCartao.Left = 10;
             lblIdCartao.ForeColor = Color.White;
             lblIdCartao.Font = new Font(lblIdCartao.Font.FontFamily, 18);
-            lblIdCartao.Size = new System.Drawing.Size(130, 35);
+            lblIdCartao.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdCartao = new TextBox();
-            txtIdCartao.Top = 127;
+            txtIdCartao.Top = 212;
             txtIdCartao.Left = 140;
             txtIdCartao.BackColor = Color.LightGray;
-            txtIdCartao.Size = new System.Drawing.Size(230, 35);
+            txtIdCartao.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";

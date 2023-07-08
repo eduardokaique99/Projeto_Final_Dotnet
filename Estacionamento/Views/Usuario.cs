@@ -122,13 +122,13 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 25;
+            txtId.Top = 32;
             txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
 
 
             Label lblNome = new Label();
@@ -137,13 +137,13 @@ namespace Views {
             lblNome.Left = 10;
             lblNome.ForeColor = Color.White;
             lblNome.Font = new Font(lblNome.Font.FontFamily, 18);
-            lblNome.Size = new System.Drawing.Size(130, 35);
+            lblNome.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtNome = new TextBox();
-            txtNome.Top = 70;
+            txtNome.Top = 77;
             txtNome.Left = 270;
             txtNome.BackColor = Color.LightGray;
-            txtNome.Size = new System.Drawing.Size(230, 35);
+            txtNome.Size = new System.Drawing.Size(300, 35);
 
             Label lblCPF = new Label();
             lblCPF.Text = "CPF:";
@@ -151,13 +151,13 @@ namespace Views {
             lblCPF.Left = 10;
             lblCPF.ForeColor = Color.White;
             lblCPF.Font = new Font(lblCPF.Font.FontFamily, 18);
-            lblCPF.Size = new System.Drawing.Size(130, 35);
+            lblCPF.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtCPF = new TextBox();
-            txtCPF.Top = 115;
+            txtCPF.Top = 122;
             txtCPF.Left = 270;
             txtCPF.BackColor = Color.LightGray;
-            txtCPF.Size = new System.Drawing.Size(230, 35);
+            txtCPF.Size = new System.Drawing.Size(300, 35);
             
             Label lblPIS = new Label();
             lblPIS.Text = "PIS:";
@@ -165,13 +165,13 @@ namespace Views {
             lblPIS.Left = 10;
             lblPIS.ForeColor = Color.White;
             lblPIS.Font = new Font(lblPIS.Font.FontFamily, 18);
-            lblPIS.Size = new System.Drawing.Size(130, 35);
+            lblPIS.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPIS = new TextBox();
-            txtPIS.Top = 160;
+            txtPIS.Top = 167;
             txtPIS.Left = 270;
             txtPIS.BackColor = Color.LightGray;
-            txtPIS.Size = new System.Drawing.Size(230, 35);
+            txtPIS.Size = new System.Drawing.Size(300, 35);
 
             Label lblPermissao = new Label();
             lblPermissao.Text = "Permissão:";
@@ -179,13 +179,13 @@ namespace Views {
             lblPermissao.Left = 10;
             lblPermissao.ForeColor = Color.White;
             lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 18);
-            lblPermissao.Size = new System.Drawing.Size(130, 35);
+            lblPermissao.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPermissao = new TextBox();
-            txtPermissao.Top = 205;
+            txtPermissao.Top = 212;
             txtPermissao.Left = 270;
             txtPermissao.BackColor = Color.LightGray;
-            txtPermissao.Size = new System.Drawing.Size(230, 35);
+            txtPermissao.Size = new System.Drawing.Size(300, 35);
 
             Label lblSenha = new Label();
             lblSenha.Text = "Senha:";
@@ -193,13 +193,13 @@ namespace Views {
             lblSenha.Left = 10;
             lblSenha.ForeColor = Color.White;
             lblSenha.Font = new Font(lblSenha.Font.FontFamily, 18);
-            lblSenha.Size = new System.Drawing.Size(130, 35);
+            lblSenha.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtSenha = new TextBox();
-            txtSenha.Top = 250;
+            txtSenha.Top = 257;
             txtSenha.Left = 270;
             txtSenha.BackColor = Color.LightGray;
-            txtSenha.Size = new System.Drawing.Size(230, 35);
+            txtSenha.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -279,13 +279,13 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 25;
+            txtId.Top = 32;
             txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
             txtId.Text = usuario.Id.ToString();
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -296,13 +296,13 @@ namespace Views {
             lblNome.Left = 10;
             lblNome.ForeColor = Color.White;
             lblNome.Font = new Font(lblNome.Font.FontFamily, 18);
-            lblNome.Size = new System.Drawing.Size(130, 35);
+            lblNome.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtNome = new TextBox();
-            txtNome.Top = 70;
+            txtNome.Top = 77;
             txtNome.Left = 270;
             txtNome.BackColor = Color.LightGray;
-            txtNome.Size = new System.Drawing.Size(230, 35);
+            txtNome.Size = new System.Drawing.Size(300, 35);
 
             Label lblCPF = new Label();
             lblCPF.Text = "CPF:";
@@ -310,13 +310,13 @@ namespace Views {
             lblCPF.Left = 10;
             lblCPF.ForeColor = Color.White;
             lblCPF.Font = new Font(lblCPF.Font.FontFamily, 18);
-            lblCPF.Size = new System.Drawing.Size(130, 35);
+            lblCPF.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtCPF = new TextBox();
-            txtCPF.Top = 115;
+            txtCPF.Top = 122;
             txtCPF.Left = 270;
             txtCPF.BackColor = Color.LightGray;
-            txtCPF.Size = new System.Drawing.Size(230, 35);
+            txtCPF.Size = new System.Drawing.Size(300, 35);
             
             Label lblPIS = new Label();
             lblPIS.Text = "PIS:";
@@ -324,13 +324,13 @@ namespace Views {
             lblPIS.Left = 10;
             lblPIS.ForeColor = Color.White;
             lblPIS.Font = new Font(lblPIS.Font.FontFamily, 18);
-            lblPIS.Size = new System.Drawing.Size(130, 35);
+            lblPIS.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPIS = new TextBox();
-            txtPIS.Top = 160;
+            txtPIS.Top = 167;
             txtPIS.Left = 270;
             txtPIS.BackColor = Color.LightGray;
-            txtPIS.Size = new System.Drawing.Size(230, 35);
+            txtPIS.Size = new System.Drawing.Size(300, 35);
 
             Label lblPermissao = new Label();
             lblPermissao.Text = "Permissão:";
@@ -338,13 +338,13 @@ namespace Views {
             lblPermissao.Left = 10;
             lblPermissao.ForeColor = Color.White;
             lblPermissao.Font = new Font(lblPermissao.Font.FontFamily, 18);
-            lblPermissao.Size = new System.Drawing.Size(130, 35);
+            lblPermissao.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPermissao = new TextBox();
-            txtPermissao.Top = 205;
+            txtPermissao.Top = 212;
             txtPermissao.Left = 270;
             txtPermissao.BackColor = Color.LightGray;
-            txtPermissao.Size = new System.Drawing.Size(230, 35);
+            txtPermissao.Size = new System.Drawing.Size(300, 35);
 
             Label lblSenha = new Label();
             lblSenha.Text = "Senha:";
@@ -352,13 +352,13 @@ namespace Views {
             lblSenha.Left = 10;
             lblSenha.ForeColor = Color.White;
             lblSenha.Font = new Font(lblSenha.Font.FontFamily, 18);
-            lblSenha.Size = new System.Drawing.Size(130, 35);
+            lblSenha.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtSenha = new TextBox();
-            txtSenha.Top = 250;
+            txtSenha.Top = 257;
             txtSenha.Left = 270;
             txtSenha.BackColor = Color.LightGray;
-            txtSenha.Size = new System.Drawing.Size(230, 35);
+            txtSenha.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";

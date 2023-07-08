@@ -123,7 +123,7 @@ namespace Views {
             lblId.Size = new System.Drawing.Size(250, 50);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 25;
+            txtId.Top = 32;
             txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
             txtId.Size = new System.Drawing.Size(300, 35);
@@ -137,7 +137,7 @@ namespace Views {
             lblIdEstacionamento.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdEstacionamento = new TextBox();
-            txtIdEstacionamento.Top = 70;
+            txtIdEstacionamento.Top = 77;
             txtIdEstacionamento.Left = 270;
             txtIdEstacionamento.BackColor = Color.LightGray;
             txtIdEstacionamento.Size = new System.Drawing.Size(300, 35);
@@ -151,7 +151,7 @@ namespace Views {
             lblDataEntrada.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtDataEntrada = new TextBox();
-            txtDataEntrada.Top = 115;
+            txtDataEntrada.Top = 122;
             txtDataEntrada.Left = 270;
             txtDataEntrada.BackColor = Color.LightGray;
             txtDataEntrada.Size = new System.Drawing.Size(300, 35);
@@ -165,7 +165,7 @@ namespace Views {
             lblDataSaida.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtDataSaida = new TextBox();
-            txtDataSaida.Top = 160;
+            txtDataSaida.Top = 167;
             txtDataSaida.Left = 270;
             txtDataSaida.BackColor = Color.LightGray;
             txtDataSaida.Size = new System.Drawing.Size(300, 35);

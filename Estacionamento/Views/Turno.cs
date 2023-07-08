@@ -120,13 +120,13 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 25;
+            txtId.Top = 32;
             txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
 
             Label lblPeriodo = new Label();
             lblPeriodo.Text = "Periodo:";
@@ -134,13 +134,13 @@ namespace Views {
             lblPeriodo.Left = 10;
             lblPeriodo.ForeColor = Color.White;
             lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 18);
-            lblPeriodo.Size = new System.Drawing.Size(130, 35);
+            lblPeriodo.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPerido = new TextBox();
-            txtPerido.Top = 70;
+            txtPerido.Top = 77;
             txtPerido.Left = 270;
             txtPerido.BackColor = Color.LightGray;
-            txtPerido.Size = new System.Drawing.Size(230, 35);
+            txtPerido.Size = new System.Drawing.Size(300, 35);
 
             Label lblEscala = new Label();
             lblEscala.Text = "Escala:";
@@ -148,13 +148,13 @@ namespace Views {
             lblEscala.Left = 10;
             lblEscala.ForeColor = Color.White;
             lblEscala.Font = new Font(lblEscala.Font.FontFamily, 18);
-            lblEscala.Size = new System.Drawing.Size(130, 35);
+            lblEscala.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtEscala = new TextBox();
-            txtEscala.Top = 115;
+            txtEscala.Top = 122;
             txtEscala.Left = 270;
             txtEscala.BackColor = Color.LightGray;
-            txtEscala.Size = new System.Drawing.Size(230, 35);
+            txtEscala.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdEstacionamento = new Label();
             lblIdEstacionamento.Text = "Id Estacionamento:";
@@ -162,13 +162,13 @@ namespace Views {
             lblIdEstacionamento.Left = 10;
             lblIdEstacionamento.ForeColor = Color.White;
             lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 18);
-            lblIdEstacionamento.Size = new System.Drawing.Size(130, 35);
+            lblIdEstacionamento.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdEstacionamento = new TextBox();
-            txtIdEstacionamento.Top = 160;
+            txtIdEstacionamento.Top = 167;
             txtIdEstacionamento.Left = 270;
             txtIdEstacionamento.BackColor = Color.LightGray;
-            txtIdEstacionamento.Size = new System.Drawing.Size(230, 35);
+            txtIdEstacionamento.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";
@@ -244,13 +244,13 @@ namespace Views {
             lblId.Left = 10;
             lblId.ForeColor = Color.White;
             lblId.Font = new Font(lblId.Font.FontFamily, 18);
-            lblId.Size = new System.Drawing.Size(130, 35);
+            lblId.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtId = new TextBox();
-            txtId.Top = 25;
+            txtId.Top = 32;
             txtId.Left = 270;
             txtId.BackColor = Color.LightGray;
-            txtId.Size = new System.Drawing.Size(230, 35);
+            txtId.Size = new System.Drawing.Size(300, 35);
             txtId.Text = turno.Id.ToString();
             txtId.ReadOnly = true;
             txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -261,13 +261,13 @@ namespace Views {
             lblPeriodo.Left = 10;
             lblPeriodo.ForeColor = Color.White;
             lblPeriodo.Font = new Font(lblPeriodo.Font.FontFamily, 18);
-            lblPeriodo.Size = new System.Drawing.Size(130, 35);
+            lblPeriodo.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtPerido = new TextBox();
-            txtPerido.Top = 70;
+            txtPerido.Top = 77;
             txtPerido.Left = 270;
             txtPerido.BackColor = Color.LightGray;
-            txtPerido.Size = new System.Drawing.Size(230, 35);
+            txtPerido.Size = new System.Drawing.Size(300, 35);
 
             Label lblEscala = new Label();
             lblEscala.Text = "Escala:";
@@ -275,13 +275,13 @@ namespace Views {
             lblEscala.Left = 10;
             lblEscala.ForeColor = Color.White;
             lblEscala.Font = new Font(lblEscala.Font.FontFamily, 18);
-            lblEscala.Size = new System.Drawing.Size(130, 35);
+            lblEscala.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtEscala = new TextBox();
-            txtEscala.Top = 115;
+            txtEscala.Top = 122;
             txtEscala.Left = 270;
             txtEscala.BackColor = Color.LightGray;
-            txtEscala.Size = new System.Drawing.Size(230, 35);
+            txtEscala.Size = new System.Drawing.Size(300, 35);
 
             Label lblIdEstacionamento = new Label();
             lblIdEstacionamento.Text = "Id Estacionamento:";
@@ -289,13 +289,13 @@ namespace Views {
             lblIdEstacionamento.Left = 10;
             lblIdEstacionamento.ForeColor = Color.White;
             lblIdEstacionamento.Font = new Font(lblIdEstacionamento.Font.FontFamily, 18);
-            lblIdEstacionamento.Size = new System.Drawing.Size(130, 35);
+            lblIdEstacionamento.Size = new System.Drawing.Size(250, 35);
 
             TextBox txtIdEstacionamento = new TextBox();
-            txtIdEstacionamento.Top = 160;
+            txtIdEstacionamento.Top = 167;
             txtIdEstacionamento.Left = 270;
             txtIdEstacionamento.BackColor = Color.LightGray;
-            txtIdEstacionamento.Size = new System.Drawing.Size(230, 35);
+            txtIdEstacionamento.Size = new System.Drawing.Size(300, 35);
 
             Button btnSalvar = new Button();
             btnSalvar.Text = "Salvar";

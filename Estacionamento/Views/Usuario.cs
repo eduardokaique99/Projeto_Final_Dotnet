@@ -212,7 +212,7 @@ namespace Views {
             btnSalvar.Click += (sender, e) => {
                 try
                 {
-                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtNome.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
+                    Controllers.Usuario.CriarUsuario(int.Parse(txtId.Text), txtNome.Text, txtCPF.Text, txtPIS.Text, txtPermissao.Text, txtSenha.Text);
                     adicionarUsers.Hide();
                     adicionarUsers.Close();
                     adicionarUsers.Dispose();
@@ -369,7 +369,7 @@ namespace Views {
             btnSalvar.Font = new Font(btnSalvar.Font.FontFamily, 18);
             btnSalvar.Size = new System.Drawing.Size(150, 35);
             btnSalvar.Click += (sender, e) => {
-                Controllers.Usuario.AlterarUsuario(int.Parse(txtId.Text), txtNome.Text, int.Parse(txtCPF.Text), int.Parse(txtPIS.Text), txtPermissao.Text, txtSenha.Text);
+                Controllers.Usuario.AlterarUsuario(int.Parse(txtId.Text), txtNome.Text, txtCPF.Text, txtPIS.Text, txtPermissao.Text, txtSenha.Text);
                 editar.Hide();
                 editar.Close();
                 editar.Dispose();

@@ -6,13 +6,14 @@ using MySql.Data.MySqlClient;
     {
         public int Id {get ; set;}
         public string Nome {get; set;}
-        public int CPF {get; set;}
-        public int PIS {get; set;}
+        public string CPF {get; set;}
+        public string PIS {get; set;}
         public string Permissao {get; set;}
         public string Senha {get; set;}
+        private static List<Usuario> usuarios = new List<Usuario>();
 
 
-        public Usuario(int id, string nome, int cpf, int pis, string permissao, string senha)
+        public Usuario(int id, string nome, string cpf, string pis, string permissao, string senha)
         {
             Nome = nome;
             CPF = cpf;
@@ -40,8 +41,8 @@ using MySql.Data.MySqlClient;
         public static Models.Usuario CriarUsuario(
             int id,
             string nome,
-            int cpf,
-            int pis,
+            string cpf,
+            string pis,
             string permissao,
             string senha
         ){
@@ -58,8 +59,8 @@ using MySql.Data.MySqlClient;
         public static Models.Usuario AlterarUsuario(
             int id,
             string nome,
-            Int64 cpf,
-            Int64 pis,
+            string cpf,
+            string pis,
             string permissao,
             string senha
         )
@@ -134,8 +135,8 @@ using MySql.Data.MySqlClient;
                             {
                                 Id = reader.GetInt32("id"),
                                 Nome = reader.GetString("nome"),
-                                CPF = (int)reader.GetInt64("cpf"),
-                                PIS = (int)reader.GetInt64("pis"),
+                                CPF = reader.GetString("cpf"),
+                                PIS = reader.GetString("pis"),
                                 Permissao = reader.GetString("permissao"),
                             };
 

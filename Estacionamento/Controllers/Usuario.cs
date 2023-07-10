@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Controllers
 {
@@ -6,13 +7,18 @@ namespace Controllers
         public static Models.Usuario CriarUsuario(
             int id,
             string nome,
-            int cpf,
-            int pis,
+            string cpf,
+            string pis,
             string permissao,
             string senha
         )
         {
-            return Models.Usuario.CriarUsuario(
+            Regex rx = new Regex("(^\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}$)|(^\\d{2}\\.\\d{3}\\.\\d{3}\\/\\d{4}\\-\\d{2}$)");
+             if (String.IsNullOrEmpty(cpf) || !rx.IsMatch(cpf))
+            {
+                throw new Exception("Cpf inválido");
+            }
+            return new Models.Usuario(
                 id,
                 nome,
                 cpf,
@@ -37,8 +43,8 @@ namespace Controllers
         public static Models.Usuario AlterarUsuario(
             int id,
             string nome,
-            int cpf,
-            int pis,
+            string cpf,
+            string pis,
             string permissao,
             string senha
         )

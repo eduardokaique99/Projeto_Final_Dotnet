@@ -6784,19 +6784,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kaikão\\.nuget\\packages\\": {}
+    "C:\\Users\\Mariane Camilo Costa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kaikão\\OneDrive\\Área de Trabalho\\ULTIMO\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
+      "projectUniqueName": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
       "projectName": "Estacionamento",
-      "projectPath": "C:\\Users\\Kaikão\\OneDrive\\Área de Trabalho\\ULTIMO\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
-      "packagesPath": "C:\\Users\\Kaikão\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kaikão\\OneDrive\\Área de Trabalho\\ULTIMO\\Projeto_Final_Jackson\\Estacionamento\\obj\\",
+      "projectPath": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
+      "packagesPath": "C:\\Users\\Mariane Camilo Costa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Kaikão\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Mariane Camilo Costa\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0-windows"
@@ -6858,7 +6858,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

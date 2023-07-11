@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
+        "projectName": "Estacionamento",
+        "projectPath": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\Estacionamento.csproj",
+        "packagesPath": "C:\\Users\\Mariane Camilo Costa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mariane Camilo Costa\\DevFaculdade\\3° Semestre\\Projeto_Final_Jackson\\Estacionamento\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Mariane Camilo Costa\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0-windows7.0": {
+            "targetAlias": "net7.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.8, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
